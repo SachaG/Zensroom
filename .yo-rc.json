@@ -1,0 +1,26 @@
+{
+  "vulcanjs-cli": {
+    "appName": "zensroom",
+    "isVulcan": true,
+    "packageManager": "yarn",
+    "reactExtension": "jsx",
+    "storyBook": {
+      "isUsed": "pending",
+      "setupStatus": "pending"
+    },
+    "packages": {
+      "zensroom": {
+        "models": {
+          "properties": {},
+          "reviews": {},
+          "bookings": {}
+        },
+        "routes": {
+          "home": {
+            "routePath": "/"
+          }
+        }
+      }
+    }
+  }
+}
