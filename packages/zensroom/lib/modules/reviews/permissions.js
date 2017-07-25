@@ -5,8 +5,3 @@ Users.groups.members.can([
   'reviews.edit.own',
   'reviews.remove.own',
 ]);
-
-Users.groups.admins.can([
-  'reviews.edit.all',
-  'reviews.remove.all,'
-]);

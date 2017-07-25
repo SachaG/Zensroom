@@ -1,8 +1,6 @@
-import { createCollection } from 'meteor/vulcan:core';
+import { createCollection, getDefaultResolvers, getDefaultMutations } from 'meteor/vulcan:core';
 import schema from './schema.js';
-import resolvers from './resolvers.js';
 import './fragments.js';
-import mutations from './mutations.js';
 import './permissions.js';
 import './parameters.js';
 
@@ -10,8 +8,8 @@ const Bookings = createCollection({
   collectionName: 'Bookings',
   typeName: 'Bookings',
   schema,
-  resolvers,
-  mutations,
+  resolvers: getDefaultResolvers('Bookings'),
+  mutations: getDefaultMutations('Bookings'),
 });
 
 export default Bookings;

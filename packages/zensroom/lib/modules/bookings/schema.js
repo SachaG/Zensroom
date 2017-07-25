@@ -24,7 +24,7 @@ const schema = {
 
   checkInAt: {
     label: 'Check In Date',
-    type: Custom,
+    type: Date,
     optional: false,
     viewableBy: ['guest'],
     insertableBy: ['member'],
@@ -34,7 +34,7 @@ const schema = {
 
   checkOutAt: {
     label: 'Check Out Date',
-    type: Custom,
+    type: Date,
     optional: false,
     viewableBy: ['guest'],
     insertableBy: ['member'],

@@ -1,6 +1,6 @@
 import { addCallback } from 'meteor/vulcan:core';
 
-// addCallback('properties', (parameters, terms) => ({
+// addCallback('rooms', (parameters, terms) => ({
 //   selector: parameters.selector,
 //   options: parameters.options,
 // }));

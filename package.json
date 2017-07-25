@@ -10,6 +10,7 @@
     "lint": "eslint --cache --ext .jsx,js packages"
   },
   "dependencies": {
+    "@google/maps": "^0.4.3",
     "analytics-node": "^2.1.1",
     "apollo-client": "^1.2.2",
     "apollo-errors": "^1.4.0",
