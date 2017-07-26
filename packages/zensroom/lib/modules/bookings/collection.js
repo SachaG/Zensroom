@@ -6,7 +6,7 @@ import './parameters.js';
 
 const Bookings = createCollection({
   collectionName: 'Bookings',
-  typeName: 'Bookings',
+  typeName: 'Booking',
   schema,
   resolvers: getDefaultResolvers('Bookings'),
   mutations: getDefaultMutations('Bookings'),

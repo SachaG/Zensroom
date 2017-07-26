@@ -20,3 +20,40 @@
     margin: 0;
   }
 }
+
+
+.users-account-menu, .users-menu{
+  .avatar{
+    width: 20px;
+    height: 20px;
+    img{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .dropdown-toggle{
+    @include flex-center;
+    padding: 0;
+    background: none;
+    img{
+      margin-right: 5px;
+    }
+  }
+}
+
+.accounts-ui{
+  padding: $spacing;
+  min-width: 240px;
+  .buttons{
+    .btn{
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-bottom: $spacing;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+}

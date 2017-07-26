@@ -21,26 +21,36 @@ const schema = {
   //   resolveAs: 'user: User', // resolve this field as "user" on the client
   // },
 
+  roomId: {
+    type: String,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    hidden: true
+  },
 
   checkInAt: {
     label: 'Check In Date',
     type: Date,
-    optional: false,
-    viewableBy: ['guest'],
-    insertableBy: ['member'],
-    editableBy: ['member'],
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    control: 'datetime',
   },
-
 
   checkOutAt: {
     label: 'Check Out Date',
     type: Date,
-    optional: false,
-    viewableBy: ['guest'],
-    insertableBy: ['member'],
-    editableBy: ['member'],
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    control: 'datetime',
   },
 
+  paidAt: {
+    type: Date,
+    optional: true,
+    viewableBy: ['members'],
+  },
 
 };
 

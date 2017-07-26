@@ -6,7 +6,7 @@ import './parameters.js';
 
 const Rooms = createCollection({
   collectionName: 'Rooms',
-  typeName: 'Rooms',
+  typeName: 'Room',
   schema,
   resolvers: getDefaultResolvers('Rooms'),
   mutations: getDefaultMutations('Rooms'),

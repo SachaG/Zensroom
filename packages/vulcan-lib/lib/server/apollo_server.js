@@ -18,6 +18,8 @@ import { webAppConnectHandlersUse } from './meteor_patch.js';
 import { Collections } from '../modules/collections.js';
 import findByIds from '../modules/findbyids.js';
 
+import { runCallbacks } from '../modules/callbacks.js';
+
 // defaults
 const defaultConfig = {
   path: '/graphql',
@@ -133,6 +135,8 @@ const createApolloServer = (givenOptions = {}, givenConfig = {}) => {
 
 // createApolloServer when server startup
 Meteor.startup(() => {
+
+  runCallbacks('apollo.init');
 
   // typeDefs
   const generateTypeDefs = () => [`

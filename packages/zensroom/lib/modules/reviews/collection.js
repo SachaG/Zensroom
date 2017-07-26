@@ -6,7 +6,7 @@ import './parameters.js';
 
 const Reviews = createCollection({
   collectionName: 'Reviews',
-  typeName: 'Reviews',
+  typeName: 'Review',
   schema,
   resolvers: getDefaultResolvers('Reviews'),
   mutations: getDefaultMutations('Reviews'),

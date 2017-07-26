@@ -15,6 +15,7 @@ Package.onUse((api) => {
     'vulcan:forms-upload',
     'vulcan:accounts',
     'vulcan:places',
+    'vulcan:payments',
     
   ]);
 
