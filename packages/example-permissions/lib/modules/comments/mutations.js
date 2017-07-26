@@ -6,26 +6,53 @@ Default mutations
 
 import { newMutation, editMutation, removeMutation, Utils } from 'meteor/vulcan:lib';
 import Users from 'meteor/vulcan:users';
+import Pics from '../pics/collection.js';
 
-export const getDefaultMutations = collectionName => ({
+/*
+
+Define edit/remove permissions. 
+
+- If the user or the comment are not defined, return false
+- If the user owns the comment, check if they can perform `comments.edit.own`
+- Else, check if user can perform `comments.edit.all`
+  - If yes, return true
+  - If not, check if the user is the manager for the pic the comments belongs to
+
+*/
+
+const check = (user, document, pic = Pics.findOne(document.picId)) => {
+  if (!user || !document) return false;
+
+  if (Users.owns(user, document)) {
+    return Users.canDo(user, `comments.edit.own`);
+  } else {
+    if (Users.canDo(user, `comments.edit.all`)) {
+      return true;
+    } else {
+      return pic.managerId === user._id
+    }
+  }
+}
+
+const mutations = {
 
   // mutation for inserting a new document
 
   new: {
     
-    name: `${collectionName}New`,
+    name: 'commentsNew',
     
     // check function called on a user to see if they can perform the operation
     check(user) {
       // if user is not logged in, disallow operation
       if (!user) return false;
       // else, check if they can perform "foo.new" operation (e.g. "movies.new")
-      return Users.canDo(user, `${collectionName.toLowerCase()}.new`);
+      return Users.canDo(user, 'comments.new');
     },
     
     mutation(root, {document}, context) {
       
-      const collection = context[collectionName];
+      const collection = context.Comments;
 
       // check if current user can pass check function; else throw error
       Utils.performCheck(this.check, context.currentUser, document);
@@ -46,20 +73,14 @@ export const getDefaultMutations = collectionName => ({
 
   edit: {
     
-    name: `${collectionName}Edit`,
+    name: 'commentsEdit',
     
     // check function called on a user and document to see if they can perform the operation
-    check(user, document) {
-      if (!user || !document) return false;
-      // check if user owns the document being edited. 
-      // if they do, check if they can perform "foo.edit.own" action
-      // if they don't, check if they can perform "foo.edit.all" action
-      return Users.owns(user, document) ? Users.canDo(user, `${collectionName.toLowerCase()}.edit.own`) : Users.canDo(user, `${collectionName.toLowerCase()}.edit.all`);
-    },
+    check,
 
     mutation(root, {documentId, set, unset}, context) {
 
-      const collection = context[collectionName];
+      const collection = context.Comments;
 
       // get entire unmodified document from database
       const document = collection.findOne(documentId);
@@ -85,16 +106,13 @@ export const getDefaultMutations = collectionName => ({
 
   remove: {
 
-    name: `${collectionName}Remove`,
+    name: 'commentsRemove',
     
-    check(user, document) {
-      if (!user || !document) return false;
-      return Users.owns(user, document) ? Users.canDo(user, `${collectionName.toLowerCase()}.remove.own`) : Users.canDo(user, `${collectionName.toLowerCase()}.remove.all`);
-    },
+    check,
     
     mutation(root, {documentId}, context) {
 
-      const collection = context[collectionName];
+      const collection = context.Comments;
 
       const document = collection.findOne(documentId);
       Utils.performCheck(this.check, context.currentUser, document, context);
@@ -110,4 +128,6 @@ export const getDefaultMutations = collectionName => ({
 
   },
 
-});
+}
+
+export default mutations;
