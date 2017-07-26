@@ -11,23 +11,31 @@ const BookingsPage = ({document, loading, currentUser}) =>
   
   <div>
 
-    {document.paidAt?
-      <p>Paid on {document.paidAt}</p> :
-      <Components.Checkout
-        productKey="booking"
-        associatedCollection={Bookings}
-        associatedDocument={document}
-        fragment={gql`
-          fragment BookingSetAsPaid on Booking {
-            _id
-            paidAt
-          }
-        `}
-        button={<Button bsStyle="primary">Complete Payment</Button>}
-      />
-    }
+    {loading? 'Loading…' :
 
-    {loading? 'Loading…' : <Components.Card collection={Bookings} document={document} currentUser={currentUser} />}
+      <div>
+
+        {document.paidAt?
+          <p>Paid on {document.paidAt}</p> :
+          <Components.Checkout
+            productKey="booking"
+            associatedCollection={Bookings}
+            associatedDocument={document}
+            fragment={gql`
+              fragment BookingSetAsPaid on Booking {
+                _id
+                paidAt
+              }
+            `}
+            button={<Button bsStyle="primary">Complete Payment</Button>}
+          />
+        }
+
+        <Components.Card collection={Bookings} document={document} currentUser={currentUser} />
+    
+      </div>
+    
+    }
   
   </div>
 

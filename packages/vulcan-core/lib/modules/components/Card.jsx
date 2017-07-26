@@ -109,7 +109,7 @@ const CardEditForm = ({ collection, document, closeModal }) =>
 
 const Card = ({collection, document, currentUser}, {intl}) => {
 
-  const fieldNames = _.without(_.keys(document), '__typename', '_id');
+  const fieldNames = _.without(_.keys(document), '__typename');
   const canEdit = currentUser && collection.options.mutations.edit.check(currentUser, document);
 
   return (

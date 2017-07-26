@@ -6,10 +6,13 @@ import Button from 'react-bootstrap/lib/Button';
 
 import Rooms from '../../modules/rooms/collection';
 import BookingsNewForm from '../bookings/BookingsNewForm';
+import BookingsRoomUser from '../bookings/BookingsRoomUser';
 
-const RoomsPage = ({document, loading, currentUser}) => 
+const RoomsPage = ({document, documentId, loading, currentUser}) => 
   
   <div>
+
+    <BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
 
     <Components.ModalTrigger label="Book" component={<Button bsStyle="primary">Book this room</Button>}>
       <BookingsNewForm room={document}/>
