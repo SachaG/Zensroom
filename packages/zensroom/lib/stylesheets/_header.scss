@@ -1,0 +1,22 @@
+.header{
+  @include flex-center;
+  justify-content: space-between;
+  padding: $spacing;
+  border-bottom: 1px solid #eee;
+  margin-bottom: $spacing;
+}
+
+.logo{
+
+}
+
+.nav{
+  @include flex-center;
+}
+
+.nav-item{
+  margin-right: $spacing;
+  &:last-child{
+    margin: 0;
+  }
+}

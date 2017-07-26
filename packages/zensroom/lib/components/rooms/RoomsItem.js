@@ -1,14 +1,12 @@
 import React from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
-
-import Rooms from '../../modules/rooms/collection';
-// import RoomsEditForm from './RoomsEditForm';
+import { Link } from 'react-router';
 
 const RoomsItem = ({room, currentUser}) =>
 
   <div>
 
-    <Components.Card collection={Rooms} document={room} currentUser={currentUser}/>
+    <Link to={`/room/${room._id}`}>{room.name}</Link>
 
   </div>
 
