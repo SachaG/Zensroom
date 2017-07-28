@@ -1,9 +1,10 @@
+import './custom_fields';
 import './components';
 import './routes';
 
-import './rooms/collection.js';
-import './reviews/collection.js';
-import './bookings/collection.js';
-import './bookings/views.js';
+import './rooms/collection';
+import './reviews/collection';
+import './bookings/collection';
+import './bookings/views';
 
 

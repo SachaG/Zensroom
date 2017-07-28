@@ -20,10 +20,10 @@ const roomsSearchResolver = {
       const bookingsRoomIds = _.unique(_.pluck(currentBookings, 'roomId'));
       const availableRooms = Rooms.find({_id: {$nin: bookingsRoomIds}}).fetch();
 
-      console.log('// RoomsSearch')
-      console.log(terms)
-      console.log(currentBookings)
-      console.log(availableRooms)
+      // console.log('// RoomsSearch')
+      // console.log(terms)
+      // console.log(currentBookings)
+      // console.log(availableRooms)
 
       return availableRooms
     }

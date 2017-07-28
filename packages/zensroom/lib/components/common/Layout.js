@@ -16,7 +16,7 @@ const Layout = ({currentUser, children, currentRoute}) =>
 
       <FlashMessages />
 
-      {children}
+      {React.cloneElement(children, { currentUser })}
 
     </div>
   

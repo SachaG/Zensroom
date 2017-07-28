@@ -11,13 +11,24 @@ import RoomsPage from '../components/rooms/RoomsPage';
 
 import BookingsPage from '../components/bookings/BookingsPage';
 
-addRoute({name: 'home', path: '/', component: Home});
-addRoute({name: 'how-to', path: '/how-to', component: HowTo});
-addRoute({name: 'about', path: '/about', component: About});
-addRoute({name: 'privacy', path: '/privacy', component: Privacy});
-addRoute({name: 'terms', path: '/terms', component: Terms});
+import UsersProfile from '../components/users/UsersProfile';
+import UsersAccount from '../components/users/UsersAccount';
 
-addRoute({name: 'roomsSearch', path: '/search', component: RoomsSearchResults});
-addRoute({name: 'roomsPage', path: '/room/:roomId(/:slug)', component: RoomsPage});
+addRoute([
 
-addRoute({name: 'bookingsPage', path: '/booking/:bookingId', component: BookingsPage});
+  {name: 'home', path: '/', component: Home},
+  {name: 'how-to', path: '/how-to', component: HowTo},
+  {name: 'about', path: '/about', component: About},
+  {name: 'privacy', path: '/privacy', component: Privacy},
+  {name: 'terms', path: '/terms', component: Terms},
+
+  {name: 'roomsSearch', path: '/search', component: RoomsSearchResults},
+  {name: 'roomsPage', path: '/room/:roomId(/:slug)', component: RoomsPage},
+
+  {name: 'bookingsPage', path: '/booking/:bookingId', component: BookingsPage},
+
+  {name: 'users.single',   path:'users/:slug',           component: UsersProfile},
+  {name: 'users.account',  path:'account',               component: UsersAccount},
+  {name: 'users.edit',     path:'users/:slug/edit',      component: UsersAccount},
+
+]);
