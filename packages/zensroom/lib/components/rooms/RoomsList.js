@@ -1,5 +1,5 @@
 import React from 'react';
-import { Components, withList, withCurrentUser, Loading } from 'meteor/vulcan:core';
+import { Components, withList, withCurrentUser } from 'meteor/vulcan:core';
 
 import Rooms from '../../modules/rooms/collection';
 import RoomsItem from './RoomsItem';
@@ -10,7 +10,7 @@ const RoomsList = ({results = [], currentUser, loading, loadMore, count, totalCo
 
     {loading ? 
 
-      <Loading /> :
+      <Components.Loading /> :
 
       <div className="rooms">
 
@@ -27,8 +27,7 @@ const RoomsList = ({results = [], currentUser, loading, loadMore, count, totalCo
   </div>
 
 const options = {
-  collection: Rooms,
-  limit: 5
+  collection: Rooms
 };
 
 export default withList(options)(withCurrentUser(RoomsList));

@@ -1,0 +1,41 @@
+//////////////////////////////////////////////////////
+// Rooms Search Form                                //
+//////////////////////////////////////////////////////
+
+.rooms-search-form{
+  padding: $spacing;
+  margin-bottom: $spacing;
+}
+
+//////////////////////////////////////////////////////
+// Rooms List                                       //
+//////////////////////////////////////////////////////
+
+.room-item{
+  
+}
+
+.room-item-image{
+  max-width: 200px;
+}
+
+//////////////////////////////////////////////////////
+// Rooms Page                                       //
+//////////////////////////////////////////////////////
+.room-page{
+  display: flex;
+}
+
+.room-main{
+  flex: 1;
+}
+
+.room-sidebar{
+  max-width: 30%;
+  padding: $spacing;
+  background: #eee;
+}
+
+.room-book{
+  margin-bottom: $spacing;
+}

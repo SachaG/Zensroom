@@ -1,14 +1,16 @@
 import React from 'react';
 import { Components } from 'meteor/vulcan:core';
 
-import Rooms from '../../modules/rooms/collection';
 import RoomsList from '../rooms/RoomsList';
+import RoomsSearchForm from '../rooms/RoomsSearchForm';
 
 const Home = () => 
   
   <div>
 
     Serviced apartments and homes for business travelers in Japan
+
+    <RoomsSearchForm/>
 
     <h3>featured rooms:</h3>
     <RoomsList/>

@@ -12,5 +12,7 @@ if (typeof SimpleSchema !== "undefined") {
   ]);
 }
 
+export { default as DateTime } from './DateTime.jsx';
+
 import FormWrapper from './FormWrapper.jsx';
 export default FormWrapper;

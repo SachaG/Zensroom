@@ -4,8 +4,9 @@ import { Link } from 'react-router';
 
 const RoomsItem = ({room, currentUser}) =>
 
-  <div>
+  <div className="card room-item">
 
+    <Link to={`/room/${room._id}`}><img className="room-item-image" src={room.photos[0][0].secure_url}/></Link>
     <Link to={`/room/${room._id}`}>{room.name}</Link>
 
   </div>

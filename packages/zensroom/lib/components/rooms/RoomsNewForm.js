@@ -1,9 +1,11 @@
 import React from 'react';
-import { Components, registerComponent, withCurrentUser, getFragment } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser, getFragment, withMessages } from 'meteor/vulcan:core';
+import { withRouter } from 'react-router';
+import compose from 'recompose/compose';
 
 import Rooms from '../../modules/rooms/collection.js';
 
-const RoomsNewForm = ({currentUser}) =>
+const RoomsNewForm = ({currentUser, closeModal, router, flash}) =>
 
   <div>
 
@@ -13,6 +15,11 @@ const RoomsNewForm = ({currentUser}) =>
         <Components.SmartForm 
           collection={Rooms}
           /*mutationFragment={getFragment('RoomsItemFragment')}*/
+          successCallback={room => {
+            closeModal();
+            router.push({pathname: `/room/${room._id}`});
+            flash('New room created', 'success');
+          }}
         /> 
       </div> :
       null
@@ -20,4 +27,8 @@ const RoomsNewForm = ({currentUser}) =>
 
   </div>
 
-export default withCurrentUser(RoomsNewForm);
+export default compose(
+  withRouter,
+  withMessages,
+  withCurrentUser
+)(RoomsNewForm);

@@ -28,7 +28,7 @@ const schema = {
     hidden: true
   },
 
-  checkInAt: {
+  startAt: {
     label: 'Check In Date',
     type: Date,
     viewableBy: ['guests'],
@@ -37,7 +37,7 @@ const schema = {
     control: 'datetime',
   },
 
-  checkOutAt: {
+  endAt: {
     label: 'Check Out Date',
     type: Date,
     viewableBy: ['guests'],

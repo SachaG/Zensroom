@@ -8,18 +8,46 @@ import Rooms from '../../modules/rooms/collection';
 import BookingsNewForm from '../bookings/BookingsNewForm';
 import BookingsRoomUser from '../bookings/BookingsRoomUser';
 
-const RoomsPage = ({document, documentId, loading, currentUser}) => 
+import ReviewsList from '../reviews/ReviewsList';
+import ReviewsNewForm from '../reviews/ReviewsNewForm';
+
+const RoomsPage = ({document: room, documentId, loading, currentUser}) => 
   
-  <div>
+  <div className="room-page">
 
-    <BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
+    <div className="room-main">
 
-    <Components.ModalTrigger label="Book" component={<Button bsStyle="primary">Book this room</Button>}>
-      <BookingsNewForm room={document}/>
-    </Components.ModalTrigger>
+      {loading? 'Loading…' : <Components.Card collection={Rooms} document={room} currentUser={currentUser} />}
 
-    {loading? 'Loading…' : <Components.Card collection={Rooms} document={document} currentUser={currentUser} />}
-  
+    </div>
+
+    <div className="room-sidebar">
+
+      <Components.ModalTrigger label="Book" component={<Button className="room-book" bsStyle="primary">Book this room</Button>}>
+        <BookingsNewForm room={room}/>
+      </Components.ModalTrigger>
+
+      {currentUser ? 
+        <BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
+      : null}
+
+      <hr/>
+
+      <div className="room-reviews">
+
+        <ReviewsList terms={{view: 'roomReviews', roomId: documentId}} />
+
+        {currentUser ? 
+          <div>
+            <h4>Leave a review</h4>
+            <ReviewsNewForm roomId={documentId}/>
+          </div>
+        : null}
+
+      </div>
+
+    </div>
+
   </div>
 
 RoomsPage.displayName = 'RoomsPage';
