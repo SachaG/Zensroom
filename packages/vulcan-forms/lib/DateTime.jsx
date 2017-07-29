@@ -34,6 +34,7 @@ class DateTime extends PureComponent {
             onChange={newDate => this.updateDate(newDate._d)}
             format={"x"}
             inputProps={{name: this.props.name}}
+            {...this.props.options}
           />
         </div>
       </div>

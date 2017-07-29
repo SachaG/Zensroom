@@ -1,40 +1,4 @@
-/*
-
-### withList
-
-Paginated items container
-
-Options: 
-
-  - queryName: an arbitrary name for the query
-  - collection: the collection to fetch the documents from
-  - fragment: the fragment that defines which properties to fetch
-  - fragmentName: the name of the fragment, passed to getFragment
-  - limit: the number of documents to show initially
-  - pollInterval: how often the data should be updated, in ms (set to 0 to disable polling)
-  - terms: an object that defines which documents to fetch
-
-Props Received: 
-
-  - terms: an object that defines which documents to fetch
-
-Terms object can have the following properties:
-
-  - view: String
-  - userId: String
-  - cat: String
-  - date: String
-  - after: String
-  - before: String
-  - enableCache: Boolean
-  - listId: String
-  - query: String # search query
-  - postId: String
-  - limit: String
-         
-*/
-     
-import React, { PropTypes, Component } from 'react';
+ import React, { PropTypes, Component } from 'react';
 import { withApollo, graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import update from 'immutability-helper';
@@ -43,7 +7,7 @@ import Mingo from 'mingo';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 
-const withList = (component) => {
+const withSearch = (component) => {
 
   // build graphql query from options
   // const query = gql`
@@ -92,7 +56,7 @@ const withList = (component) => {
       query,
 
       {
-        alias: 'withList',
+        alias: 'withSearch',
         
         // graphql query options
         options({terms, paginationTerms, client: apolloClient}) {
@@ -147,4 +111,4 @@ const withList = (component) => {
   )(component);
 }
 
-export default withList;
+export default withSearch;
