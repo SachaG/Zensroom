@@ -6,9 +6,10 @@ import DateTimePicker from 'react-datetime';
 import Button from 'react-bootstrap/lib/Button';
 import gql from 'graphql-tag';
 import moment from 'moment';
+import { intlShape, FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Bookings from '../../modules/bookings/collection';
-import withAvailableDates from '../../containers/withAvailableDates';
+import withUnavailableDates from '../../containers/withUnavailableDatesContainer';
 
 class BookingsNewForm extends Component {
 
@@ -19,7 +20,8 @@ class BookingsNewForm extends Component {
     this.submitForm = this.submitForm.bind(this);
     this.updateFromDate = this.updateFromDate.bind(this);
     this.updateToDate = this.updateToDate.bind(this);
-
+    this.isAvailable = this.isAvailable.bind(this);
+    
     this.state = {
       from: null,
       to: null
@@ -36,7 +38,7 @@ class BookingsNewForm extends Component {
 
   success(booking) {
     this.props.router.push({pathname: `/booking/${booking._id}`});
-    this.props.flash('Booking created', 'success');
+    this.props.flash(this.context.intl.formatMessage({id: 'booking.created'}), 'success');
   }
 
   submitForm() {
@@ -45,6 +47,11 @@ class BookingsNewForm extends Component {
       endAt: this.state.to,
       roomId: this.props.room._id
     }}).then(result => this.success(result.data.BookingsNew));
+  }
+
+  isAvailable(mDate) {
+    const unavailableDates = this.props.unavailableDates && this.props.unavailableDates.map(date => moment(new Date(date)).startOf('day').toString());
+    return !_.contains(unavailableDates, mDate.toString())
   }
 
   render() {
@@ -61,7 +68,7 @@ class BookingsNewForm extends Component {
             format={"x"}
             isValidDate={(currentDate, selectedDate) => {
               const yesterday = moment().subtract( 1, 'day' );
-              return currentDate.isAfter(yesterday);
+              return currentDate.isAfter(yesterday) && this.isAvailable(currentDate);
             }}
           />
         </div>
@@ -73,11 +80,11 @@ class BookingsNewForm extends Component {
             format={"x"}
             isValidDate={(currentDate, selectedDate) => {
               const yesterday = moment().subtract( 1, 'day' );
-              return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from));
+              return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from)) && this.isAvailable(currentDate);
             }}
           />
         </div>
-        <Button bsStyle="primary" onClick={this.submitForm}>Book this room</Button>
+        <Button bsStyle="primary" onClick={this.submitForm}><FormattedMessage id="bookings.book" /></Button>
 
       </div> :
       null
@@ -88,6 +95,10 @@ class BookingsNewForm extends Component {
     )
   }
 }
+
+BookingsNewForm.contextTypes = {
+  intl: intlShape
+};
 
 const options = {
   collection: Bookings,
@@ -110,5 +121,5 @@ export default compose(
   withRouter,
   withMessages,
   withCurrentUser,
-  // withAvailableDates,
+  withUnavailableDates,
 )(BookingsNewForm);

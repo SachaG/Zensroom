@@ -17,9 +17,8 @@ const RoomsList = ({results = [], currentUser, loading, loadMore, count, totalCo
         {results.map(room => <RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
         
         {totalCount > results.length ?
-          <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>Load More ({count}/{totalCount})</a> : 
-          <p>No more items.</p>
-        }
+          <a href="#" onClick={e => {e.preventDefault(); loadMore();}}><FormattedMessage id="rooms.load_more"/> ({count}/{totalCount})</a> 
+        : null}
 
       </div>
     }

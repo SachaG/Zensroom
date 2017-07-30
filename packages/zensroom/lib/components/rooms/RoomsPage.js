@@ -3,6 +3,7 @@ import { Components, withCurrentUser, withDocument } from 'meteor/vulcan:core';
 import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 import Button from 'react-bootstrap/lib/Button';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Rooms from '../../modules/rooms/collection';
 import BookingsNewForm from '../bookings/BookingsNewForm';
@@ -17,7 +18,7 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
 
     <div className="room-main">
 
-      {loading? 'Loading…' : <Components.Card collection={Rooms} document={room} currentUser={currentUser} />}
+      {loading? <Components.Loading/> : <Components.Card collection={Rooms} document={room} currentUser={currentUser} />}
 
     </div>
 
@@ -39,7 +40,7 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
 
         {currentUser ? 
           <div>
-            <h4>Leave a review</h4>
+            <h4><FormattedMessage id="reviews.leave_review"/></h4>
             <ReviewsNewForm roomId={documentId}/>
           </div>
         : null}

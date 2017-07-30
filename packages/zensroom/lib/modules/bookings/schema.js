@@ -35,7 +35,7 @@ const schema = {
     type: Date,
     viewableBy: ['guests'],
     insertableBy: ['members'],
-    editableBy: ['members'],
+    editableBy: ['admins'],
     control: 'datetime',
   },
 
@@ -44,7 +44,7 @@ const schema = {
     type: Date,
     viewableBy: ['guests'],
     insertableBy: ['members'],
-    editableBy: ['members'],
+    editableBy: ['admins'],
     control: 'datetime',
   },
 

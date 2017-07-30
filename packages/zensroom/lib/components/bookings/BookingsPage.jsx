@@ -4,6 +4,7 @@ import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 import Button from 'react-bootstrap/lib/Button';
 import gql from 'graphql-tag';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Bookings from '../../modules/bookings/collection';
 
@@ -16,7 +17,7 @@ const BookingsPage = ({document, loading, currentUser}) =>
       <div>
 
         {document.paidAt?
-          <p>Paid on {document.paidAt}</p> :
+          <p><FormattedMessage id="bookings.paid_on"/> {document.paidAt}</p> :
           <Components.Checkout
             productKey="booking"
             associatedCollection={Bookings}
@@ -27,7 +28,7 @@ const BookingsPage = ({document, loading, currentUser}) =>
                 paidAt
               }
             `}
-            button={<Button bsStyle="primary">Complete Payment</Button>}
+            button={<Button bsStyle="primary"><FormattedMessage id="bookings.complete_payment"/></Button>}
           />
         }
 

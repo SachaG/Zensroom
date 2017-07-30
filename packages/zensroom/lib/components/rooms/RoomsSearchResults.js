@@ -1,5 +1,6 @@
 import React from 'react';
 import { Components } from 'meteor/vulcan:core';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import RoomsItem from './RoomsItem';
 import withSearch from '../../containers/withSearch';
@@ -11,7 +12,7 @@ const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count
   
   <div>
 
-    <h2>Search results</h2>
+    <h2><FormattedMessage id="rooms.search_results"/></h2>
 
     {loading ? 
 
@@ -22,9 +23,8 @@ const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count
         {results.map(room => <RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
         
         {totalCount > results.length ?
-          <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>Load More ({count}/{totalCount})</a> : 
-          <p>No more items.</p>
-        }
+          <a href="#" onClick={e => {e.preventDefault(); loadMore();}}><FormattedMessage id="rooms.load_more"/> ({count}/{totalCount})</a>
+        : null }
 
       </div>
     }

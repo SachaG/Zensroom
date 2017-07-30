@@ -13,14 +13,13 @@ const ReviewsList = ({results = [], currentUser, loading, loadMore, count, total
 
       <div className="reviews">
 
-        <h3>Reviews</h3>
+        <h3><FormattedMessage id="reviews.reviews"/></h3>
         
-        {results.map(review => <Components.Card className="card" key={review._id} collection={Reviews} document={review} currentUser={currentUser} fields={['userId', 'comment']}/>)}
+        {results.map(review => <Components.Card className="card" key={review._id} collection={Reviews} document={review} currentUser={currentUser} fields={['comment']}/>)}
         
         {totalCount > results.length ?
-          <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>Load More ({count}/{totalCount})</a> : 
-          <p>No more items.</p>
-        }
+          <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>Load More ({count}/{totalCount})</a>
+        : null}
 
       </div>
     }

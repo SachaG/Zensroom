@@ -3,6 +3,7 @@ import schema from './schema.js';
 import './fragments.js';
 import './permissions.js';
 import './parameters.js';
+import './resolvers.js';
 
 const Bookings = createCollection({
   collectionName: 'Bookings',

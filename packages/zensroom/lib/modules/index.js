@@ -1,4 +1,5 @@
 import './custom_fields';
+import './i18n';
 import './components';
 import './routes';
 

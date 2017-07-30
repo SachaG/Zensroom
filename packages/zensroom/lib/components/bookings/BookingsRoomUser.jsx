@@ -1,5 +1,7 @@
 import React from 'react';
-import { Components, registerComponent, withList } from 'meteor/vulcan:core';
+import { Components, registerComponent, withList, withCurrentUser } from 'meteor/vulcan:core';
+import compose from 'recompose/compose';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Bookings from '../../modules/bookings/collection.js';
 
@@ -7,14 +9,14 @@ const BookingsRoomUser = ({loading, results }) =>
 
   <div className="room-bookings">
     
-    <h3>Bookings</h3>
+    <h3><FormattedMessage id='bookings.bookings'/></h3>
 
-    {loading ? <p>Loading…</p> :
+    {loading ? <Components.Loading/> :
 
       <div>
     
-        {results.length ? <h5>Your bookings for this room:</h5> : <h5>No bookings for this room yet.</h5>}
-        {results.map(booking => <Components.Card className="card" key={booking._id} collection={Bookings} document={booking}/>)}
+        {results.length ? <h5><FormattedMessage id='bookings.your_bookings'/></h5> : <h5><FormattedMessage id='bookings.no_bookings'/></h5>}
+        {results.map(booking => <Components.Card fields={['startAt', 'endAt']} className="card" key={booking._id} collection={Bookings} document={booking}/>)}
     
       </div>
     }
@@ -25,4 +27,6 @@ const options = {
   collection: Bookings
 }
 
-export default withList(options)(BookingsRoomUser);
+export default compose(
+  withList(options),
+)(BookingsRoomUser);

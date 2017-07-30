@@ -1,4 +1,4 @@
- import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { withApollo, graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import update from 'immutability-helper';
