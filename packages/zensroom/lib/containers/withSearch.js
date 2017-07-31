@@ -28,6 +28,7 @@ const withSearch = (component) => {
         name
         description
         photos
+        location
       }
     }
   `;
@@ -66,8 +67,6 @@ const withSearch = (component) => {
             variables: {
               terms: mergedTerms,
             },
-            // note: pollInterval can be set to 0 to disable polling (20s by default)
-            pollInterval: 20000,
           };
         },
 

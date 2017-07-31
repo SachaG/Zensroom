@@ -20,7 +20,7 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
 
       {loading? <Components.Loading/> : 
         <div>
-          <Components.Map lat={room.lat} lng={room.lng} center={{lat: room.lat, lng: room.lng}} />
+          {room.location ? <Components.Map coordinates={[{lat: room.location.coordinates[1], lng: room.location.coordinates[0]}]} center={{lat: room.location.coordinates[1], lng: room.location.coordinates[0]}} /> : null}
           <Components.Card collection={Rooms} document={room} currentUser={currentUser} />
         </div>
       }

@@ -21,8 +21,10 @@ async function geocodeAddressOnNewRoom (document, currentUser) {
       document = {
         ...document,
         geoData,
-        lat: geoData.geometry.location.lat,
-        lng: geoData.geometry.location.lng,
+        location: {
+          type: 'Point',
+          coordinates: [geoData.geometry.location.lng, geoData.geometry.location.lat]
+        }
       }
     } catch (error) {
       console.log('//geoData error')
@@ -44,8 +46,10 @@ async function geocodeAddressOnEditRoom (modifier, document, currentUser) {
       modifier.$set = {
         ...modifier.$set,
         geoData,
-        lat: geoData.geometry.location.lat,
-        lng: geoData.geometry.location.lng,
+        location: {
+          type: 'Point',
+          coordinates: [geoData.geometry.location.lng, geoData.geometry.location.lat]
+        }
       }
     } catch (error) {
       console.log('//geoData error')

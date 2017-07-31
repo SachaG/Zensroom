@@ -3,14 +3,14 @@ import { Components, registerComponent, getSetting } from 'meteor/vulcan:core';
 import GoogleMap from 'google-map-react';
 
 const Marker = () => (
-  <div className="map-marker" style={{color: '#BA1C11', fontSize: 24}}><Components.Icon name="marker"/></div>
+  <div className="map-marker" style={{color: '#D22115', fontSize: 24}}><Components.Icon name="marker"/></div>
 );
 
 class Map extends Component {
 
   static defaultProps = {
     center: {lat: 59.95, lng: 30.33},
-    zoom: 11
+    zoom: 15
   };
 
   constructor(props) {
@@ -18,7 +18,6 @@ class Map extends Component {
   }
 
   render() {
-
     return (
       <div style={{height: 300}}>
         <GoogleMap
@@ -28,7 +27,8 @@ class Map extends Component {
           key: getSetting('googlemaps').apiKey
         }}
         >
-          <Marker lat={this.props.lat} lng={this.props.lng} />
+          {this.props.coordinates.map((coord, index) => <Marker key={index} lat={coord.lat} lng={coord.lng} />)}
+
         </GoogleMap>
       </div>
     )

@@ -8,7 +8,9 @@ import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 import { withRouter } from 'react-router';
 
-const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count, totalCount}) => 
+const getCoords = room => room.location && {lng: room.location.coordinates[0], lat: room.location.coordinates[1]};
+
+const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count, totalCount, terms}) => 
   
   <div>
 
@@ -19,6 +21,8 @@ const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count
       <Components.Loading /> :
 
       <div className="rooms">
+
+        <Components.Map center={{lat: parseFloat(terms.lat), lng: parseFloat(terms.lng)}} coordinates={results.map(getCoords)} />
 
         {results.map(room => <RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
         

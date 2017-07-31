@@ -193,14 +193,9 @@ const schema = {
     optional: true,
   },
 
-  lat: {
-    type: Number,
-    optional: true,
-    viewableBy: ['guests']
-  },
-
-  lng: {
-    type: Number,
+  location: {
+    type: Object,
+    blackbox: true,
     optional: true,
     viewableBy: ['guests']
   },
