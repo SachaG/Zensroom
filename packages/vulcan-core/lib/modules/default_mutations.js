@@ -23,7 +23,7 @@ export const getDefaultMutations = collectionName => ({
       return Users.canDo(user, `${collectionName.toLowerCase()}.new`);
     },
     
-    mutation(root, {document}, context) {
+    async mutation(root, {document}, context) {
       
       const collection = context[collectionName];
 
@@ -31,7 +31,7 @@ export const getDefaultMutations = collectionName => ({
       Utils.performCheck(this.check, context.currentUser, document);
 
       // pass document to boilerplate newMutation function
-      return newMutation({
+      return await newMutation({
         collection,
         document: document, 
         currentUser: context.currentUser,
@@ -57,7 +57,7 @@ export const getDefaultMutations = collectionName => ({
       return Users.owns(user, document) ? Users.canDo(user, `${collectionName.toLowerCase()}.edit.own`) : Users.canDo(user, `${collectionName.toLowerCase()}.edit.all`);
     },
 
-    mutation(root, {documentId, set, unset}, context) {
+    async mutation(root, {documentId, set, unset}, context) {
 
       const collection = context[collectionName];
 
@@ -68,7 +68,7 @@ export const getDefaultMutations = collectionName => ({
       Utils.performCheck(this.check, context.currentUser, document);
 
       // call editMutation boilerplate function
-      return editMutation({
+      return await editMutation({
         collection, 
         documentId: documentId, 
         set: set, 
@@ -92,14 +92,14 @@ export const getDefaultMutations = collectionName => ({
       return Users.owns(user, document) ? Users.canDo(user, `${collectionName.toLowerCase()}.remove.own`) : Users.canDo(user, `${collectionName.toLowerCase()}.remove.all`);
     },
     
-    mutation(root, {documentId}, context) {
+    async mutation(root, {documentId}, context) {
 
       const collection = context[collectionName];
 
       const document = collection.findOne(documentId);
       Utils.performCheck(this.check, context.currentUser, document, context);
 
-      return removeMutation({
+      return await removeMutation({
         collection, 
         documentId: documentId, 
         currentUser: context.currentUser,

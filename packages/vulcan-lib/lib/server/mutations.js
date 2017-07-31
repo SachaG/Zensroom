@@ -29,7 +29,7 @@ to the client.
 
 import { Utils, runCallbacks, runCallbacksAsync } from '../modules/index.js';
 
-export const newMutation = ({ collection, document, currentUser, validate, context }) => {
+export const newMutation = async ({ collection, document, currentUser, validate, context }) => {
 
   // console.log("// newMutation")
   // console.log(collection._name)
@@ -80,7 +80,7 @@ export const newMutation = ({ collection, document, currentUser, validate, conte
   // }
 
   // run sync callbacks
-  newDocument = runCallbacks(`${collectionName}.new.sync`, newDocument, currentUser);
+  newDocument = await runCallbacks(`${collectionName}.new.sync`, newDocument, currentUser);
 
   // add _id to document
   newDocument._id = collection.insert(newDocument);
@@ -98,7 +98,7 @@ export const newMutation = ({ collection, document, currentUser, validate, conte
   return newDocument;
 }
 
-export const editMutation = ({ collection, documentId, set, unset, currentUser, validate, context }) => {
+export const editMutation = async ({ collection, documentId, set, unset, currentUser, validate, context }) => {
 
   // console.log("// editMutation")
   // console.log(collection._name)
@@ -151,7 +151,7 @@ export const editMutation = ({ collection, documentId, set, unset, currentUser, 
   });
 
   // run sync callbacks (on mongo modifier)
-  modifier = runCallbacks(`${collectionName}.edit.sync`, modifier, document, currentUser);
+  modifier = await runCallbacks(`${collectionName}.edit.sync`, modifier, document, currentUser);
 
   // remove empty modifiers
   if (_.isEmpty(modifier.$set)) {
@@ -182,7 +182,7 @@ export const editMutation = ({ collection, documentId, set, unset, currentUser, 
   return newDocument;
 }
 
-export const removeMutation = ({ collection, documentId, currentUser, validate, context }) => {
+export const removeMutation = async ({ collection, documentId, currentUser, validate, context }) => {
 
   // console.log("// removeMutation")
   // console.log(collection._name)
@@ -205,7 +205,7 @@ export const removeMutation = ({ collection, documentId, currentUser, validate, 
     }
   });
 
-  runCallbacks(`${collectionName}.remove.sync`, document, currentUser);
+  await runCallbacks(`${collectionName}.remove.sync`, document, currentUser);
 
   collection.remove(documentId);
 

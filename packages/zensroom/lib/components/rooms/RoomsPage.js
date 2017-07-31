@@ -18,7 +18,12 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
 
     <div className="room-main">
 
-      {loading? <Components.Loading/> : <Components.Card collection={Rooms} document={room} currentUser={currentUser} />}
+      {loading? <Components.Loading/> : 
+        <div>
+          <Components.Map lat={room.lat} lng={room.lng} center={{lat: room.lat, lng: room.lng}} />
+          <Components.Card collection={Rooms} document={room} currentUser={currentUser} />
+        </div>
+      }
 
     </div>
 

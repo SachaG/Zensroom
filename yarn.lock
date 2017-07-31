@@ -455,6 +455,10 @@ bluebird@^2.10.2:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
 
+bluebird@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
+
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.7"
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.7.tgz#ddb048e50d9482790094c13eb3fcfc833ce7ab46"
@@ -1519,6 +1523,10 @@ event-emitter@~0.3.4, event-emitter@~0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
+eventemitter3@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-1.2.0.tgz#1c86991d816ad1e504750e73874224ecf3bec508"
+
 events@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
@@ -1582,7 +1590,7 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
-fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.9:
+fbjs@^0.8.1, fbjs@^0.8.3, fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.9:
   version "0.8.14"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.14.tgz#d1dbe2be254c35a91e09f31f9cd50a40b2a0ed1c"
   dependencies:
@@ -1763,6 +1771,15 @@ globby@^5.0.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
+
+google-map-react@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-0.24.0.tgz#7276546d303c5ae837963f8bc1386b75f1aa2c60"
+  dependencies:
+    eventemitter3 "^1.1.0"
+    fbjs "^0.8.3"
+    point-geometry "0.0.0"
+    scriptjs "^2.5.7"
 
 graceful-fs@^4.1.2:
   version "4.1.11"
@@ -2953,6 +2970,10 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
+point-geometry@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/point-geometry/-/point-geometry-0.0.0.tgz#6fcbcad7a803b6418247dd6e49c2853c584daff7"
+
 popsicle@^6.2.0:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/popsicle/-/popsicle-6.2.2.tgz#e273c8bd48181f73a59b199e2a5e25b692b3e237"
@@ -3269,9 +3290,9 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-stripe-checkout@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-stripe-checkout/-/react-stripe-checkout-2.4.0.tgz#1b9cdcc79ef131199cc39e944b34e1e81a00cd10"
+react-stripe-checkout@2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/react-stripe-checkout/-/react-stripe-checkout-2.6.3.tgz#3173a870b04e5a3c321a06d24cd53c6030111c45"
 
 "react@>=0.14.7 || ^15.0.0-rc.2", react@^15.3.0, react@^15.6.1:
   version "15.6.1"
@@ -3492,6 +3513,10 @@ sanitize-html@^1.11.4:
 sax@^1.1.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+scriptjs@^2.5.7:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/scriptjs/-/scriptjs-2.5.8.tgz#d0c43955c2e6bad33b6e4edf7b53b8965aa7ca5f"
 
 scroll-behavior@^0.9.3:
   version "0.9.3"

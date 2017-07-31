@@ -1,5 +1,6 @@
 import React from 'react';
 import { Components, withList, withCurrentUser, Loading } from 'meteor/vulcan:core';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Reviews from '../../modules/reviews/collection';
 

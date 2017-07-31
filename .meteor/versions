@@ -73,6 +73,7 @@ vulcan:forms-upload@1.6.0
 vulcan:i18n@1.6.0
 vulcan:i18n-en-us@1.6.0
 vulcan:lib@1.6.0
+vulcan:maps@1.6.0
 vulcan:payments@1.6.0
 vulcan:places@1.3.2
 vulcan:routing@1.6.0

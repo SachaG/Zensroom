@@ -1,5 +1,12 @@
-import { PlaceControl } from 'meteor/vulcan:places';
 import FormsUpload from 'meteor/vulcan:forms-upload';
+
+const formGroups = {
+  address: {
+    name: 'address',
+    label: 'Address',
+    order: 2
+  }
+};
 
 const schema = {
   
@@ -126,23 +133,77 @@ const schema = {
     optional: true,
   },
 
-  placeName: {
+  country: {
     type: String,
-    control: PlaceControl,
     optional: true,
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
+    group: formGroups.address
   },
 
-  placeId: {
+  zipCode: {
     type: String,
-    hidden: true,
     optional: true,
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
-  }
+    group: formGroups.address
+  },
+
+  state: {
+    type: String,
+    optional: true,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    group: formGroups.address
+  },
+
+  city: {
+    type: String,
+    optional: true,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    group: formGroups.address
+  },
+
+  address: {
+    type: String,
+    optional: true,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    group: formGroups.address
+  },
+
+  address2: {
+    type: String,
+    optional: true,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    group: formGroups.address
+  },
+
+  geoData: {
+    type: Object,
+    blackbox: true,
+    optional: true,
+  },
+
+  lat: {
+    type: Number,
+    optional: true,
+    viewableBy: ['guests']
+  },
+
+  lng: {
+    type: Number,
+    optional: true,
+    viewableBy: ['guests']
+  },
 
 };
 

@@ -23,7 +23,7 @@ const Header = ({ currentUser }, context) =>
         {currentUser ? <UsersMenu/> : <UsersAccountMenu/>}
       </div>
 
-      <Components.ModalTrigger label="New Room" component={<Button bsStyle="primary"><FormattedMessage id="room.new"/></Button>}>
+      <Components.ModalTrigger label="New Room" component={<Button bsStyle="primary"><FormattedMessage id="rooms.new"/></Button>}>
         <RoomsNewForm />
       </Components.ModalTrigger>
 
