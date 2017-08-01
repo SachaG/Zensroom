@@ -1,10 +1,35 @@
 import FormsUpload from 'meteor/vulcan:forms-upload';
+import { amenities, spaces } from '../data';
 
 const formGroups = {
+  infos: {
+    name: 'infos',
+    label: 'Infos',
+    order: 10,
+  },
+  photos: {
+    name: 'photos',
+    label: 'Photos',
+    order: 20,
+    startCollapsed: true
+  },
+  amenities: {
+    name: 'amenities',
+    label: 'Amenities',
+    order: 30,
+    startCollapsed: true
+  },
   address: {
     name: 'address',
     label: 'Address',
-    order: 2
+    order: 40,
+    startCollapsed: true
+  },
+  price: {
+    name: 'price',
+    label: 'Price',
+    order: 50,
+    startCollapsed: true
   }
 };
 
@@ -43,6 +68,42 @@ const schema = {
 
   // custom properties
 
+  roomType: {
+    label: 'Room Type',
+    type: String,
+    optional: false,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    control: 'select',
+    form: {
+      options: [
+        {label: 'Entire Place', value: 'place'},
+        {label: 'Private Room', value: 'private'},
+        {label: 'Shared Room', value: 'shared'},
+      ]
+    },
+    group: formGroups.info
+  },
+
+  propertyType: {
+    label: 'Type',
+    type: String,
+    optional: false,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    control: 'select',
+    form: {
+      options: [
+        {label: 'Apartment', value: 'apartment'},
+        {label: 'House', value: 'house'},
+        {label: 'Other', value: 'other'},
+      ]
+    },
+    group: formGroups.info
+  },
+
   name: {
     label: 'Name',
     type: String,
@@ -50,6 +111,7 @@ const schema = {
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
+    group: formGroups.info
   },
 
   description: {
@@ -60,6 +122,7 @@ const schema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     control: 'textarea',
+    group: formGroups.info
   },
 
   rules: {
@@ -70,6 +133,7 @@ const schema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     control: 'textarea',
+    group: formGroups.info
   },
 
   bedsNumber: {
@@ -79,6 +143,7 @@ const schema = {
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
+    group: formGroups.info
   },
 
   guestsNumber: {
@@ -88,6 +153,7 @@ const schema = {
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
+    group: formGroups.info
   },
 
   photos: {
@@ -102,7 +168,8 @@ const schema = {
       options: {
         preset: 'zensroom'
       },
-    }
+    },
+    group: formGroups.photos
   },
 
   'photos.$': {
@@ -120,15 +187,31 @@ const schema = {
     editableBy: ['members'],
     control: 'checkboxgroup',
     form: {
-      options: [
-        { value: 'washing-machine', label: 'Washing Machine' },
-        { value: 'pocket-wifi', label: 'Pocket Wifi' },
-        { value: 'internet', label: 'Internet' },
-      ]
-    }
+      options: amenities
+    },
+    group: formGroups.amenities
   },
 
   'amenities.$': {
+    type: String,
+    optional: true,
+  },
+
+  spaces: {
+    label: 'Spaces',
+    type: Array,
+    optional: true,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    control: 'checkboxgroup',
+    form: {
+      options: spaces
+    },
+    group: formGroups.amenities
+  },
+
+  'spaces.$': {
     type: String,
     optional: true,
   },
@@ -198,6 +281,16 @@ const schema = {
     blackbox: true,
     optional: true,
     viewableBy: ['guests']
+  },
+
+  pricePerNight: {
+    type: Number,
+    optional: true,
+    label: 'Price per night',
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['members'],
+    group: formGroups.price
   },
 
 };

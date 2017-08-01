@@ -31,7 +31,7 @@ class RoomsSearchForm extends Component {
     }
 
     if (this.state.to) {
-      query += `to=${this.state.to}`;
+      query += `&to=${this.state.to}`;
     }
 
     if (location) {
@@ -40,7 +40,7 @@ class RoomsSearchForm extends Component {
       const response = await fetch(geocodeUrl);
       const geoData = await response.json();
       console.log(geoData)
-      query += `lng=${geoData.results[0].geometry.location.lng}&lat=${geoData.results[0].geometry.location.lat}`
+      query += `&lng=${geoData.results[0].geometry.location.lng}&lat=${geoData.results[0].geometry.location.lat}`
     }
 
     this.props.router.push(`/search?${query}`);

@@ -9,7 +9,6 @@ const Marker = () => (
 class Map extends Component {
 
   static defaultProps = {
-    center: {lat: 59.95, lng: 30.33},
     zoom: 15
   };
 
@@ -19,13 +18,14 @@ class Map extends Component {
 
   render() {
     return (
-      <div style={{height: 300}}>
+      <div style={{...this.props.style, height: 300}}>
         <GoogleMap
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
+        center={this.props.center}
+        zoom={this.props.zoom}
         bootstrapURLKeys={{
           key: getSetting('googlemaps').apiKey
         }}
+        onChange={this.props.onChange}
         >
           {this.props.coordinates.map((coord, index) => <Marker key={index} lat={coord.lat} lng={coord.lng} />)}
 

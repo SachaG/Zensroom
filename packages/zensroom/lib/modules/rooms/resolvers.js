@@ -5,6 +5,9 @@ const roomsSearchResolver = {
   Query: {
     RoomsSearch(root, { terms }, { Rooms, Bookings, currentUser }) {
 
+      console.log('// RoomsSearch')
+      console.log(terms)
+
       const selector = {};
 
       if (terms.from || terms.to) {
@@ -26,24 +29,35 @@ const roomsSearchResolver = {
         selector._id = {$nin: bookingsRoomIds};
       }
 
-      if (terms.lng && terms.lat) {
+      // query based on bounds after all
+      
+      // if (terms.lng && terms.lat) {
+      //   selector.location = {
+      //     $near: {
+      //       $geometry: {
+      //         type: 'Point' ,
+      //         coordinates: [ parseFloat(terms.lng) , parseFloat(terms.lat) ]
+      //       },
+      //       $maxDistance: 1000,
+      //     }
+      //   }
+      // }
+
+      if (terms.sw && terms.ne) {
         selector.location = {
-          $near: {
-            $geometry: {
-              type: 'Point' ,
-              coordinates: [ parseFloat(terms.lng) , parseFloat(terms.lat) ]
-            },
-            $maxDistance: 500,
+          $geoWithin: {
+            $box: [
+              [terms.sw.lng, terms.sw.lat],
+              [terms.ne.lng, terms.ne.lat]
+            ]
           }
         }
       }
 
       const availableRooms = Rooms.find(selector).fetch();
 
-      console.log('// RoomsSearch')
-      console.log(terms)
       console.log(JSON.stringify(selector))
-      console.log(availableRooms)
+      console.log(availableRooms.length)
 
       return availableRooms
     }

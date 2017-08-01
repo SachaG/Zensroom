@@ -1,4 +1,5 @@
 import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
+import Users from 'meteor/vulcan:users';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
@@ -6,7 +7,6 @@ import { Meteor } from 'meteor/meteor';
 import Dropdown from 'react-bootstrap/lib/Dropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import { LinkContainer } from 'react-router-bootstrap';
-import Users from 'meteor/vulcan:users';
 import { withApollo } from 'react-apollo';
 
 const UsersMenu = ({currentUser, client}) =>
@@ -23,6 +23,12 @@ const UsersMenu = ({currentUser, client}) =>
         <LinkContainer to={`/account`}>
           <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="users.edit_account"/></MenuItem>
         </LinkContainer>
+
+        {Users.canDo(currentUser, 'bookings.view.all') ? 
+          <LinkContainer to={`/admin/bookings`}>
+            <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="bookings.all_bookings"/></MenuItem>
+          </LinkContainer>
+        : null}
 
         <MenuItem className="dropdown-item" eventKey="4" onClick={() => Meteor.logout(() => client.resetStore())}><FormattedMessage id="users.log_out"/></MenuItem>
       </Dropdown.Menu>

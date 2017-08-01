@@ -9,6 +9,7 @@ addStrings('en', {
   'bookings.paid_on': 'Paid on',
   'bookings.complete_payment': 'Complete Payment',
   'bookings.bookings': 'Bookings',
+  'bookings.all_bookings': 'All Bookings',
   'bookings.your_bookings': 'Your bookings for this room:',
   'bookings.no_bookings': 'No bookings for this room yet.',
   'bookings.load_more': 'Load More',
