@@ -15,6 +15,7 @@ import UsersProfile from '../components/users/UsersProfile';
 import UsersAccount from '../components/users/UsersAccount';
 
 import BookingsList from '../components/admin/BookingsList';
+import RoomsList from '../components/admin/RoomsList';
 
 addRoute([
 
@@ -33,6 +34,7 @@ addRoute([
   {name: 'users.account',  path:'account',               component: UsersAccount},
   {name: 'users.edit',     path:'users/:slug/edit',      component: UsersAccount},
 
-  {name: 'bookings.list',     path:'/admin/bookings',      component: BookingsList},
+  {name: 'bookings.list',     path:'/admin/bookings',    component: BookingsList},
+  {name: 'rooms.list',     path:'/admin/rooms',           component: RoomsList},
 
 ]);

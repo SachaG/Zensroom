@@ -111,7 +111,8 @@ const schema = {
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
-    group: formGroups.info
+    group: formGroups.info,
+    searchable: true,
   },
 
   description: {
@@ -122,7 +123,8 @@ const schema = {
     insertableBy: ['members'],
     editableBy: ['members'],
     control: 'textarea',
-    group: formGroups.info
+    group: formGroups.info,
+    searchable: true,
   },
 
   rules: {

@@ -26,4 +26,8 @@ addStrings('en', {
   'reviews.load_more': 'Load More',
   'reviews.leave_review': 'Leave a Review',
 
+  'users.rooms': 'Rooms',
+  'users.bookings': 'Bookings',
+  'users.reviews': 'Reviews',
+
 });
