@@ -5,6 +5,7 @@ import { Utils } from './utils.js';
 import { runCallbacks } from './callbacks.js';
 import { getSetting } from './settings.js';
 import { registerFragment, getDefaultFragmentText } from './fragments.js';
+import escapeStringRegexp from 'escape-string-regexp';
 
 export const Collections = [];
 
@@ -172,7 +173,6 @@ export const createCollection = options => {
 
   // ------------------------------------- Default Fragment -------------------------------- //
 
-  console.log(getDefaultFragmentText(collection))
   registerFragment(getDefaultFragmentText(collection));
 
   // ------------------------------------- Parameters -------------------------------- //
@@ -212,6 +212,18 @@ export const createCollection = options => {
     if (parameters.options.sort) {
       _.keys(parameters.options.sort).forEach(key => {
         if (parameters.options.sort[key] === null) delete parameters.options.sort[key];
+      });
+    }
+
+    if(terms.query) {
+        
+      const query = escapeStringRegexp(terms.query);
+
+      const searchableFieldNames = _.filter(_.keys(schema), fieldName => schema[fieldName].searchable);
+      parameters = Utils.deepExtend(true, parameters, {
+        selector: {
+          $or: searchableFieldNames.map(fieldName => ({[fieldName]: {$regex: query, $options: 'i'}}))
+        }
       });
     }
 
