@@ -29,7 +29,7 @@ const roomsSearchResolver = {
         selector._id = {$nin: bookingsRoomIds};
       }
 
-      // query based on bounds after all
+      // query based on center point
       
       // if (terms.lng && terms.lat) {
       //   selector.location = {
@@ -43,6 +43,8 @@ const roomsSearchResolver = {
       //   }
       // }
 
+      // query based on bounds
+
       if (terms.sw && terms.ne) {
         selector.location = {
           $geoWithin: {
@@ -52,6 +54,13 @@ const roomsSearchResolver = {
             ]
           }
         }
+      }
+
+      // filter
+
+      if (terms.filters) {
+        const filters = Array.isArray(terms.filters) ? terms.filters : [terms.filters];
+        selector.amenities = { $all: filters };
       }
 
       const availableRooms = Rooms.find(selector).fetch();

@@ -38,7 +38,20 @@ class RoomsSearch extends Component {
     return (
       <div>
         <RoomsSearchFilters />
-        <RoomsSearchResults onMapChange={this.onMapChange} mapProps={{lat: this.state.lat, lng: this.state.lng}} terms={{from: this.state.from, to: this.state.to, sw: this.state.sw, ne: this.state.ne}} />
+        <RoomsSearchResults 
+          onMapChange={this.onMapChange} 
+          mapProps={{
+            lat: this.state.lat, 
+            lng: this.state.lng
+          }} 
+          terms={{
+            from: this.state.from, 
+            to: this.state.to, 
+            sw: this.state.sw, 
+            ne: this.state.ne,
+            filters: this.props.location.query.filters,
+          }} 
+        />
       </div>
     )
   }

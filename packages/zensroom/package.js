@@ -16,6 +16,7 @@ Package.onUse((api) => {
     'vulcan:accounts',
     'vulcan:payments',
     'vulcan:maps',
+    'vulcan:admin',
     
   ]);
 
