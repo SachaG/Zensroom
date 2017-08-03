@@ -4,6 +4,7 @@ import { Form, Input } from 'formsy-react-components';
 import { withRouter } from 'react-router'
 import DateTimePicker from 'react-datetime';
 import Button from 'react-bootstrap/lib/Button';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 class RoomsSearchForm extends Component {
   constructor() {
@@ -52,28 +53,31 @@ class RoomsSearchForm extends Component {
       <div className="card rooms-search-form">
         <Form onSubmit={this.submitForm}>
 
-          <div>
-            <label className="control-label">From</label>
+          <div className="rooms-search-form-field">
+            <label className="control-label"><FormattedMessage id="rooms.from"/></label>
             <DateTimePicker
               onChange={newDate => this.updateFromDate(newDate)}
               format={"x"}
             />
           </div>
 
-          <div>
-            <label className="control-label">To</label>
+          <div className="rooms-search-form-field">
+            <label className="control-label"><FormattedMessage id="rooms.to"/></label>
             <DateTimePicker
               onChange={newDate => this.updateToDate(newDate)}
               format={"x"}
             />
           </div>
 
-          <div>
-            <Input value="" name="location" type="text" label="location"/>
+          <div className="rooms-search-form-field">
+            <label className="control-label"><FormattedMessage id="rooms.location"/></label>
+            <Input layout="elementOnly" value="" name="location" type="text" label="location"/>
           </div>
 
-          <Button type="submit" bsStyle="primary">Search</Button>
-      
+          <div className="rooms-search-form-field">
+            <Button className="rooms-search-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="rooms.search"/></Button>
+          </div>
+
         </Form>
       </div>
     );

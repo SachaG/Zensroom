@@ -12,7 +12,10 @@ import RoomsNewForm from '../rooms/RoomsNewForm';
 const Header = ({ currentUser }, context) => 
   <header className="header">
 
-    <div className="logo"><Link to="/">{getSetting('title')}</Link></div>
+    <div className="brand">
+      <div className="logo"><Link to="/"><h1>{getSetting('title')}</h1></Link></div>
+      <div className="tagline">{getSetting('tagline')}</div>
+    </div>
 
     <div className="nav">
 
@@ -22,10 +25,6 @@ const Header = ({ currentUser }, context) =>
       <div className="nav-item nav-user">
         {currentUser ? <UsersMenu/> : <UsersAccountMenu/>}
       </div>
-
-      <Components.ModalTrigger label="New Room" component={<Button bsStyle="primary"><FormattedMessage id="rooms.new"/></Button>}>
-        <RoomsNewForm />
-      </Components.ModalTrigger>
 
     </div>
   </header>

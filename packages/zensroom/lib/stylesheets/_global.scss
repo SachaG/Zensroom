@@ -1,3 +1,14 @@
 .main{
   padding: $spacing;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page{
+}
+
+.page-title{
+  margin-bottom: $spacing;
+  padding-bottom: $spacing/2;
+  border-bottom: 1px solid $lighter-grey;
 }

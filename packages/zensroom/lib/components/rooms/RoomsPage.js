@@ -14,9 +14,9 @@ import ReviewsNewForm from '../reviews/ReviewsNewForm';
 
 const RoomsPage = ({document: room, documentId, loading, currentUser}) => 
   
-  <div className="room-page">
+  <div className="rooms-page">
 
-    <div className="room-main">
+    <div className="rooms-main">
 
       {loading? <Components.Loading/> : 
         <div>
@@ -27,7 +27,7 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
 
     </div>
 
-    <div className="room-sidebar">
+    <div className="rooms-sidebar">
 
       <Components.ModalTrigger label="Book" component={<Button className="room-book" bsStyle="primary">Book this room</Button>}>
         <BookingsNewForm room={room}/>
@@ -39,7 +39,7 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
 
       <hr/>
 
-      <div className="room-reviews">
+      <div className="rooms-reviews">
 
         <ReviewsList terms={{view: 'roomReviews', roomId: documentId}} />
 

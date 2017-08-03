@@ -20,6 +20,11 @@ addStrings('en', {
   'rooms.featured': 'Featured Rooms',
   'rooms.load_more': 'Load More',
   'rooms.search_results': 'Search Results',
+  'rooms.location': 'Location',
+  'rooms.to': 'To',
+  'rooms.from': 'From',
+  'rooms.search': 'Search',
+  'rooms.per_night': '/night',
   
   'reviews.reviews': 'Reviews',
   'reviews.created': 'Review created',

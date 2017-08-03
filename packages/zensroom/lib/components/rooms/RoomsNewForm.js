@@ -12,7 +12,6 @@ const RoomsNewForm = ({currentUser, closeModal, router, flash}, {intl}) =>
 
     {Rooms.options.mutations.new.check(currentUser) ?
       <div style={{marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid #ccc'}}>
-        <h4><FormattedMessage id="rooms.create_new"/></h4>
         <Components.SmartForm 
           collection={Rooms}
           /*mutationFragment={getFragment('RoomsItemFragment')}*/

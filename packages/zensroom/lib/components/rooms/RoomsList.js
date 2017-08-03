@@ -12,7 +12,7 @@ const RoomsList = ({results = [], currentUser, loading, loadMore, count, totalCo
 
       <Components.Loading /> :
 
-      <div className="rooms">
+      <div className="rooms-grid">
 
         {results.map(room => <RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
         

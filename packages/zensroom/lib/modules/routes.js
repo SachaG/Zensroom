@@ -8,6 +8,7 @@ import Terms from '../components/static/Terms';
 
 import RoomsSearch from '../components/rooms/RoomsSearch';
 import RoomsPage from '../components/rooms/RoomsPage';
+import RoomsNewPage from '../components/rooms/RoomsNewPage';
 
 import BookingsPage from '../components/bookings/BookingsPage';
 
@@ -26,6 +27,7 @@ addRoute([
   {name: 'terms', path: '/terms', component: Terms},
 
   {name: 'rooms.search', path: '/search', component: RoomsSearch},
+  {name: 'rooms.new', path: '/room/new', component: RoomsNewPage},
   {name: 'rooms.page', path: '/room/:roomId(/:slug)', component: RoomsPage},
 
   {name: 'bookings.page', path: '/booking/:bookingId', component: BookingsPage},

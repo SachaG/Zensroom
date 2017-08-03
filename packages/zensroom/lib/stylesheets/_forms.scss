@@ -1,0 +1,9 @@
+.input-amenities, .input-spaces{
+  .col-sm-9{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .checkbox{
+    width: 50%;
+  }
+}

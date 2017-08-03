@@ -11,7 +11,7 @@ const Home = () =>
 
     <RoomsSearchForm/>
 
-    <h3><FormattedMessage id="rooms.featured"/></h3>
+    <h2 className="page-title"><FormattedMessage id="rooms.featured"/></h2>
     <RoomsList/>
   </div>
 
