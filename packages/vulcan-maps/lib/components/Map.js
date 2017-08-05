@@ -18,7 +18,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div style={{...this.props.style, height: 300}}>
+      <div className={this.props.className} style={{...this.props.style, height: 300}}>
         <GoogleMap
         center={this.props.center}
         zoom={this.props.zoom}

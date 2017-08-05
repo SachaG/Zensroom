@@ -45,7 +45,7 @@ import withState from 'recompose/withState';
 
 const withList = (options) => {
 
-  const { collection, limit = 10, pollInterval = 20000, totalResolver = true } = options,
+  const { collection, limit = 10, pollInterval = 20000, totalResolver = true, enableReducer = true } = options,
         queryName = options.queryName || `${collection.options.collectionName}ListQuery`,
         listResolverName = collection.options.resolvers.list && collection.options.resolvers.list.name,
         totalResolverName = collection.options.resolvers.total && collection.options.resolvers.total.name;
@@ -113,7 +113,7 @@ const withList = (options) => {
             reducer: (previousResults, action) => {
 
               // see queryReducer function defined below
-              return queryReducer(previousResults, action, collection, mergedTerms, listResolverName, totalResolverName, queryName, apolloClient);
+              return enableReducer ? queryReducer(previousResults, action, collection, mergedTerms, listResolverName, totalResolverName, queryName, apolloClient) : previousResults;
             
             },
           };
