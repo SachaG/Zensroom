@@ -20,14 +20,31 @@ const schema = {
     type: String,
     optional: true,
     viewableBy: ['guests'],
-    // resolveAs: 'user: User', // resolve this field as "user" on the client
+    resolveAs: {
+      fieldName: 'user',
+      type: 'User', 
+      resolver: async (booking, args, { Users, currentUser }) => {
+        const user = await Users.loader.load(booking.userId);
+        return Users.restrictViewableFields(currentUser, Users, user);
+      },
+      addOriginalField: true
+    }
   },
 
   roomId: {
     type: String,
     viewableBy: ['guests'],
     insertableBy: ['members'],
-    hidden: true
+    hidden: true,
+    resolveAs: {
+      fieldName: 'room',
+      type: 'Room',
+      resolver: async (booking, args, { Rooms, Users, currentUser }) => {
+        const room = await Rooms.loader.load(booking.roomId);
+        return Users.restrictViewableFields(currentUser, Rooms, room);
+      },
+      addOriginalField: true
+    },
   },
 
   startAt: {
@@ -46,6 +63,14 @@ const schema = {
     insertableBy: ['members'],
     editableBy: ['admins'],
     control: 'datetime',
+  },
+
+  numberOfGuests: {
+    label: 'Number of Guests',
+    type: String,
+    viewableBy: ['guests'],
+    insertableBy: ['members'],
+    editableBy: ['admins'],
   },
 
   paidAt: {

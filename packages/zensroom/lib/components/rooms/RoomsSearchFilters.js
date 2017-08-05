@@ -3,6 +3,7 @@ import { Components } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import { Checkbox } from 'formsy-react-components';
 import { amenities, spaces } from '../../modules/data';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 const encodeObject = obj => _.map(obj, (value, key) => `${key}=${value}`).join('&');
 const encodeArray = array => _.map(array, (value) => `filters=${value}`).join('&');
@@ -58,10 +59,11 @@ class RoomsSearchFilters extends Component {
     const filters = this.getURLFilters();
     
     return (
-      <div>
-        <ul>
+      <div className="rooms-search-filters">
+        <h2 className="section-title"><FormattedMessage id="rooms.filters"/></h2>
+        <ul className="rooms-search-filters-list">
           {amenities.map(({label, value}, index) => 
-            <li key={index}>
+            <li className="rooms-search-filter" key={index}>
               <label>
                 <input type="checkbox" name={value} checked={_.contains(filters, value)} onChange={() => this.toggleFilter(value)} /> {label}
               </label>

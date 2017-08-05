@@ -1,13 +1,22 @@
-// import { registerFragment } from 'meteor/vulcan:core';
+import { registerFragment } from 'meteor/vulcan:core';
 
-// registerFragment(`
-//   fragment RoomsItemFragment on Room {
-//     _id
-//     userId
-//     user
-//     roomType
-//     propertyType
-//     name
-    
-//   }  
-// `);
+registerFragment(`
+  fragment BookingsItemFragment on Booking {
+    _id
+    createdAt
+    userId
+    user {
+      _id
+      displayName
+    }
+    roomId
+    room {
+      pricePerNight
+      name
+    }
+    startAt
+    endAt
+    numberOfGuests
+    paidAt    
+  }  
+`);

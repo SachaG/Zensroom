@@ -11,28 +11,31 @@ import Bookings from '../../modules/bookings/collection';
 const BookingsPage = ({document, loading, currentUser}) => 
   
   <div>
-
     {loading? 'Loading…' :
 
       <div>
 
-        {document.paidAt?
-          <p><FormattedMessage id="bookings.paid_on"/> {document.paidAt}</p> :
-          <Components.Checkout
-            productKey="booking"
-            associatedCollection={Bookings}
-            associatedDocument={document}
-            fragment={gql`
-              fragment BookingSetAsPaid on Booking {
-                _id
-                paidAt
-              }
-            `}
-            button={<Button bsStyle="primary"><FormattedMessage id="bookings.complete_payment"/></Button>}
-          />
-        }
+        <h2 className="page-title">{document.room.name}</h2>
 
-        <Components.Card collection={Bookings} document={document} currentUser={currentUser} />
+        <div className="bookings-checkout">
+          {document.paidAt?
+            <p><FormattedMessage id="bookings.paid_on"/> {document.paidAt}</p> :
+            <Components.Checkout
+              productKey="booking"
+              associatedCollection={Bookings}
+              associatedDocument={document}
+              fragment={gql`
+                fragment BookingSetAsPaid on Booking {
+                  _id
+                  paidAt
+                }
+              `}
+              button={<Button bsStyle="primary"><FormattedMessage id="bookings.complete_payment"/></Button>}
+            />
+          }
+        </div>
+
+        <Components.Card fields={['startAt', 'endAt', 'paidAt']} collection={Bookings} document={document} currentUser={currentUser} />
     
       </div>
     
@@ -43,7 +46,8 @@ const BookingsPage = ({document, loading, currentUser}) =>
 BookingsPage.displayName = 'BookingsPage';
 
 const options = {
-  collection: Bookings
+  collection: Bookings,
+  fragmentName: 'BookingsItemFragment'
 };
 
 const mapPropsFunction = props => ({...props, documentId: props.routeParams && props.routeParams.bookingId});

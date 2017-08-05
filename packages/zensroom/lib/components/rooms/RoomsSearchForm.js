@@ -5,22 +5,27 @@ import { withRouter } from 'react-router'
 import DateTimePicker from 'react-datetime';
 import Button from 'react-bootstrap/lib/Button';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
+import moment from 'moment';
 
 class RoomsSearchForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.updateFromDate = this.updateFromDate.bind(this);
     this.updateToDate = this.updateToDate.bind(this);
     this.submitForm = this.submitForm.bind(this);
-    this.state = {};
+    this.state = {
+      from: moment(props.location.query.from, 'YYYY-MM-DD'),
+      to: moment(props.location.query.to, 'YYYY-MM-DD'),
+      location: props.location.query.location && decodeURIComponent(props.location.query.location),
+    };
   }
 
   updateFromDate(date) {
-    this.setState({ from: date.format('YYYY-MM-DD') });
+    this.setState({ from: date });
   }
 
   updateToDate(date) {
-    this.setState({ to: date.format('YYYY-MM-DD') });
+    this.setState({ to: date });
   }
 
   async submitForm({ location }) {
@@ -28,11 +33,11 @@ class RoomsSearchForm extends Component {
     let query = '';
 
     if (this.state.from) {
-      query += `from=${this.state.from}`;
+      query += `from=${this.state.from.format('YYYY-MM-DD')}`;
     }
 
     if (this.state.to) {
-      query += `&to=${this.state.to}`;
+      query += `&to=${this.state.to.format('YYYY-MM-DD')}`;
     }
 
     if (location) {
@@ -41,7 +46,7 @@ class RoomsSearchForm extends Component {
       const response = await fetch(geocodeUrl);
       const geoData = await response.json();
       console.log(geoData)
-      query += `&lng=${geoData.results[0].geometry.location.lng}&lat=${geoData.results[0].geometry.location.lat}`
+      query += `&location=${encodeURIComponent(location)}&lng=${geoData.results[0].geometry.location.lng}&lat=${geoData.results[0].geometry.location.lat}`
     }
 
     this.props.router.push(`/search?${query}`);
@@ -58,6 +63,8 @@ class RoomsSearchForm extends Component {
             <DateTimePicker
               onChange={newDate => this.updateFromDate(newDate)}
               format={"x"}
+              value={this.state.from}
+              timeFormat={false}
             />
           </div>
 
@@ -66,12 +73,14 @@ class RoomsSearchForm extends Component {
             <DateTimePicker
               onChange={newDate => this.updateToDate(newDate)}
               format={"x"}
+              value={this.state.to}
+              timeFormat={false}
             />
           </div>
 
           <div className="rooms-search-form-field">
             <label className="control-label"><FormattedMessage id="rooms.location"/></label>
-            <Input layout="elementOnly" value="" name="location" type="text" label="location"/>
+            <Input layout="elementOnly" value={this.state.location} name="location" type="text" label="location"/>
           </div>
 
           <div className="rooms-search-form-field">

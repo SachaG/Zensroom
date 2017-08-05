@@ -4,6 +4,8 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Reviews from '../../modules/reviews/collection';
 
+import ReviewsItem from './ReviewsItem';
+
 const ReviewsList = ({results = [], currentUser, loading, loadMore, count, totalCount}) => 
   
   <div>
@@ -16,7 +18,7 @@ const ReviewsList = ({results = [], currentUser, loading, loadMore, count, total
 
         <h3><FormattedMessage id="reviews.reviews"/></h3>
         
-        {results.map(review => <Components.Card className="card" key={review._id} collection={Reviews} document={review} currentUser={currentUser} fields={['comment']}/>)}
+        {results.map(review => <ReviewsItem key={review._id} review={review} currentUser={currentUser} />)}
         
         {totalCount > results.length ?
           <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>Load More ({count}/{totalCount})</a>

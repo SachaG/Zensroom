@@ -13,6 +13,9 @@ addStrings('en', {
   'bookings.your_bookings': 'Your bookings for this room:',
   'bookings.no_bookings': 'No bookings for this room yet.',
   'bookings.load_more': 'Load More',
+  'bookings.from': 'From',
+  'bookings.to': 'To',
+  'bookings.number_of_guests': 'Number of guests',
 
   'rooms.new': 'New Room',
   'rooms.create_new': 'Create New Room',
@@ -25,6 +28,7 @@ addStrings('en', {
   'rooms.from': 'From',
   'rooms.search': 'Search',
   'rooms.per_night': '/night',
+  'rooms.filters': 'Filters',
   
   'reviews.reviews': 'Reviews',
   'reviews.created': 'Review created',

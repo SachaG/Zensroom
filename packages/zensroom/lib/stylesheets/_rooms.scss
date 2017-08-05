@@ -35,6 +35,7 @@
   .rooms-item{
     width: calc((100% - #{$spacing * 2})/3);
     margin-right: $spacing;
+    margin-bottom: $spacing;
     &:nth-child(3n){
       margin-right: 0;
     }
@@ -82,11 +83,12 @@
 .rooms-item-city{
   font-size: 0.8rem;
 }
+
 //////////////////////////////////////////////////////
 // Rooms Page                                       //
 //////////////////////////////////////////////////////
 
-.rooms-page{
+.rooms-contents{
   display: flex;
 }
 
@@ -94,12 +96,112 @@
   flex: 1;
 }
 
+.rooms-section{
+  margin-bottom: $spacing * 2;
+}
+
+.rooms-hero-image{
+  margin-bottom: $spacing*2;
+  img{
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.rooms-photos-modal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  .modal-content{
+    background: none;
+    border: none;
+  }
+  .rooms-photos{
+    position: relative;
+  }
+}
+
+.rooms-photos-previous, .rooms-photos-next{
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .icon{
+    display: block;
+    color: white;
+    font-size: 5rem;
+  }
+  &:hover, &:focus, &:visited{
+    color: white;
+    text-decoration: none;
+  }
+}
+.rooms-photos-previous{
+  left: -60px;
+}
+.rooms-photos-next{
+  right: -60px;
+}
+
+.rooms-name{
+  margin-bottom: $spacing/2;
+}
+.rooms-city{
+  margin-bottom: $spacing/2;
+  font-size: 1rem;
+}
+.rooms-description{
+  margin-bottom: $spacing/2;
+}
+.rooms-amenities{
+  margin-bottom: $spacing/2;
+}
+
 .rooms-sidebar{
   max-width: 30%;
   padding: $spacing;
-  background: #eee;
 }
 
 .rooms-book{
   margin-bottom: $spacing;
+}
+
+//////////////////////////////////////////////////////
+// Rooms Search Results                             //
+//////////////////////////////////////////////////////
+
+.rooms-search-results-map{
+  margin-bottom: $spacing;
+}
+
+//////////////////////////////////////////////////////
+// Rooms Filters                                    //
+//////////////////////////////////////////////////////
+
+.rooms-search-filters{
+  margin-bottom: $spacing;
+}
+
+.rooms-search-filters-list{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rooms-search-filter{
+  width: calc((100% - #{$spacing * 2})/3);
+  margin-right: $spacing;
+  margin-bottom: $spacing/2;
+  font-size: 0.9rem;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
 }

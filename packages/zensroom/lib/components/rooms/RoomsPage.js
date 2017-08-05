@@ -6,55 +6,49 @@ import Button from 'react-bootstrap/lib/Button';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Rooms from '../../modules/rooms/collection';
+
+import RoomsPhotos from './RoomsPhotos';
+import RoomsMain from './RoomsMain';
+
 import BookingsNewForm from '../bookings/BookingsNewForm';
 import BookingsRoomUser from '../bookings/BookingsRoomUser';
-
-import ReviewsList from '../reviews/ReviewsList';
-import ReviewsNewForm from '../reviews/ReviewsNewForm';
 
 const RoomsPage = ({document: room, documentId, loading, currentUser}) => 
   
   <div className="rooms-page">
 
-    <div className="rooms-main">
+    {loading? 
 
-      {loading? <Components.Loading/> : 
-        <div>
-          {room.location ? <Components.Map coordinates={[{lat: room.location.coordinates[1], lng: room.location.coordinates[0]}]} center={{lat: room.location.coordinates[1], lng: room.location.coordinates[0]}} /> : null}
-          <Components.Card collection={Rooms} document={room} currentUser={currentUser} />
-        </div>
-      }
+      <Components.Loading/> : 
 
-    </div>
+      <div className="rooms-wrapper">
 
-    <div className="rooms-sidebar">
+        <Components.ModalTrigger dialogClassName="rooms-photos-modal" component={<div className="rooms-hero-image"><img src={room.photos[0][2].secure_url}/></div>}>
+          <RoomsPhotos room={room} />
+        </Components.ModalTrigger>
 
-      <Components.ModalTrigger label="Book" component={<Button className="room-book" bsStyle="primary">Book this room</Button>}>
-        <BookingsNewForm room={room}/>
-      </Components.ModalTrigger>
+        <div className="rooms-contents">
 
-      {currentUser ? 
-        <BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
-      : null}
+          <RoomsMain room={room} currentUser={currentUser}/>
 
-      <hr/>
+          <div className="rooms-sidebar">
 
-      <div className="rooms-reviews">
+            <BookingsNewForm room={room}/>
 
-        <ReviewsList terms={{view: 'roomReviews', roomId: documentId}} />
+            {/*currentUser ? 
+              <BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
+            : null*/}
 
-        {currentUser ? 
-          <div>
-            <h4><FormattedMessage id="reviews.leave_review"/></h4>
-            <ReviewsNewForm roomId={documentId}/>
           </div>
-        : null}
+
+        </div>
 
       </div>
 
-    </div>
+    }
 
   </div>
+
 
 RoomsPage.displayName = 'RoomsPage';
 

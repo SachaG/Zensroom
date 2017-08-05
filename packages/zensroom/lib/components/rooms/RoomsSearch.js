@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Components } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 
+import RoomsSearchForm from './RoomsSearchForm';
 import RoomsSearchResults from './RoomsSearchResults';
 import RoomsSearchFilters from './RoomsSearchFilters';
 
@@ -29,7 +30,7 @@ class RoomsSearch extends Component {
       lng: center.lng,
       sw: bounds.sw,
       ne: bounds.ne,
-    })
+    });
   }
 
   render() {
@@ -37,6 +38,7 @@ class RoomsSearch extends Component {
     // Note: terms will not have sw/ne until onMapChange triggers for the first time.
     return (
       <div>
+        <RoomsSearchForm />
         <RoomsSearchFilters />
         <RoomsSearchResults 
           onMapChange={this.onMapChange} 
