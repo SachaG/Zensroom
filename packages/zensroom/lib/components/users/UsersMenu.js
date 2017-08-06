@@ -47,4 +47,6 @@ UsersMenu.propsTypes = {
   client: PropTypes.object,
 };
 
+registerComponent('UsersMenu', UsersMenu, withApollo, withCurrentUser);
+
 export default withCurrentUser(withApollo(UsersMenu));

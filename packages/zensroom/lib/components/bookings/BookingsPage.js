@@ -1,5 +1,5 @@
 import React from 'react';
-import { Components, withCurrentUser, withDocument } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser, withDocument } from 'meteor/vulcan:core';
 import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 import Button from 'react-bootstrap/lib/Button';
@@ -49,6 +49,8 @@ const options = {
   collection: Bookings,
   fragmentName: 'BookingsItemFragment'
 };
+
+registerComponent('BookingsPage', BookingsPage, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser);
 
 const mapPropsFunction = props => ({...props, documentId: props.routeParams && props.routeParams.bookingId});
 

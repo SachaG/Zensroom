@@ -8,24 +8,28 @@ import Reviews from '../../modules/reviews/collection.js';
 const ReviewsNewForm = ({roomId, currentUser, router, flash}, {intl}) =>
 
   <div>
+    {Reviews.options.mutations.new.check(currentUser, { roomId }) ?
 
-    {Reviews.options.mutations.new.check(currentUser) ?
-      <Components.SmartForm 
-        collection={Reviews}
-        /*mutationFragment={getFragment('ReviewsNewFormItemFragment')}*/
-        prefilledProps={{ roomId }}
-        successCallback={review => {
-          flash(intl.formatMessage({id: 'reviews.created'}), 'success');
-        }}
-      /> :
+      <div>
+        <h5><FormattedMessage id="reviews.leave_review"/></h5>
+        <Components.SmartForm 
+          collection={Reviews}
+          /*mutationFragment={getFragment('ReviewsNewFormItemFragment')}*/
+          prefilledProps={{ roomId }}
+          successCallback={review => {
+            flash(intl.formatMessage({id: 'reviews.created'}), 'success');
+          }}
+        /> 
+      </div>:
       null
     }
-
   </div>
 
 ReviewsNewForm.contextTypes = {
   intl: intlShape
 };
+
+registerComponent('ReviewsNewForm', ReviewsNewForm, withMessages, withCurrentUser);
 
 export default compose(
   withMessages,

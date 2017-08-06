@@ -11,4 +11,6 @@ const RoomsNewPage = () =>
     <RoomsNewForm />
   </div>
 
+registerComponent('RoomsNewPage', RoomsNewPage);
+
 export default RoomsNewPage;

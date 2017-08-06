@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Components, withCurrentUser, withDocument } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser, withDocument } from 'meteor/vulcan:core';
 import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
@@ -48,5 +48,7 @@ class RoomsPhotos extends PureComponent {
 }
 
 RoomsPhotos.displayName = 'RoomsPhotos';
+
+registerComponent('RoomsPhotos', RoomsPhotos);
 
 export default RoomsPhotos;

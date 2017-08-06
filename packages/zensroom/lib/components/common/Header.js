@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Components, withCurrentUser, getSetting } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser, getSetting } from 'meteor/vulcan:core';
 import { Link } from 'react-router';
 import Button from 'react-bootstrap/lib/Button';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
@@ -29,10 +29,12 @@ const Header = ({ currentUser }, context) =>
     </div>
   </header>
 
-Header.displayName = "Header";
+Header.displayName = 'Header';
 
 Header.propTypes = {
   currentUser: PropTypes.object,
 };
+
+registerComponent('Header', Header, withCurrentUser);
 
 export default withCurrentUser(Header);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Components } from 'meteor/vulcan:core';
+import { Components, registerComponent } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import { Checkbox } from 'formsy-react-components';
 import { amenities, spaces } from '../../modules/data';
@@ -74,5 +74,7 @@ class RoomsSearchFilters extends Component {
     )
   }
 }
+
+registerComponent('RoomsSearchFilters', RoomsSearchFilters, withRouter);
 
 export default withRouter(RoomsSearchFilters);

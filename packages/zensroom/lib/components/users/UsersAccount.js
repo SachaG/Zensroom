@@ -49,6 +49,8 @@ UsersAccount.displayName = 'UsersAccount';
 
 const mapPropsFunction = props => ({...props, terms: props.routeParams && props.routeParams.slug ? {slug: props.routeParams.slug} : {documentId: props.currentUser._id}});
 
+registerComponent('UsersAccount', UsersAccount, mapProps(mapPropsFunction), withMessages, withCurrentUser);
+
 export default compose(
   mapProps(mapPropsFunction),
   withMessages,

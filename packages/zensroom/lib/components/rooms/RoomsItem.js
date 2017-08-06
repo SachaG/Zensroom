@@ -23,4 +23,6 @@ const RoomsItem = ({room, currentUser}) =>
 
   </div>
 
+registerComponent('RoomsItem', RoomsItem);
+
 export default RoomsItem;

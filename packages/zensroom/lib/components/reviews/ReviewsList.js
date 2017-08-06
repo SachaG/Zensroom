@@ -1,5 +1,5 @@
 import React from 'react';
-import { Components, withList, withCurrentUser, Loading } from 'meteor/vulcan:core';
+import { Components, registerComponent, withList, withCurrentUser, Loading } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Reviews from '../../modules/reviews/collection';
@@ -18,7 +18,7 @@ const ReviewsList = ({results = [], currentUser, loading, loadMore, count, total
 
         <h3><FormattedMessage id="reviews.reviews"/></h3>
         
-        {results.map(review => <ReviewsItem key={review._id} review={review} currentUser={currentUser} />)}
+        {results.map(review => <Components.ReviewsItem key={review._id} review={review} currentUser={currentUser} />)}
         
         {totalCount > results.length ?
           <a href="#" onClick={e => {e.preventDefault(); loadMore();}}>Load More ({count}/{totalCount})</a>
@@ -32,5 +32,7 @@ const ReviewsList = ({results = [], currentUser, loading, loadMore, count, total
 const options = {
   collection: Reviews
 };
+
+registerComponent('ReviewsList', ReviewsList, [withList, options], withCurrentUser);
 
 export default withList(options)(withCurrentUser(ReviewsList));

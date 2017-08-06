@@ -1,4 +1,5 @@
 import React from 'react';
+import { registerComponent } from 'meteor/vulcan:core';
 
 const ReviewsItem = ({ review }) => 
   
@@ -7,5 +8,7 @@ const ReviewsItem = ({ review }) =>
     {review.comment}
 
   </div>
+
+registerComponent('ReviewsItem', ReviewsItem);
 
 export default ReviewsItem;

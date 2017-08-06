@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Components } from 'meteor/vulcan:core';
+import { Components, registerComponent } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 
 import RoomsSearchForm from './RoomsSearchForm';
@@ -58,5 +58,7 @@ class RoomsSearch extends Component {
     )
   }
 }
+
+registerComponent('RoomsSearch', RoomsSearch, withRouter);
 
 export default withRouter(RoomsSearch);

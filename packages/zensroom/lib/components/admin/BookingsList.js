@@ -21,4 +21,6 @@ const BookingsList = () =>
   
   </div>
 
+registerComponent('BookingsList', BookingsList);
+
 export default BookingsList;

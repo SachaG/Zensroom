@@ -29,6 +29,7 @@ addStrings('en', {
   'rooms.search': 'Search',
   'rooms.per_night': '/night',
   'rooms.filters': 'Filters',
+  'rooms.with_fireplace': 'With Fireplace',
   
   'reviews.reviews': 'Reviews',
   'reviews.created': 'Review created',

@@ -3,18 +3,6 @@ import AdminUsersRooms from '../components/admin/AdminUsersRooms';
 import AdminUsersBookings from '../components/admin/AdminUsersBookings';
 import AdminUsersReviews from '../components/admin/AdminUsersReviews';
 
-extendFragment('UsersAdmin', `
-  rooms(limit: 5){
-    ...RoomsDefaultFragment
-  }
-  bookings(limit: 5){
-    ...BookingsDefaultFragment
-  }
-  reviews(limit: 5){
-    ...ReviewsDefaultFragment
-  }
-`);
-
 addAdminColumn({
   name: 'rooms',
   order: 50,

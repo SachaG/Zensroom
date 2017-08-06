@@ -1,4 +1,4 @@
-import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
+import { Components, replaceComponent, withCurrentUser } from 'meteor/vulcan:core';
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Helmet from 'react-helmet';
@@ -29,5 +29,7 @@ const Layout = ({currentUser, children, currentRoute}) =>
     <Footer />
   
   </div>
+
+replaceComponent('Layout', Layout);
 
 export default withCurrentUser(Layout);

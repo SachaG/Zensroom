@@ -7,6 +7,8 @@ const Footer = props =>
   </footer>
 
 
-Footer.displayName = "Footer";
+Footer.displayName = 'Footer';
+
+registerComponent('Footer', Footer);
 
 export default Footer;

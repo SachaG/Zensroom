@@ -21,4 +21,6 @@ const RoomsList = () =>
   
   </div>
 
+registerComponent('RoomsList', RoomsList);
+
 export default RoomsList;

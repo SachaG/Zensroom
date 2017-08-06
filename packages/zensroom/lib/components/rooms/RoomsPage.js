@@ -1,5 +1,5 @@
 import React from 'react';
-import { Components, withCurrentUser, withDocument } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser, withDocument } from 'meteor/vulcan:core';
 import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 import Button from 'react-bootstrap/lib/Button';
@@ -57,6 +57,8 @@ const options = {
 };
 
 const mapPropsFunction = props => ({...props, documentId: props.routeParams && props.routeParams.roomId});
+
+registerComponent('RoomsPage', RoomsPage, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser);
 
 export default compose(
   mapProps(mapPropsFunction),

@@ -1,4 +1,4 @@
-import { Components, withMessages } from 'meteor/vulcan:core';
+import { Components, registerComponent, withMessages } from 'meteor/vulcan:core';
 import React from 'react';
 
 import Flash from './Flash';
@@ -14,5 +14,7 @@ const FlashMessages = ({messages, clear, markAsSeen}) => {
 }
 
 FlashMessages.displayName = "FlashMessages";
+
+registerComponent('FlashMessages', FlashMessages, withMessages);
 
 export default withMessages(FlashMessages);

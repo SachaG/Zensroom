@@ -1,5 +1,6 @@
 import React from 'react';
-import { Components, withList, withCurrentUser } from 'meteor/vulcan:core';
+import { Components, registerComponent, withList, withCurrentUser } from 'meteor/vulcan:core';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Rooms from '../../modules/rooms/collection';
 import RoomsItem from './RoomsItem';
@@ -28,5 +29,7 @@ const RoomsList = ({results = [], currentUser, loading, loadMore, count, totalCo
 const options = {
   collection: Rooms
 };
+
+registerComponent('RoomsList', RoomsList, [withList, options], withCurrentUser);
 
 export default withList(options)(withCurrentUser(RoomsList));

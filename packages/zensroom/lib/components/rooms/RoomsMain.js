@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
-import { Components } from 'meteor/vulcan:core';
+import { Components, registerComponent } from 'meteor/vulcan:core';
 
 import Rooms from '../../modules/rooms/collection';
 
@@ -28,9 +28,11 @@ const RoomsMain = ({ room, currentUser }) =>
     </div>
 
     <div className="rooms-section">
-      <RoomsReviews room={room} currentUser={currentUser}/>
+      <Components.RoomsReviews room={room} currentUser={currentUser}/>
     </div>
 
   </div>
+
+registerComponent('RoomsMain', RoomsMain);
 
 export default RoomsMain;

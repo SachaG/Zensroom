@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { registerComponent } from 'meteor/vulcan:core';
 
 const AdminUsersRooms = ({ document: user }) => 
   <ul>
@@ -7,5 +8,7 @@ const AdminUsersRooms = ({ document: user }) =>
       <li key={room._id}><Link to={`/room/${room._id}`}>{room.name}</Link></li>
     )}
   </ul>
+
+registerComponent('AdminUsersRooms', AdminUsersRooms);
 
 export default AdminUsersRooms;

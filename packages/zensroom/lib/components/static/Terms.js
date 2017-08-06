@@ -1,5 +1,5 @@
 import React from 'react';
-import { Components } from 'meteor/vulcan:core';
+import { Components, registerComponent } from 'meteor/vulcan:core';
 
 const Terms = () => 
   
@@ -9,5 +9,6 @@ const Terms = () =>
 
   </div>
 
+registerComponent('Terms', Terms);
 
 export default Terms;

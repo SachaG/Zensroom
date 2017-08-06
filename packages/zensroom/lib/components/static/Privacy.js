@@ -1,5 +1,5 @@
 import React from 'react';
-import { Components } from 'meteor/vulcan:core';
+import { Components, registerComponent } from 'meteor/vulcan:core';
 
 const Privacy = () => 
   
@@ -9,5 +9,6 @@ const Privacy = () =>
 
   </div>
 
+registerComponent('Privacy', Privacy);
 
 export default Privacy;

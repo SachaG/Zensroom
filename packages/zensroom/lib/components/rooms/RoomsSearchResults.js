@@ -1,5 +1,5 @@
 import React from 'react';
-import { Components, withList } from 'meteor/vulcan:core';
+import { Components, registerComponent, withList } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Rooms from '../../modules/rooms/collection';
@@ -41,5 +41,7 @@ const options = {
   collection: Rooms,
   enableReducer: false
 }
+
+registerComponent('RoomsSearchResults', RoomsSearchResults, [withList, options]);
 
 export default withList(options)(RoomsSearchResults);

@@ -18,4 +18,6 @@ const UsersAccountMenu = ({state}) =>
 
 UsersAccountMenu.displayName = "UsersAccountMenu";
 
+registerComponent('UsersAccountMenu', UsersAccountMenu);
+
 export default UsersAccountMenu;

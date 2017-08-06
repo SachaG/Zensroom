@@ -36,4 +36,6 @@ Flash.propTypes = {
   message: PropTypes.object.isRequired
 }
 
+registerComponent('Flash', Flash);
+
 export default Flash;

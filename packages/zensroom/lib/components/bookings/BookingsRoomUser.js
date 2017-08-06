@@ -27,6 +27,8 @@ const options = {
   collection: Bookings
 }
 
+registerComponent('BookingsRoomUser', BookingsRoomUser, [withList, options]);
+
 export default compose(
   withList(options),
 )(BookingsRoomUser);
