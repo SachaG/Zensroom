@@ -5,9 +5,8 @@ import { Link } from 'react-router';
 import Button from 'react-bootstrap/lib/Button';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 
-import UsersMenu from '../users/UsersMenu';
-import UsersAccountMenu from '../users/UsersAccountMenu';
-import RoomsNewForm from '../rooms/RoomsNewForm';
+// import UsersMenu from '../users/UsersMenu';
+// import UsersAccountMenu from '../users/UsersAccountMenu';
 
 const Header = ({ currentUser }, context) => 
   <header className="header">
@@ -23,7 +22,7 @@ const Header = ({ currentUser }, context) =>
       <Link className="nav-item" to="/about"><FormattedMessage id="nav.about"/></Link>
 
       <div className="nav-item nav-user">
-        {currentUser ? <UsersMenu/> : <UsersAccountMenu/>}
+        {currentUser ? <Components.UsersMenu/> : <Components.UsersAccountMenu/>}
       </div>
 
     </div>

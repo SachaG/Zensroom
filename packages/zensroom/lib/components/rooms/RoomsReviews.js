@@ -2,8 +2,8 @@ import React from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 
-import ReviewsList from '../reviews/ReviewsList';
-import ReviewsNewForm from '../reviews/ReviewsNewForm';
+// import ReviewsList from '../reviews/ReviewsList';
+// import ReviewsNewForm from '../reviews/ReviewsNewForm';
 
 const RoomsReviews = ({ room, currentUser }) => 
   <div className="rooms-reviews">

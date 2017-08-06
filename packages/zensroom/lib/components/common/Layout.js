@@ -3,9 +3,9 @@ import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Helmet from 'react-helmet';
 
-import Header from './Header';
-import FlashMessages from './FlashMessages';
-import Footer from './Footer';
+// import Header from './Header';
+// import FlashMessages from './FlashMessages';
+// import Footer from './Footer';
 
 const Layout = ({currentUser, children, currentRoute}) =>
 
@@ -16,17 +16,17 @@ const Layout = ({currentUser, children, currentRoute}) =>
       <link name="font-awesome" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </Helmet>
 
-    <Header />
+    <Components.Header />
   
     <div className="main">
 
-      <FlashMessages />
+      <Components.FlashMessages />
 
       {React.cloneElement(children, { currentUser })}
 
     </div>
   
-    <Footer />
+    <Components.Footer />
   
   </div>
 

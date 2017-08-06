@@ -7,11 +7,11 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Rooms from '../../modules/rooms/collection';
 
-import RoomsPhotos from './RoomsPhotos';
-import RoomsMain from './RoomsMain';
+// import RoomsPhotos from './RoomsPhotos';
+// import RoomsMain from './RoomsMain';
 
-import BookingsNewForm from '../bookings/BookingsNewForm';
-import BookingsRoomUser from '../bookings/BookingsRoomUser';
+// import BookingsNewForm from '../bookings/BookingsNewForm';
+// import BookingsRoomUser from '../bookings/BookingsRoomUser';
 
 const RoomsPage = ({document: room, documentId, loading, currentUser}) => 
   
@@ -24,19 +24,19 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
       <div className="rooms-wrapper">
 
         <Components.ModalTrigger dialogClassName="rooms-photos-modal" component={<div className="rooms-hero-image"><img src={room.photos[0][2].secure_url}/></div>}>
-          <RoomsPhotos room={room} />
+          <Components.RoomsPhotos room={room} />
         </Components.ModalTrigger>
 
         <div className="rooms-contents">
 
-          <RoomsMain room={room} currentUser={currentUser}/>
+          <Components.RoomsMain room={room} currentUser={currentUser}/>
 
           <div className="rooms-sidebar">
 
-            <BookingsNewForm room={room}/>
+            <Components.BookingsNewForm room={room}/>
 
             {/*currentUser ? 
-              <BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
+              <Components.BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
             : null*/}
 
           </div>

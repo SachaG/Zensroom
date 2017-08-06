@@ -4,7 +4,7 @@ import { Components, registerComponent } from 'meteor/vulcan:core';
 
 import Rooms from '../../modules/rooms/collection';
 
-import RoomsReviews from './RoomsReviews';
+// import RoomsReviews from './RoomsReviews';
 
 const RoomsMain = ({ room, currentUser }) => 
 
