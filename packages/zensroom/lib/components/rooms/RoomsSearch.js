@@ -1,3 +1,9 @@
+/*
+
+Room search
+
+*/
+
 import React, { Component } from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';

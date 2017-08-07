@@ -1,3 +1,11 @@
+/*
+
+Check if a user can perform the "new" mutation
+
+http://docs.vulcanjs.org/mutations.html#New-Mutation
+
+*/
+
 import moment from 'moment';
 import Users from 'meteor/vulcan:users';
 

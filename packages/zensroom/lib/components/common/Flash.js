@@ -1,41 +1,47 @@
-import { registerComponent } from 'meteor/vulcan:core';
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import Alert from 'react-bootstrap/lib/Alert'
+// /*
 
-class Flash extends PureComponent {
+// Single Flash message.
 
-  constructor() {
-    super();
-    this.dismissFlash = this.dismissFlash.bind(this);
-  }
+// */
 
-  componentDidMount() {
-    this.props.markAsSeen(this.props.message._id);
-  }
+// import { registerComponent } from 'meteor/vulcan:core';
+// import React, { PureComponent } from 'react';
+// import PropTypes from 'prop-types';
+// import Alert from 'react-bootstrap/lib/Alert'
 
-  dismissFlash(e) {
-    e.preventDefault();
-    this.props.clear(this.props.message._id);
-  }
+// class Flash extends PureComponent {
 
-  render() {
+//   constructor() {
+//     super();
+//     this.dismissFlash = this.dismissFlash.bind(this);
+//   }
 
-    let flashType = this.props.message.flashType;
-    flashType = flashType === "error" ? "danger" : flashType; // if flashType is "error", use "danger" instead
+//   componentDidMount() {
+//     this.props.markAsSeen(this.props.message._id);
+//   }
 
-    return (
-      <Alert className="flash-message" bsStyle={flashType} onDismiss={this.dismissFlash}>
-        {this.props.message.content}
-      </Alert>
-    )
-  }
-}
+//   dismissFlash(e) {
+//     e.preventDefault();
+//     this.props.clear(this.props.message._id);
+//   }
 
-Flash.propTypes = {
-  message: PropTypes.object.isRequired
-}
+//   render() {
 
-registerComponent('Flash', Flash);
+//     let flashType = this.props.message.flashType;
+//     flashType = flashType === "error" ? "danger" : flashType; // if flashType is "error", use "danger" instead
 
-export default Flash;
+//     return (
+//       <Alert className="flash-message" bsStyle={flashType} onDismiss={this.dismissFlash}>
+//         {this.props.message.content}
+//       </Alert>
+//     )
+//   }
+// }
+
+// Flash.propTypes = {
+//   message: PropTypes.object.isRequired
+// }
+
+// registerComponent('Flash', Flash);
+
+// export default Flash;

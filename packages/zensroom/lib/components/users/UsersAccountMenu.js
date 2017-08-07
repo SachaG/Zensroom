@@ -1,3 +1,9 @@
+/*
+
+User menu (when not logged in)
+
+*/
+
 import { Components, registerComponent } from 'meteor/vulcan:core';
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'meteor/vulcan:i18n';

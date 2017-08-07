@@ -1,3 +1,11 @@
+/*
+
+Resolver to get the list of unavailable dates for a given room
+
+http://docs.vulcanjs.org/data-loading.html#Custom-Queries
+
+*/
+
 import { addGraphQLResolvers, addGraphQLQuery } from 'meteor/vulcan:core';
 import moment from 'moment';
 

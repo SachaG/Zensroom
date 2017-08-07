@@ -1,3 +1,9 @@
+/*
+
+Main column of the RoomsPage component
+
+*/
+
 import React from 'react';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 import { Components, registerComponent } from 'meteor/vulcan:core';

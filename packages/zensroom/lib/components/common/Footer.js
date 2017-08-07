@@ -1,3 +1,9 @@
+/*
+
+Footer
+
+*/
+
 import { registerComponent } from 'meteor/vulcan:core';
 import React from 'react';
 

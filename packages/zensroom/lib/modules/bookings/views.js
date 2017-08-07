@@ -1,3 +1,11 @@
+/*
+
+Bookings views
+
+http://docs.vulcanjs.org/terms-parameters.html#Using-Views
+
+*/
+
 import Bookings from './collection.js';
 
 Bookings.addView('userBookings', terms => ({

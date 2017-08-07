@@ -1,3 +1,11 @@
+/*
+
+Form for inserting a new review
+
+http://docs.vulcanjs.org/forms.html
+
+*/
+
 import React from 'react';
 import { Components, registerComponent, withCurrentUser, getFragment, withMessages } from 'meteor/vulcan:core';
 import compose from 'recompose/compose';

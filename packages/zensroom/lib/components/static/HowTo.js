@@ -1,3 +1,9 @@
+/*
+
+How To page.
+
+*/
+
 import React from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
 

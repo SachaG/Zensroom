@@ -1,3 +1,11 @@
+/*
+
+Reviews schema
+
+http://docs.vulcanjs.org/schemas.html#Schemas
+
+*/
+
 const schema = {
   // default properties
 

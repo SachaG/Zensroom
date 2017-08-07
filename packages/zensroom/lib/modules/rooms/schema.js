@@ -1,3 +1,11 @@
+/*
+
+Rooms schema
+
+http://docs.vulcanjs.org/schemas.html#Schemas
+
+*/
+
 import FormsUpload from 'meteor/vulcan:forms-upload';
 import { amenities, spaces } from '../data';
 

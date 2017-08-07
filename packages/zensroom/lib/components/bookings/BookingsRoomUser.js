@@ -1,3 +1,15 @@
+/*
+
+Show a user's bookings for a given room. Wrapped with withList.
+
+Example:
+
+<Components.BookingsRoomUser terms={{view: 'userBookings', userId: currentUser._id, roomId: documentId}}/>
+
+http://docs.vulcanjs.org/data-loading.html#List-Resolver
+
+*/
+
 import React from 'react';
 import { Components, registerComponent, withList, withCurrentUser } from 'meteor/vulcan:core';
 import compose from 'recompose/compose';

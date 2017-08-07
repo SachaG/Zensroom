@@ -1,3 +1,11 @@
+/*
+
+Custom fields
+
+http://docs.vulcanjs.org/schemas.html#Custom-Fields
+
+*/
+
 import Users from 'meteor/vulcan:users';
 
 Users.addField([

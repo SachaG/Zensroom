@@ -1,3 +1,9 @@
+/*
+
+Static data
+
+*/
+
 export const amenities = [
   { value: 'essentials', label: 'Essentials (towels, bed sheets, etc.)' },
   { value: 'wifi', label: 'Wifi' },

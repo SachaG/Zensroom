@@ -1,3 +1,11 @@
+/*
+
+Server callbacks
+
+See: http://docs.vulcanjs.org/callbacks.html
+
+*/
+
 import { addCallback } from 'meteor/vulcan:core';
 import { geocode } from 'meteor/vulcan:maps';
 

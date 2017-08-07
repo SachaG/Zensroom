@@ -1,3 +1,9 @@
+/*
+
+Page for inserting a new room
+
+*/
+
 import React from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';

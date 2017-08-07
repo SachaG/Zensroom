@@ -1,19 +1,71 @@
-<img src="https://d3vv6lp55qjaqc.cloudfront.net/items/2B3C1z2V2y421p2I0P42/vulcan-logo-noborder.png" width="200">
+# ZensRoom
 
-# Vulcan (formerly Telescope)
+This is an open-source AirBnB-type app built using [VulcanJS](http://vulcanjs.org) and developed as prototype for [Zens](http://www.zens.tokyo/), a Tokyo-based company.
 
-[Version 1.6.0](https://github.com/TelescopeJS/Telescope/releases)
+## Install
 
-This is the Apollo/GraphQL version of Telescope, now known as [Vulcan](http://vulcanjs.org). [You can find the documentation here](http://docs.vulcanjs.org/).
+1. Clone this repo
+2. Follow the [VulcanJS install instructions](http://docs.vulcanjs.org/#Install).
+3. Run with `npm start` (or the equivalent `meteor --settings settings.json`).
 
-### Links
+## Settings
 
-- [Vulcan Homepage](http://vulcanjs.org)
-- [Documentation](http://docs.vulcanjs.org)
-- [Old Telescope Homepage](http://telescopeapp.org)
+This project expects a few specific API keys, as defined in your project's `settings.json` (in addition to any other generic VulcanJS settings you might already have):
 
-### Other Versions
+```
+{
 
-You can find the older, non-Apollo version of Telescope Nova on the [nova-classic](https://github.com/TelescopeJS/Telescope/tree/nova-classic) branch. 
+  "public": {
 
-You can find the even older, non-React version of Telescope on the [legacy](https://github.com/TelescopeJS/Telescope/tree/legacy) branch.
+    "cloudinary": {
+      "cloudName": "123foo"
+    },
+    
+    "googlemaps": {
+      "apiKey": "123foo"
+    },
+
+    "stripe": {
+      "publishableKeyTest": "123foo"
+    },
+  },
+
+  "stripe": {
+    "secretKeyTest": "123foo"
+  }
+  
+}
+```
+
+## Dependencies
+
+The ZensRoom app depends on the following VulcanJS packages:
+
+- `vulcan:core`
+- `vulcan:forms`
+- `vulcan:forms-upload`
+- `vulcan:accounts`
+- `vulcan:payments`
+- `vulcan:maps`
+- `vulcan:admin`
+
+See also `package.json` for a list of NPM dependencies. 
+
+## Architecture
+
+The code for the app is available in `/packages/zensroom`, split into the following directories:
+
+- `client`: contains the client entry point and any client-specific code.
+- `server`: contains the server entry point and any server-specific code.
+- `components`: contains all React components.
+- `containers`: contains all React containers.
+- `modules`: contains all other JavaScript modules.
+
+## Collections (Models)
+
+The app uses the following collections:
+
+- `Rooms`
+- `Bookings`
+- `Reviews`
+- `Users`

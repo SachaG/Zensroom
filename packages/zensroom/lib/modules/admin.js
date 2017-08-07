@@ -1,3 +1,11 @@
+/*
+
+Extend the users admin dashboard
+
+http://docs.vulcanjs.org/admin.html
+
+*/
+
 import { extendFragment, addAdminColumn } from 'meteor/vulcan:core';
 import AdminUsersRooms from '../components/admin/AdminUsersRooms';
 import AdminUsersBookings from '../components/admin/AdminUsersBookings';

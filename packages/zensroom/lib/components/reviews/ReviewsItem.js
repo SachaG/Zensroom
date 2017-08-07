@@ -1,3 +1,9 @@
+/*
+
+Review list item
+
+*/
+
 import React from 'react';
 import { registerComponent } from 'meteor/vulcan:core';
 

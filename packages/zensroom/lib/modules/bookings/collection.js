@@ -1,9 +1,16 @@
+/*
+
+Bookings collection
+
+http://docs.vulcanjs.org/schemas.html
+
+*/
+
 import { createCollection, getDefaultResolvers, getDefaultMutations } from 'meteor/vulcan:core';
 import Users from 'meteor/vulcan:users';
 import schema from './schema.js';
 import './fragments.js';
 import './permissions.js';
-import './parameters.js';
 import './resolvers.js';
 
 const Bookings = createCollection({

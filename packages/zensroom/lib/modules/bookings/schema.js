@@ -1,3 +1,11 @@
+/*
+
+The Bookings schema
+
+http://docs.vulcanjs.org/schemas.html#Schemas
+
+*/
+
 import moment from 'moment';
 
 const schema = {

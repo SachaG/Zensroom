@@ -1,3 +1,11 @@
+/*
+
+Rooms collection
+
+http://docs.vulcanjs.org/schemas.html
+
+*/
+
 import { createCollection, getDefaultResolvers, getDefaultMutations } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';

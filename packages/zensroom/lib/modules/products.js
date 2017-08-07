@@ -1,3 +1,11 @@
+/*
+
+Products
+
+http://docs.vulcanjs.org/payments.html
+
+*/
+
 import { addProduct } from 'meteor/vulcan:payments';
 import moment from 'moment';
 import Rooms from './rooms/collection';

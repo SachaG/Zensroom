@@ -1,3 +1,9 @@
+/*
+
+Modules entry point
+
+*/
+
 import './fragments';
 import './icons';
 import './custom_fields';

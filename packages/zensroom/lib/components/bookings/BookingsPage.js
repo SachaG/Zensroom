@@ -1,3 +1,11 @@
+/*
+
+Single booking page, wrapped with withDocument
+
+http://docs.vulcanjs.org/data-loading.html#Single-Resolver
+
+*/
+
 import React from 'react';
 import { Components, registerComponent, withCurrentUser, withDocument } from 'meteor/vulcan:core';
 import mapProps from 'recompose/mapProps';

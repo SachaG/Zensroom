@@ -1,3 +1,9 @@
+/*
+
+Header
+
+*/
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Components, registerComponent, withCurrentUser, getSetting } from 'meteor/vulcan:core';

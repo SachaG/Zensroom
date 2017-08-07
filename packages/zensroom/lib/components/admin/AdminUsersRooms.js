@@ -1,3 +1,11 @@
+/*
+
+Show a user's rooms in the admin users dashboard
+
+http://docs.vulcanjs.org/admin.html
+
+*/
+
 import React from 'react';
 import { Link } from 'react-router';
 import { registerComponent } from 'meteor/vulcan:core';

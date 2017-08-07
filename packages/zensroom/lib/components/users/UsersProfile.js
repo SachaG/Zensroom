@@ -1,3 +1,9 @@
+/*
+
+User profile page
+
+*/
+
 import { Components, registerComponent, withDocument, withCurrentUser } from 'meteor/vulcan:core';
 import React from 'react';
 import { FormattedMessage } from 'meteor/vulcan:i18n';

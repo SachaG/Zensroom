@@ -1,3 +1,11 @@
+/*
+
+Form for inserting a new booking, wrapped with withNew HoC.
+
+http://docs.vulcanjs.org/mutations.html#Higher-Order-Components
+
+*/
+
 import React, { Component } from 'react';
 import { Components, registerComponent, withCurrentUser, getFragment, withMessages, withNew } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';

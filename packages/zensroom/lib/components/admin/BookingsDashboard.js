@@ -1,3 +1,11 @@
+/*
+
+Show a list of all bookings
+
+http://docs.vulcanjs.org/core-components.html#Datatable
+
+*/
+
 import React from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
 import compose from 'recompose/compose';
@@ -5,12 +13,9 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Bookings from '../../modules/bookings/collection.js';
 
-const BookingStartAt = ({ document: booking }) => <div>{booking.startAt}</div>
-const BookingEndAt = ({ document: booking }) => <div>{booking.endAt}</div>
+const BookingsDashboard = () =>
 
-const BookingsList = () =>
-
-  <div className="bookings-list">
+  <div className="bookings-dashboard">
     
     <h3><FormattedMessage id='bookings.bookings'/></h3>
 
@@ -21,6 +26,6 @@ const BookingsList = () =>
   
   </div>
 
-registerComponent('BookingsList', BookingsList);
+registerComponent('BookingsDashboard', BookingsDashboard);
 
-export default BookingsList;
+export default BookingsDashboard;

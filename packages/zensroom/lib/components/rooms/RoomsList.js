@@ -1,3 +1,11 @@
+/*
+
+Room list, wrapped with withList
+
+http://docs.vulcanjs.org/data-loading.html#List-Resolver
+
+*/
+
 import React from 'react';
 import { Components, registerComponent, withList, withCurrentUser } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';

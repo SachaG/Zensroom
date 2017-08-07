@@ -1,26 +1,12 @@
-import { registerFragment, extendFragment } from 'meteor/vulcan:core';
+/*
 
-registerFragment(`
-  fragment BookingsItemFragment on Booking {
-    __typename
-    _id
-    createdAt
-    userId
-    user {
-      _id
-      displayName
-    }
-    roomId
-    room {
-      pricePerNight
-      name
-    }
-    startAt
-    endAt
-    numberOfGuests
-    paidAt    
-  }  
-`);
+Fragments on the Users collection
+
+http://docs.vulcanjs.org/fragments.html
+
+*/
+
+import { extendFragment } from 'meteor/vulcan:core';
 
 extendFragment('UsersAdmin', `
   rooms(limit: 5){

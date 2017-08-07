@@ -1,3 +1,11 @@
+/*
+
+Rooms parameters
+
+http://docs.vulcanjs.org/terms-parameters.html
+
+*/
+
 import { addCallback } from 'meteor/vulcan:core';
 import moment from 'moment';
 

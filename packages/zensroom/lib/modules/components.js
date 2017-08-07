@@ -1,15 +1,22 @@
+/*
+
+Components
+
+http://docs.vulcanjs.org/theming.html
+
+*/
+
 import '../components/admin/AdminUsersBookings';
 import '../components/admin/AdminUsersReviews';
 import '../components/admin/AdminUsersRooms';
-import '../components/admin/BookingsList';
-import '../components/admin/RoomsList';
+import '../components/admin/BookingsDashboard';
+import '../components/admin/RoomsDashboard';
+import '../components/admin/ReviewsDashboard';
 
 import '../components/bookings/BookingsNewForm';
 import '../components/bookings/BookingsPage';
 import '../components/bookings/BookingsRoomUser';
 
-import '../components/common/Flash';
-import '../components/common/FlashMessages';
 import '../components/common/Footer';
 import '../components/common/Header';
 import '../components/common/Home';
@@ -19,7 +26,6 @@ import '../components/reviews/ReviewsItem';
 import '../components/reviews/ReviewsList';
 import '../components/reviews/ReviewsNewForm';
 
-import '../components/rooms/RoomsEditForm';
 import '../components/rooms/RoomsItem';
 import '../components/rooms/RoomsList';
 import '../components/rooms/RoomsMain';

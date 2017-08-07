@@ -1,3 +1,9 @@
+/*
+
+Display a room's photo
+
+*/
+
 import React, { PureComponent } from 'react';
 import { Components, registerComponent, withCurrentUser, withDocument } from 'meteor/vulcan:core';
 import mapProps from 'recompose/mapProps';

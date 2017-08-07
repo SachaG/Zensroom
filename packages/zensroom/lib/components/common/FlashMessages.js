@@ -1,20 +1,26 @@
-import { Components, registerComponent, withMessages } from 'meteor/vulcan:core';
-import React from 'react';
+// /*
 
-// import Flash from './Flash';
+// Show all flash messages
 
-const FlashMessages = ({messages, clear, markAsSeen}) => {
-  return (
-    <div className="flash-messages">
-      {messages
-        .filter(message => message.show)
-        .map(message => <Components.Flash key={message._id} message={message} clear={clear} markAsSeen={markAsSeen} />)}
-    </div>
-  );
-}
+// */
 
-FlashMessages.displayName = "FlashMessages";
+// import { Components, registerComponent, withMessages } from 'meteor/vulcan:core';
+// import React from 'react';
 
-registerComponent('FlashMessages', FlashMessages, withMessages);
+// // import Flash from './Flash';
 
-export default withMessages(FlashMessages);
+// const FlashMessages = ({messages, clear, markAsSeen}) => {
+//   return (
+//     <div className="flash-messages">
+//       {messages
+//         .filter(message => message.show)
+//         .map(message => <Components.Flash key={message._id} message={message} clear={clear} markAsSeen={markAsSeen} />)}
+//     </div>
+//   );
+// }
+
+// FlashMessages.displayName = "FlashMessages";
+
+// registerComponent('FlashMessages', FlashMessages, withMessages);
+
+// export default withMessages(FlashMessages);

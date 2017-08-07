@@ -1,3 +1,9 @@
+/*
+
+User menu (when logged in)
+
+*/
+
 import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
 import Users from 'meteor/vulcan:users';
 import React from 'react';

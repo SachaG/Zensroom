@@ -1,3 +1,9 @@
+/*
+
+Edit user account page
+
+*/
+
 import { Components, registerComponent, withCurrentUser, withMessages } from 'meteor/vulcan:core';
 import React from 'react';
 import PropTypes from 'prop-types';

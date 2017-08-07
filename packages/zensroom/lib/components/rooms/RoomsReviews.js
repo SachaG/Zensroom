@@ -1,3 +1,9 @@
+/*
+
+Show a room's reviews
+
+*/
+
 import React from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
