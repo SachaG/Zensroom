@@ -59,14 +59,18 @@ class BookingsNewForm extends Component {
   }
 
   submitForm(data) {
-    console.log('submitForm')
-    console.log(data)
-    this.props.newMutation({document: {
-      startAt: this.state.from.toDate(),
-      endAt: this.state.to.toDate(),
-      numberOfGuests: this.state.numberOfGuests,
-      roomId: this.props.room._id
-    }}).then(result => this.success(result.data.BookingsNew));
+    if (!this.props.currentUser) {
+      this.props.flash(this.context.intl.formatMessage({id: 'users.please_log_in'}), 'error');
+    } else {
+      console.log('submitForm')
+      console.log(data)
+      this.props.newMutation({document: {
+        startAt: this.state.from.toDate(),
+        endAt: this.state.to.toDate(),
+        numberOfGuests: this.state.numberOfGuests,
+        roomId: this.props.room._id
+      }}).then(result => this.success(result.data.BookingsNew));
+    }
   }
 
   isAvailable(mDate) {
@@ -81,47 +85,44 @@ class BookingsNewForm extends Component {
     return (
     <Form onSubmit={this.submitForm}>
 
-      {Bookings.options.mutations.new.check(this.props.currentUser) ?
-        <div className="bookings-form">
+      <div className="bookings-form">
 
-          <h3>Total Price: ${this.props.room.pricePerNight * this.state.numberOfGuests * numberOfNights}</h3>
+        <h3>Total Price: ${this.props.room.pricePerNight * this.state.numberOfGuests * numberOfNights}</h3>
 
-          <div className="bookings-form-field">
-            <label className="control-label"><FormattedMessage id="bookings.from" /></label>
-            <DateTimePicker
-              onChange={newDate => this.updateFromDate(newDate)}
-              format={"x"}
-              isValidDate={(currentDate, selectedDate) => {
-                const yesterday = moment().subtract( 1, 'day' );
-                return currentDate.isAfter(yesterday) && this.isAvailable(currentDate);
-              }}
-              timeFormat={false}
-            />
-          </div>
+        <div className="bookings-form-field">
+          <label className="control-label"><FormattedMessage id="bookings.from" /></label>
+          <DateTimePicker
+            onChange={newDate => this.updateFromDate(newDate)}
+            format={"x"}
+            isValidDate={(currentDate, selectedDate) => {
+              const yesterday = moment().subtract( 1, 'day' );
+              return currentDate.isAfter(yesterday) && this.isAvailable(currentDate);
+            }}
+            timeFormat={false}
+          />
+        </div>
 
-          <div className="bookings-form-field">
-            <label className="control-label"><FormattedMessage id="bookings.to" /></label>
-            <DateTimePicker
-              onChange={newDate => this.updateToDate(newDate)}
-              format={"x"}
-              isValidDate={(currentDate, selectedDate) => {
-                const yesterday = moment().subtract( 1, 'day' );
-                return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from)) && this.isAvailable(currentDate);
-              }}
-              timeFormat={false}
-            />
-          </div>
+        <div className="bookings-form-field">
+          <label className="control-label"><FormattedMessage id="bookings.to" /></label>
+          <DateTimePicker
+            onChange={newDate => this.updateToDate(newDate)}
+            format={"x"}
+            isValidDate={(currentDate, selectedDate) => {
+              const yesterday = moment().subtract( 1, 'day' );
+              return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from)) && this.isAvailable(currentDate);
+            }}
+            timeFormat={false}
+          />
+        </div>
 
-          <div className="bookings-form-field">
-            <label className="control-label"><FormattedMessage id="bookings.number_of_guests" /></label>
-            <Input layout="elementOnly" onChange={this.updateGuests} value={this.state.numberOfGuests} name="numberOfGuests" type="text"/>
-          </div>
+        <div className="bookings-form-field">
+          <label className="control-label"><FormattedMessage id="bookings.number_of_guests" /></label>
+          <Input layout="elementOnly" onChange={this.updateGuests} value={this.state.numberOfGuests} name="numberOfGuests" type="text"/>
+        </div>
 
-          <Button className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
+        <Button className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
 
-        </div> :
-        null
-      }
+      </div> 
 
     </Form>
 
