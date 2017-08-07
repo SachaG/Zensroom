@@ -39,15 +39,17 @@ This project expects a few specific API keys, as defined in your project's `sett
 
 ## Dependencies
 
-The ZensRoom app depends on the following VulcanJS packages:
+The ZensRoom app depends on the following VulcanJS [packages](https://github.com/SachaG/Zensroom/blob/devel/packages/zensroom/package.js#L10-L19):
 
-- `vulcan:core`
-- `vulcan:forms`
-- `vulcan:forms-upload`
-- `vulcan:accounts`
-- `vulcan:payments`
-- `vulcan:maps`
-- `vulcan:admin`
+- `vulcan:core`: VulcanJS core features.
+- `vulcan:forms`: [SmartForms](http://docs.vulcanjs.org/forms.html) component.
+- `vulcan:forms-upload`: Image upload form component (using [Cloudinary](http://cloudinary.com)).
+- `vulcan:accounts`: User accounts UI (log in/sign up/reset password/etc.).
+- `vulcan:payments`: [Payments package](http://docs.vulcanjs.org/payments.html) using Stripe.
+- `vulcan:admin`: [Admin](http://docs.vulcanjs.org/admin.html) dashboard.
+- `vulcan:maps`: Maps component. 
+
+Packages in the repo not mentioned above (`vulcan:posts`, `vulcan:comments`, etc.) are not currently used by this project but might be in the future. 
 
 See also `package.json` for a list of NPM dependencies. 
 
