@@ -39,7 +39,7 @@ RoomsNewForm.contextTypes = {
   intl: intlShape
 };
 
-registerComponent('RoomsNewForm', withRouter, withMessages, withCurrentUser);
+registerComponent('RoomsNewForm', RoomsNewForm, withRouter, withMessages, withCurrentUser);
 
 export default compose(
   withRouter,

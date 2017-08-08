@@ -10,30 +10,47 @@ This is an open-source AirBnB-type app built using [VulcanJS](http://vulcanjs.or
 
 ## Settings
 
-This project expects a few specific API keys, as defined in your project's `settings.json` (in addition to any other generic VulcanJS settings you might already have):
+This project expects a few specific API keys, as defined in your project's `settings.json` (in addition to any other generic VulcanJS settings you might already have). Here's a sample file:
 
 ```
 {
-
   "public": {
+    "title": "Your Site Name",
+    "tagline":"Your site tagline",
+
+    "language": "en",
+    "locale": "en",
 
     "cloudinary": {
       "cloudName": "123foo"
     },
-    
-    "googlemaps": {
-      "apiKey": "123foo"
-    },
 
     "stripe": {
-      "publishableKeyTest": "123foo"
+      "publishableKeyTest": "pk_test_123foo"
     },
+
+    "googlemaps": {
+      "apiKey": "456foo"
+    }
   },
 
   "stripe": {
-    "secretKeyTest": "123foo"
-  }
+    "secretKeyTest": "sk_test_123foo"
+  },
   
+  "defaultEmail": "hello@foo.com",
+  "mailUrl": "smtp://username%40yourdomain.mailgun.org:yourpassword123@smtp.mailgun.org:587/",
+
+  "oAuth": {
+    "twitter": {
+      "consumerKey": "foo",
+      "secret": "bar"
+    },
+    "facebook": {
+      "appId": "foo",
+      "secret": "bar"
+    }
+  }
 }
 ```
 
