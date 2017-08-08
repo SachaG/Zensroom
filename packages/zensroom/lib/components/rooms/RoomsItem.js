@@ -15,7 +15,7 @@ const RoomsItem = ({room, currentUser}) =>
 
     <div className="rooms-item-image">
       <Link to={`/room/${room._id}`}>
-        {room.photos && room.photos.length ? <img className="rooms-item-image-contents" src={room.photos && room.photos[0][0].secure_url}/> : null}
+        {room.photos && room.photos.length ? <img className="rooms-item-image-contents" src={room.photos[0][0].secure_url}/> : null}
         <div className="rooms-item-price"><div>${room.pricePerNight}<FormattedMessage id="rooms.per_night"/></div></div>
       </Link>
     </div>

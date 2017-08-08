@@ -31,7 +31,7 @@ const RoomsPage = ({document: room, documentId, loading, currentUser}) =>
 
       <div className="rooms-wrapper">
 
-        {room.photos ? 
+        {room.photos && room.photos.length ? 
           <Components.ModalTrigger dialogClassName="rooms-photos-modal" component={<div className="rooms-hero-image"><img src={room.photos[0][2].secure_url}/></div>}>
             <Components.RoomsPhotos room={room} />
           </Components.ModalTrigger>
