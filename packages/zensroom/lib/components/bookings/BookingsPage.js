@@ -58,9 +58,9 @@ const options = {
   fragmentName: 'BookingsItemFragment'
 };
 
-registerComponent('BookingsPage', BookingsPage, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser);
-
 const mapPropsFunction = props => ({...props, documentId: props.routeParams && props.routeParams.bookingId});
+
+registerComponent('BookingsPage', BookingsPage, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser);
 
 export default compose(
   mapProps(mapPropsFunction),
