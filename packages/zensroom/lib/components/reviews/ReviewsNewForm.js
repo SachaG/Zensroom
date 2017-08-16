@@ -39,7 +39,7 @@ ReviewsNewForm.contextTypes = {
 
 registerComponent('ReviewsNewForm', ReviewsNewForm, withMessages, withCurrentUser);
 
-export default compose(
-  withMessages,
-  withCurrentUser
-)(ReviewsNewForm);
+// export default compose(
+//   withMessages,
+//   withCurrentUser
+// )(ReviewsNewForm);

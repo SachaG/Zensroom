@@ -34,7 +34,7 @@ const RoomsMain = ({ room, currentUser }) =>
     </div>
 
     <div className="rooms-section">
-      <Components.RoomsReviews room={room} currentUser={currentUser}/>
+      <Components.RoomsReviews room={room} />
     </div>
 
   </div>

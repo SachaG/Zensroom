@@ -22,4 +22,5 @@ accounts-password@1.4.0
 # example-membership
 # example-interfaces
 
+vulcan:debug
 zensroom

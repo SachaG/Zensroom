@@ -17,7 +17,7 @@ import { withApollo } from 'react-apollo';
 
 const UsersMenu = ({currentUser, client}) =>
   <div className="users-menu">
-    <Dropdown id="user-dropdown">
+    <Dropdown id="user-dropdown" pullRight>
       <Dropdown.Toggle>
         <Components.Avatar size="small" user={currentUser} link={false} />
         <div className="users-menu-name">{Users.getDisplayName(currentUser)}</div>

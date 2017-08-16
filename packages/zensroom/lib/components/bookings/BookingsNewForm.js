@@ -35,7 +35,7 @@ class BookingsNewForm extends Component {
     this.state = {
       from: null,
       to: null,
-      numberOfGuests: 0,
+      numberOfGuests: 1,
     }
   }
 
@@ -49,7 +49,7 @@ class BookingsNewForm extends Component {
 
   updateGuests(name, value) {
     this.setState({
-      numberOfGuests: parseInt(value)
+      numberOfGuests: parseInt(value || 1)
     });
   }
 
@@ -81,13 +81,14 @@ class BookingsNewForm extends Component {
   render() {
 
     const numberOfNights = this.state.from && this.state.to ? this.state.to.diff(this.state.from, 'days') : 0;
+    const totalPrice = this.props.room.pricePerNight * this.state.numberOfGuests * numberOfNights;
 
     return (
     <Form onSubmit={this.submitForm}>
 
       <div className="bookings-form">
 
-        <h3>Total Price: ${this.props.room.pricePerNight * this.state.numberOfGuests * numberOfNights}</h3>
+        <h3>Total Price: ${totalPrice}</h3>
 
         <div className="bookings-form-field">
           <label className="control-label"><FormattedMessage id="bookings.from" /></label>
@@ -117,7 +118,7 @@ class BookingsNewForm extends Component {
 
         <div className="bookings-form-field">
           <label className="control-label"><FormattedMessage id="bookings.number_of_guests" /></label>
-          <Input layout="elementOnly" onChange={this.updateGuests} value={this.state.numberOfGuests} name="numberOfGuests" type="text"/>
+          <Input layout="elementOnly" onChange={this.updateGuests} value={this.state.numberOfGuests} name="numberOfGuests" type="number"/>
         </div>
 
         <Button className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>

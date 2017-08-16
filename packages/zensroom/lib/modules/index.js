@@ -12,6 +12,7 @@ import './components';
 import './admin';
 import './routes';
 import './products';
+import './emails';
 
 import './rooms/collection';
 

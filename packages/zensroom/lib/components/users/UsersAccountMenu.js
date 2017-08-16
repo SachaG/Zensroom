@@ -12,7 +12,7 @@ import { STATES } from 'meteor/vulcan:accounts';
 
 const UsersAccountMenu = ({state}) =>
 
-  <Dropdown id="accounts-dropdown" className="users-account-menu">
+  <Dropdown id="accounts-dropdown" className="users-account-menu" pullRight>
     <Dropdown.Toggle>
       <Components.Icon name="user"/>
       <FormattedMessage id="users.sign_up_log_in"/>

@@ -121,6 +121,8 @@ const schema = {
     editableBy: ['members'],
     group: formGroups.info,
     searchable: true,
+    limit: 90,
+    max: 90
   },
 
   description: {
@@ -133,6 +135,8 @@ const schema = {
     control: 'textarea',
     group: formGroups.info,
     searchable: true,
+    limit: 300,
+    max: 300
   },
 
   rules: {
@@ -153,7 +157,8 @@ const schema = {
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
-    group: formGroups.info
+    group: formGroups.info,
+    control: 'number'
   },
 
   guestsNumber: {
@@ -163,13 +168,14 @@ const schema = {
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
-    group: formGroups.info
+    group: formGroups.info,
+    control: 'number'
   },
 
   photos: {
     label: 'Photos',
     type: Array,
-    optional: true,
+    optional: false,
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
@@ -295,12 +301,13 @@ const schema = {
 
   pricePerNight: {
     type: Number,
-    optional: true,
+    optional: false,
     label: 'Price per night',
     viewableBy: ['guests'],
     insertableBy: ['members'],
     editableBy: ['members'],
-    group: formGroups.price
+    group: formGroups.price,
+    control: 'number'
   },
 
 };

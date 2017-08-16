@@ -27,7 +27,7 @@ const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count
 
       <div className="rooms-search-results-contents">
 
-        <Components.Map className="rooms-search-results-map" onChange={onMapChange} style={{width: '100%'}} center={{lat: parseFloat(mapProps.lat), lng: parseFloat(mapProps.lng)}} coordinates={results.map(getCoords)} />
+        <Components.Map className="rooms-search-results-map" onChange={onMapChange} style={{width: '100%'}} center={{lat: parseFloat(mapProps.lat), lng: parseFloat(mapProps.lng)}} coordinates={_.compact(results.map(getCoords))} />
 
         <div className="rooms-grid">
           {results.map(room => <Components.RoomsItem key={room._id} room={room} currentUser={currentUser} />)}

@@ -22,6 +22,12 @@ Package.onUse((api) => {
 
   api.addFiles(['lib/stylesheets/main.scss'], ['client']);
 
+  api.addAssets([
+    'lib/server/emails/common/test.handlebars',
+    'lib/server/emails/common/wrapper.handlebars',
+    'lib/server/emails/rooms/roomsNew.handlebars',
+  ], ['server']);
+
   api.mainModule('lib/server/main.js', 'server');
   api.mainModule('lib/client/main.js', 'client');
 });
