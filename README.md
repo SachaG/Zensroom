@@ -8,6 +8,25 @@ This is an open-source AirBnB-type app built using [VulcanJS](http://vulcanjs.or
 2. Follow the [VulcanJS install instructions](http://docs.vulcanjs.org/#Install).
 3. Run with `npm start` (or the equivalent `meteor --settings settings.json`).
 
+## Local Development
+
+By default, the app will look for VulcanJS core packages (`vulcan:core`, `vulcan:email`, `vulcan:forms`, etc.) on [Atmosphere](https://atmospherejs.com/), Meteor's package server. 
+
+For local development, it can be useful to have access to the VulcanJS codebase locally and be able to modify it if needed. You can do so by following these steps:
+
+1. Clone the main [VulcanJS repo](https://github.com/VulcanJS/Vulcan) locally (for example, to `~/Vulcan`).
+2. Go back to the ZensRoom directory and launch your app with:
+
+```
+METEOR_PACKAGE_DIRS="~/Vulcan/packages" meteor --port 3000 --settings settings.json
+```
+
+Note that if you'd like, you can create an alias for that command in your `.bash_profile` file:
+
+```
+alias runvulcan='METEOR_PACKAGE_DIRS="~/Vulcan/packages" meteor --port 3000 --settings settings.json'
+```
+
 ## Settings
 
 This project expects a few specific API keys, as defined in your project's `settings.json` (in addition to any other generic VulcanJS settings you might already have). Here's a sample file:
