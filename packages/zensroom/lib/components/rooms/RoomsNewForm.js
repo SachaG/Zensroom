@@ -14,7 +14,7 @@ import { intlShape, FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Rooms from '../../modules/rooms/collection.js';
 
-const RoomsNewForm = ({currentUser, closeModal, router, flash}, {intl}) =>
+const RoomsNewForm = ({currentUser, router, flash}, {intl}) =>
 
   <div>
 
@@ -24,7 +24,6 @@ const RoomsNewForm = ({currentUser, closeModal, router, flash}, {intl}) =>
           collection={Rooms}
           /*mutationFragment={getFragment('RoomsItemFragment')}*/
           successCallback={room => {
-            closeModal();
             router.push({pathname: `/room/${room._id}`});
             flash(intl.formatMessage({id: 'rooms.created'}), 'success');
           }}

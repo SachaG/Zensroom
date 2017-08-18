@@ -23,7 +23,7 @@ const RoomsMain = ({ room, currentUser }) =>
 
       <div className="rooms-description">{room.description}</div>
 
-      <div className="rooms-amenities"><ul>{room.amenities.map(amenity => <li key={amenity}>{amenity}</li>)}</ul></div>
+      {room.amenities ? <div className="rooms-amenities"><ul>{room.amenities.map(amenity => <li key={amenity}>{amenity}</li>)}</ul></div> : null}
 
       <Components.Card fields={['roomType', 'propertyType', 'rules', 'bedsNumber', 'guestsNumber', 'country', 'zipCode', 'city', 'address', 'address2']} collection={Rooms} document={room} currentUser={currentUser} />
 

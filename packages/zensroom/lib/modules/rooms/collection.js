@@ -11,6 +11,7 @@ import schema from './schema.js';
 import './fragments.js';
 import './permissions.js';
 import './parameters.js';
+import './callbacks.js';
 
 const Rooms = createCollection({
   collectionName: 'Rooms',
