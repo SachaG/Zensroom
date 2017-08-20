@@ -1,6 +1,8 @@
 import VulcanEmail from 'meteor/vulcan:email';
-
+import Users from 'meteor/vulcan:users';
+import { runQuery } from 'meteor/vulcan:core';
 import Rooms from './rooms/collection';
+import { graphql } from 'graphql';
 
 VulcanEmail.addEmails({
 
@@ -21,22 +23,22 @@ VulcanEmail.addEmails({
   roomsNew: {
     template: 'roomsNew',
     path: '/email/roomsNew',
-    getProperties(data) {
-      const properties = {
-        name: data.room.name,
-        username: 'John Smith',
-        profileUrl: 'http://foo.com/user/john-smith',
-        roomUrl: 'http://foo.com/room/my-room'
+    subject(data) {
+      return `A new room has been created: ${data.RoomsSingle.name}`;
+    },
+    query: `
+      query OneRoom($documentId: String){
+        RoomsSingle(documentId: $documentId){
+          name
+          description
+          user{
+            _id
+            displayName
+          }
+        }
       }
-      return properties;
-    },
-    subject(properties) {
-      return `A new room has been created: ${properties.name}`;
-    },
-    getTestObject() {
-      const room = {name: 'My Fake Room'}
-      return { room };
-    }
+    `,
+    testVariables: {}
   }
 
 });

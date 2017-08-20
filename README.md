@@ -15,7 +15,8 @@ By default, the app will look for VulcanJS core packages (`vulcan:core`, `vulcan
 For local development, it can be useful to have access to the VulcanJS codebase locally and be able to modify it if needed. You can do so by following these steps:
 
 1. Clone the main [VulcanJS repo](https://github.com/VulcanJS/Vulcan) locally (for example, to `~/Vulcan`).
-2. Go back to the ZensRoom directory and launch your app with:
+2. Inside the main repo, checkout the `devel` branch.
+3. Go back to the ZensRoom directory and launch your app with:
 
 ```
 METEOR_PACKAGE_DIRS="~/Vulcan/packages" meteor --port 3000 --settings settings.json

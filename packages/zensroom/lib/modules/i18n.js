@@ -49,4 +49,9 @@ addStrings('en', {
   'users.bookings': 'Bookings',
   'users.reviews': 'Reviews',
 
+  'accounts.already_have_an_account': 'Already have an account?',
+  'accounts.log_in_here': 'Log in here',
+  'accounts.dont_have_an_account': 'Don\'t have an account?',
+  'accounts.sign_up_here': 'Sign up here',
+
 });

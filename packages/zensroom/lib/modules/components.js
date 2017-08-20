@@ -48,3 +48,5 @@ import '../components/users/UsersAccount';
 import '../components/users/UsersAccountMenu';
 import '../components/users/UsersMenu';
 import '../components/users/UsersProfile';
+import '../components/users/UsersSignUp';
+import '../components/users/UsersLogIn';

@@ -40,9 +40,11 @@ addRoute([
           
   {name: 'bookings.page',         path: '/booking/:bookingId',      componentName: 'BookingsPage'},
           
-  {name: 'users.single',          path:'users/:slug',               componentName: 'UsersProfile'},
-  {name: 'users.account',         path:'account',                   componentName: 'UsersAccount'},
-  {name: 'users.edit',            path:'users/:slug/edit',          componentName: 'UsersAccount'},
+  {name: 'users.single',          path:'/users/:slug',              componentName: 'UsersProfile'},
+  {name: 'users.account',         path:'/account',                  componentName: 'UsersAccount'},
+  {name: 'users.edit',            path:'/users/:slug/edit',         componentName: 'UsersAccount'},
+  {name: 'users.signup',          path:'/sign-up',                  componentName: 'UsersSignUp'},
+  {name: 'users.login',           path:'/log-in',                   componentName: 'UsersLogIn'},
     
   {name: 'bookings.dashboard',    path:'/admin/bookings',           componentName: 'BookingsDashboard'},
   {name: 'rooms.dashboard',       path:'/admin/rooms',              componentName: 'RoomsDashboard'},
