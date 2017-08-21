@@ -27,6 +27,7 @@ const getZoom = type => {
       return 15;
   }
 }
+
 const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count, totalCount, terms, onMapChange, mapProperties}) => 
   
   <div className="rooms-search-results">

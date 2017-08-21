@@ -13,6 +13,7 @@ addStrings('en', {
   'nav.about': 'About',
 
   'bookings.bookings': 'Bookings',
+  'bookings.please_fill_in_all_fields': 'Please fill in all fields.',
   'bookings.created': 'Booking created',
   'bookings.book': 'Book This Room',
   'bookings.paid_on': 'Paid on',
