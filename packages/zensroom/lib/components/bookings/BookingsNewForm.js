@@ -159,6 +159,7 @@ class BookingsNewForm extends Component {
               return currentDate.isAfter(yesterday) && this.isAvailable(currentDate);
             }}
             timeFormat={false}
+            value={this.state.from}
           />
         </div>
 
@@ -172,6 +173,7 @@ class BookingsNewForm extends Component {
               return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from)) && this.isAvailable(currentDate);
             }}
             timeFormat={false}
+            value={this.state.to}
           />
         </div>
 
