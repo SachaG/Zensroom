@@ -24,7 +24,8 @@ VulcanEmail.addEmails({
     template: 'roomsNew',
     path: '/email/roomsNew',
     subject(data) {
-      return `A new room has been created: ${data.RoomsSingle.name}`;
+      const room = _.isEmpty(data) ? {name: '[name]'} : data.RoomsSingle;
+      return `A new room has been created: ${room.name}`;
     },
     query: `
       query OneRoom($documentId: String){
