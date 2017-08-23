@@ -13,6 +13,8 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 import Bookings from '../../modules/bookings/collection.js';
 
+const BookingUser = ({ document }) => <div>{document.user.displayName}</div>;
+
 const BookingsDashboard = () =>
 
   <div className="bookings-dashboard">
@@ -20,8 +22,18 @@ const BookingsDashboard = () =>
     <h3><FormattedMessage id='bookings.bookings'/></h3>
 
     <Components.Datatable 
-      collection={Bookings} 
-      columns={['startAt', 'endAt']} 
+      collection={Bookings}
+      options={{
+        fragmentName: 'BookingsItemFragment'
+      }}
+      columns={[
+        'startAt', 
+        'endAt',
+        {
+          name: 'user',
+          component: BookingUser
+        }
+      ]} 
     />
   
   </div>

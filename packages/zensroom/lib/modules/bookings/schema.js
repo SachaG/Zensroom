@@ -7,6 +7,7 @@ http://docs.vulcanjs.org/schemas.html#Schemas
 */
 
 import moment from 'moment';
+import { Utils } from 'meteor/vulcan:core';
 
 const schema = {
   // default properties
@@ -85,6 +86,41 @@ const schema = {
     type: Date,
     optional: true,
     viewableBy: ['members'],
+  },
+
+  // GraphQL-only fields
+
+  pageUrl: {
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (booking, args, context) => {
+        return `${Utils.getSiteUrl()}booking/${booking._id}`;
+      },
+    }  
+  },
+
+  startAtFormatted: {
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (booking, args, context) => {
+        return moment(booking.startAt).format('dddd, MMMM Do YYYY');
+      }
+    }  
+  },
+
+  endAtFormatted: {
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (booking, args, context) => {
+        return moment(booking.endAt).format('dddd, MMMM Do YYYY');
+      }
+    }  
   },
 
 };

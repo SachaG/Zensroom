@@ -8,6 +8,7 @@ http://docs.vulcanjs.org/schemas.html#Schemas
 
 import FormsUpload from 'meteor/vulcan:forms-upload';
 import { amenities, spaces } from '../data';
+import { Utils } from 'meteor/vulcan:core';
 
 const formGroups = {
   infos: {
@@ -309,6 +310,19 @@ const schema = {
     group: formGroups.price,
     control: 'number'
   },
+
+  // GraphQL-only fields
+
+  pageUrl: {
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (room, args, context) => {
+        return `${Utils.getSiteUrl()}room/${room._id}`;
+      },
+    }  
+  }
 
 };
 

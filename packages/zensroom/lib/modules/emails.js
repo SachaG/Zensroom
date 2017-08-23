@@ -1,23 +1,16 @@
 import VulcanEmail from 'meteor/vulcan:email';
-import Users from 'meteor/vulcan:users';
-import { runQuery } from 'meteor/vulcan:core';
-import Rooms from './rooms/collection';
-import { graphql } from 'graphql';
 
 VulcanEmail.addEmails({
 
   test: {
-    template: 'test',
-    path: '/email/test',
-    getProperties() {
+    template: "test",
+    path: "/email/test",
+    data() {
       return {date: new Date()};
     },
     subject() {
-      return 'This is a test';
+      return "This is a test";
     },
-    getTestObject() {
-      return {date: new Date()};
-    }
   },
 
   roomsNew: {
@@ -35,6 +28,38 @@ VulcanEmail.addEmails({
           user{
             _id
             displayName
+          }
+        }
+      }
+    `,
+    testVariables: {}
+  },
+
+  bookingsNew: {
+    template: 'bookingsNew',
+    path: '/email/bookingsNew',
+    subject(data) {
+      const booking = _.isEmpty(data) ? {room: {name: '[name]'}} : data.BookingsSingle;
+      return `A booking has been created for room: ${booking.room.name}`;
+    },
+    query: `
+      query OneBooking($documentId: String){
+        BookingsSingle(documentId: $documentId){
+          _id
+          pageUrl
+          startAtFormatted
+          endAtFormatted
+          numberOfGuests
+          user{
+            _id
+            displayName
+            profileUrl
+          }
+          room{
+            _id
+            name
+            description
+            pageUrl
           }
         }
       }
