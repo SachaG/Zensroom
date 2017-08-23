@@ -7,7 +7,6 @@ Users sign up form
 import { Components, registerComponent } from 'meteor/vulcan:core';
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
-import Dropdown from 'react-bootstrap/lib/Dropdown';
 import { STATES } from 'meteor/vulcan:accounts';
 import { Link } from 'react-router';
 

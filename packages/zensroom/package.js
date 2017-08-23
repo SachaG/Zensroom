@@ -26,6 +26,7 @@ Package.onUse((api) => {
     'lib/server/emails/common/test.handlebars',
     'lib/server/emails/common/wrapper.handlebars',
     'lib/server/emails/rooms/roomsNew.handlebars',
+    'lib/server/emails/bookings/bookingsNew.handlebars',
   ], ['server']);
 
   api.mainModule('lib/server/main.js', 'server');

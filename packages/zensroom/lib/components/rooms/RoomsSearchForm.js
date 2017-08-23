@@ -19,11 +19,18 @@ class RoomsSearchForm extends Component {
     this.updateFromDate = this.updateFromDate.bind(this);
     this.updateToDate = this.updateToDate.bind(this);
     this.submitForm = this.submitForm.bind(this);
-    this.state = {
-      from: moment(props.location.query.from, 'YYYY-MM-DD'),
-      to: moment(props.location.query.to, 'YYYY-MM-DD'),
-      location: props.location.query.location && decodeURIComponent(props.location.query.location),
-    };
+
+    const state = {};
+    if (props.location.query.from) {
+      state.from = moment(props.location.query.from, 'YYYY-MM-DD');
+    }
+    if (props.location.query.to) {
+      state.to = moment(props.location.query.to, 'YYYY-MM-DD');
+    }
+    if (props.location.query.location) {
+      state.location = decodeURIComponent(props.location.query.location);
+    }
+    this.state = state;
   }
 
   updateFromDate(date) {
@@ -52,7 +59,8 @@ class RoomsSearchForm extends Component {
       const response = await fetch(geocodeUrl);
       const geoData = await response.json();
       console.log(geoData)
-      query += `&location=${encodeURIComponent(location)}&lng=${geoData.results[0].geometry.location.lng}&lat=${geoData.results[0].geometry.location.lat}`
+      const results = geoData.results[0];
+      query += `&location=${encodeURIComponent(location)}&lng=${results.geometry.location.lng}&lat=${results.geometry.location.lat}&type=${results.types[0]}`
     }
 
     this.props.router.push(`/search?${query}`);

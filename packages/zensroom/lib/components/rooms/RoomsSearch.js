@@ -1,6 +1,6 @@
 /*
 
-Room search
+Room search page. Contains form, filters, and results
 
 */
 
@@ -24,8 +24,20 @@ class RoomsSearch extends Component {
       to: props.location.query.to,
       lat: props.location.query.lat,
       lng: props.location.query.lng,
+      type: props.location.query.type,
     };
 
+  }
+
+  // whenever URL change, also update component's state
+  componentWillReceiveProps(nextProps) {
+    this.state = {
+      from: nextProps.location.query.from,
+      to: nextProps.location.query.to,
+      lat: nextProps.location.query.lat,
+      lng: nextProps.location.query.lng,
+      type: nextProps.location.query.type,
+    };    
   }
 
   onMapChange(mapData) {
@@ -48,9 +60,10 @@ class RoomsSearch extends Component {
         <Components.RoomsSearchFilters />
         <Components.RoomsSearchResults 
           onMapChange={this.onMapChange} 
-          mapProps={{
+          mapProperties={{
             lat: this.state.lat, 
-            lng: this.state.lng
+            lng: this.state.lng,
+            type: this.state.type,
           }} 
           terms={{
             from: this.state.from, 

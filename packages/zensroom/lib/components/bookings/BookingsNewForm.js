@@ -7,7 +7,7 @@ http://docs.vulcanjs.org/mutations.html#Higher-Order-Components
 */
 
 import React, { Component } from 'react';
-import { Components, registerComponent, withCurrentUser, getFragment, withMessages, withNew } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser, getFragment, withMessages, withNew, addCallback } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import compose from 'recompose/compose';
 import DateTimePicker from 'react-datetime';
@@ -31,11 +31,13 @@ class BookingsNewForm extends Component {
     this.updateToDate = this.updateToDate.bind(this);
     this.updateGuests = this.updateGuests.bind(this);
     this.isAvailable = this.isAvailable.bind(this);
-    
+    this.createNewBooking = this.createNewBooking.bind(this);
+
     this.state = {
       from: null,
       to: null,
       numberOfGuests: 1,
+      disabled: false
     }
   }
 
@@ -53,31 +55,88 @@ class BookingsNewForm extends Component {
     });
   }
 
-  success(booking) {
-    this.props.router.push({pathname: `/booking/${booking._id}`});
-    this.props.flash(this.context.intl.formatMessage({id: 'bookings.created'}), 'success');
-  }
+  /*
 
-  submitForm(data) {
-    if (!this.props.currentUser) {
-      this.props.flash(this.context.intl.formatMessage({id: 'users.please_log_in'}), 'error');
-    } else {
-      console.log('submitForm')
-      console.log(data)
-      this.props.newMutation({document: {
-        startAt: this.state.from.toDate(),
-        endAt: this.state.to.toDate(),
-        numberOfGuests: this.state.numberOfGuests,
-        roomId: this.props.room._id
-      }}).then(result => this.success(result.data.BookingsNew));
-    }
-  }
+  Helper to tell if a date is available
 
+  */
   isAvailable(mDate) {
     const unavailableDates = this.props.unavailableDates && this.props.unavailableDates.map(date => moment(new Date(date)).startOf('day').toString());
     return !_.contains(unavailableDates, mDate.toString())
   }
 
+  /*
+
+  Form submit handler
+
+  */
+  submitForm(data) {
+
+    // disable form to prevent multiple submissions
+    this.setState({ disabled: true });
+
+    // if fields are missing, show message and abort submission
+    if (!this.state.from || !this.state.to || !this.state.numberOfGuests) {
+      alert(this.context.intl.formatMessage({id: 'bookings.please_fill_in_all_fields'}));
+      this.setState({ disabled: false });
+      return;
+    }
+
+    // create alias for this.createNewBooking
+    const createNewBooking = this.createNewBooking;
+
+    // create callback function and set it to only run once
+    function createNewBookingCallback() {
+      createNewBooking(data);
+      return {};
+    }
+    createNewBookingCallback.runOnce = true;
+
+    if (this.props.currentUser) { // user is logged in
+
+      this.createNewBooking(data);
+
+    } else { // user is not logged in
+
+      // add postlogin callback, go to sign-up page, show message
+      addCallback('users.postlogin', createNewBookingCallback);
+      this.props.router.push('/sign-up');
+      this.props.flash(this.context.intl.formatMessage({id: 'users.please_sign_up_log_in'}), 'error');
+    
+    }
+  }
+
+  /*
+
+  Trigger new booking mutation and then call this.success()
+
+  */
+  createNewBooking(data) {
+    console.log('// createNewBooking')
+    console.log(data)
+    this.props.newMutation({document: {
+      startAt: this.state.from.toDate(),
+      endAt: this.state.to.toDate(),
+      numberOfGuests: this.state.numberOfGuests,
+      roomId: this.props.room._id
+    }}).then(result => this.success(result.data.BookingsNew));
+  }
+
+  /*
+
+  Success callback
+
+  */
+  success(booking) {
+    this.props.router.push({pathname: `/booking/${booking._id}`});
+    this.props.flash(this.context.intl.formatMessage({id: 'bookings.created'}), 'success');
+  }
+
+  /*
+
+  Render
+
+  */
   render() {
 
     const numberOfNights = this.state.from && this.state.to ? this.state.to.diff(this.state.from, 'days') : 0;
@@ -100,6 +159,7 @@ class BookingsNewForm extends Component {
               return currentDate.isAfter(yesterday) && this.isAvailable(currentDate);
             }}
             timeFormat={false}
+            value={this.state.from}
           />
         </div>
 
@@ -113,6 +173,7 @@ class BookingsNewForm extends Component {
               return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from)) && this.isAvailable(currentDate);
             }}
             timeFormat={false}
+            value={this.state.to}
           />
         </div>
 
@@ -121,7 +182,7 @@ class BookingsNewForm extends Component {
           <Input layout="elementOnly" onChange={this.updateGuests} value={this.state.numberOfGuests} name="numberOfGuests" type="number"/>
         </div>
 
-        <Button className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
+        <Button disabled={this.state.disabled} className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
 
       </div> 
 
