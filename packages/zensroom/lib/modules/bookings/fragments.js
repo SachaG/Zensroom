@@ -17,11 +17,14 @@ registerFragment(`
     user {
       _id
       displayName
+      emailHash
+      slug
     }
     roomId
     room {
       pricePerNight
       name
+      photos
     }
     startAt
     endAt
