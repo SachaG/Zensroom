@@ -19,16 +19,18 @@ registerFragment(`
       displayName
       emailHash
       slug
+      profileUrl
     }
     roomId
     room {
       pricePerNight
       name
       photos
+      pageUrl
     }
     startAt
     endAt
     numberOfGuests
-    paidAt    
+    paidAt
   }  
 `);

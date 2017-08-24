@@ -19,17 +19,17 @@ const BookingPrice = ({ document }) => <div>{document.room.pricePerNight}</div>;
 const BookingUser = ({ document }) =>
   <div>
     <Components.Avatar size="small" user={document.user} link />
-    <Link to={`users/${document.user.slug}`}>
+    <Link to={document.user.profileUrl}>
       {document.user.displayName}
     </Link>
   </div>;
 
 const BookingRoom = ({ document }) =>
   <div>
-    <Link to={`room/${document.roomId}`}>
-      <p>{document.room.name}</p>
+    <Link to={document.room.pageUrl}>
+      {document.room.name}
     </Link>
-    <Link to={`room/${document.roomId}`}>
+    <Link to={document.room.pageUrl}>
       <img src={document.room.photos[0][1].url} alt=""/>
     </Link>
   </div>;
