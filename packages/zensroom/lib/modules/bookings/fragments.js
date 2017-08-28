@@ -19,7 +19,7 @@ registerFragment(`
       displayName
       emailHash
       slug
-      profileUrl
+      pageUrl
     }
     roomId
     room {

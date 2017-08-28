@@ -53,7 +53,7 @@ VulcanEmail.addEmails({
           user{
             _id
             displayName
-            profileUrl
+            pageUrl
           }
           room{
             _id
