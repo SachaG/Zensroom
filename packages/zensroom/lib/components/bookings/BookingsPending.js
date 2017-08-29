@@ -1,7 +1,6 @@
 import React from 'react';
 import { Components, registerComponent, withList, withCurrentUser, withDocument } from 'meteor/vulcan:core';
 import { Link } from 'react-router';
-import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 
 import Bookings from '../../modules/bookings/collection.js';
@@ -24,14 +23,11 @@ const BookingsPending = ({currentUser}) => {
 
 const options = {
   collection: Bookings,
-  // fragmentName: 'BookingsItemFragment'
+  fragmentName: 'BookingsItemFragment'
 };
 
-registerComponent(
-  'BookingsPending',
-  BookingsPending,
-  [withList, options],
-  withCurrentUser
-);
+registerComponent('BookingsPending', BookingsPending, [withList, options], withCurrentUser);
 
-export default withList(options)(BookingsPending);
+export default compose(
+  withList(options),
+)(BookingsPending);
