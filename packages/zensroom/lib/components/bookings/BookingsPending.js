@@ -21,13 +21,6 @@ const BookingsPending = ({currentUser}) => {
   )
 }
 
-const options = {
-  collection: Bookings,
-  fragmentName: 'BookingsItemFragment'
-};
+registerComponent('BookingsPending', BookingsPending, withCurrentUser);
 
-registerComponent('BookingsPending', BookingsPending, [withList, options], withCurrentUser);
-
-export default compose(
-  withList(options),
-)(BookingsPending);
+export default BookingsPending
