@@ -46,11 +46,11 @@ const BookingsDashboard = () =>
         fragmentName: 'BookingsItemFragment'
       }}
       columns={[
-        'startAt',
-        'endAt',
-        'endAt',
+        'startAtFormatted',
+        'endAtFormatted',
         'numberOfGuests',
         'paidAt',
+        'status',
         {
           name: 'user',
           component: BookingUser
@@ -64,6 +64,7 @@ const BookingsDashboard = () =>
           component: BookingRoom
         }
       ]}
+      showEdit={true}
     />
 
   </div>

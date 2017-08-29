@@ -21,7 +21,8 @@ const ReviewsDashboard = () =>
 
     <Components.Datatable 
       collection={Reviews} 
-      columns={['comment']} 
+      columns={['comment']}
+      showEdit={true}
     />
   
   </div>

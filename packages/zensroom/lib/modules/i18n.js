@@ -18,7 +18,7 @@ addStrings('en', {
   'bookings.book': 'Book This Room',
   'bookings.paid_on': 'Paid on',
   'bookings.complete_payment': 'Complete Payment',
-  'bookings.all_bookings': 'All Bookings',
+  'bookings.bookings_admin': 'Bookings',
   'bookings.your_bookings': 'Your bookings for this room:',
   'bookings.no_bookings': 'No bookings for this room yet.',
   'bookings.load_more': 'Load More',
@@ -27,6 +27,7 @@ addStrings('en', {
   'bookings.number_of_guests': 'Number of guests',
 
   'rooms.rooms': 'Rooms',
+  'rooms.rooms_admin': 'Rooms',
   'rooms.new': 'New Room',
   'rooms.create_new': 'Create New Room',
   'rooms.created': 'New room created',
@@ -42,6 +43,7 @@ addStrings('en', {
   'rooms.with_fireplace': 'With Fireplace',
   
   'reviews.reviews': 'Reviews',
+  'reviews.reviews_admin': 'Reviews',
   'reviews.created': 'Review created',
   'reviews.load_more': 'Load More',
   'reviews.leave_review': 'Leave a Review',

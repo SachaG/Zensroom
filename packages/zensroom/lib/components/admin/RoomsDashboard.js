@@ -21,7 +21,8 @@ const RoomsDashboard = () =>
 
     <Components.Datatable 
       collection={Rooms} 
-      columns={['name', 'description']} 
+      columns={['name', 'description']}
+      showEdit={true}
     />
   
   </div>

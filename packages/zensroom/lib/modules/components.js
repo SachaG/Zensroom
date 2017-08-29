@@ -22,6 +22,7 @@ import '../components/common/Footer';
 import '../components/common/Header';
 import '../components/common/Home';
 import '../components/common/Layout';
+import '../components/common/AdminLayout';
 
 import '../components/reviews/ReviewsItem';
 import '../components/reviews/ReviewsList';

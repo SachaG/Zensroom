@@ -30,7 +30,10 @@ registerFragment(`
     }
     startAt
     endAt
+    startAtFormatted
+    endAtFormatted
     numberOfGuests
     paidAt
+    status
   }  
 `);
