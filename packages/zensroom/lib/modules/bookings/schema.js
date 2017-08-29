@@ -15,12 +15,12 @@ const schema = {
   _id: {
     type: String,
     optional: true,
-    viewableBy: ['guests'],
+    viewableBy: ['members'],
   },
   createdAt: {
     type: Date,
     optional: true,
-    viewableBy: ['guests'],
+    viewableBy: ['members'],
     onInsert: (document, currentUser) => {
       return new Date();
     }
@@ -28,7 +28,7 @@ const schema = {
   userId: {
     type: String,
     optional: true,
-    viewableBy: ['guests'],
+    viewableBy: ['members'],
     resolveAs: {
       fieldName: 'user',
       type: 'User', 
@@ -42,7 +42,7 @@ const schema = {
 
   roomId: {
     type: String,
-    viewableBy: ['guests'],
+    viewableBy: ['members'],
     insertableBy: ['members'],
     hidden: true,
     resolveAs: {
@@ -59,7 +59,7 @@ const schema = {
   startAt: {
     label: 'Check In Date',
     type: Date,
-    viewableBy: ['guests'],
+    viewableBy: ['members'],
     insertableBy: ['members'],
     editableBy: ['admins'],
     control: 'datetime',
@@ -68,7 +68,7 @@ const schema = {
   endAt: {
     label: 'Check Out Date',
     type: Date,
-    viewableBy: ['guests'],
+    viewableBy: ['members'],
     insertableBy: ['members'],
     editableBy: ['admins'],
     control: 'datetime',
@@ -77,7 +77,7 @@ const schema = {
   numberOfGuests: {
     label: 'Number of Guests',
     type: String,
-    viewableBy: ['guests'],
+    viewableBy: ['members'],
     insertableBy: ['members'],
     editableBy: ['admins'],
   },
@@ -86,6 +86,40 @@ const schema = {
     type: Date,
     optional: true,
     viewableBy: ['members'],
+  },
+
+  status: {
+    type: Number,
+    optional: true,
+    viewableBy: ['members'],
+    insertableBy: ['admins'],
+    editableBy: ['admins'],
+    control: 'select',
+    form: {
+      options: () => {
+        return [
+          {
+            value: 1,
+            label: 'pending'
+          },
+          {
+            value: 2,
+            label: 'approved'
+          },
+          {
+            value: 3,
+            label: 'paid'
+          },
+          {
+            value: 4,
+            label: 'rejected'
+          },
+        ]
+      },
+    },
+    onInsert: document => {
+      return document.status || 1;
+    },
   },
 
   // GraphQL-only fields

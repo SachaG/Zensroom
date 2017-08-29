@@ -51,6 +51,7 @@ const BookingsDashboard = () =>
         'endAt',
         'numberOfGuests',
         'paidAt',
+        'status',
         {
           name: 'user',
           component: BookingUser
