@@ -65,6 +65,7 @@ const BookingsDashboard = () =>
           component: BookingRoom
         }
       ]}
+      showEdit={true}
     />
 
   </div>

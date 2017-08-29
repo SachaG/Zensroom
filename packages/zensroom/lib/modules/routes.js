@@ -48,6 +48,6 @@ addRoute([
     
   {name: 'bookings.dashboard',    path:'/admin/bookings',           componentName: 'BookingsDashboard',   layoutName: 'AdminLayout'},
   {name: 'rooms.dashboard',       path:'/admin/rooms',              componentName: 'RoomsDashboard',      layoutName: 'AdminLayout'},
-  {name: 'reviews.dashboard',     path:'/admin/rooms',              componentName: 'ReviewsDashboard',    layoutName: 'AdminLayout'},
+  {name: 'reviews.dashboard',     path:'/admin/reviews',            componentName: 'ReviewsDashboard',    layoutName: 'AdminLayout'},
   
 ]);
