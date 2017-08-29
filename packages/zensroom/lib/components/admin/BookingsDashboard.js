@@ -46,9 +46,8 @@ const BookingsDashboard = () =>
         fragmentName: 'BookingsItemFragment'
       }}
       columns={[
-        'startAt',
-        'endAt',
-        'endAt',
+        'startAtFormatted',
+        'endAtFormatted',
         'numberOfGuests',
         'paidAt',
         'status',

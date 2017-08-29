@@ -136,6 +136,7 @@ const schema = {
   },
 
   startAtFormatted: {
+    label: 'Check In Date',
     type: String,
     optional: true,
     resolveAs: {
@@ -147,6 +148,7 @@ const schema = {
   },
 
   endAtFormatted: {
+    label: 'Check Out Date',
     type: String,
     optional: true,
     resolveAs: {
