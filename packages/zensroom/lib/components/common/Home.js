@@ -11,10 +11,10 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 // import RoomsList from '../rooms/RoomsList';
 // import RoomsSearchForm from '../rooms/RoomsSearchForm';
 
-const Home = () => 
-  
-  <div>
+const Home = () =>
 
+  <div>
+    <Components.BookingsPending/>
     <Components.RoomsSearchForm/>
 
     <div className="home-section">

@@ -16,6 +16,7 @@ import '../components/admin/ReviewsDashboard';
 import '../components/bookings/BookingsNewForm';
 import '../components/bookings/BookingsPage';
 import '../components/bookings/BookingsRoomUser';
+import '../components/bookings/BookingsPending';
 
 import '../components/common/Footer';
 import '../components/common/Header';

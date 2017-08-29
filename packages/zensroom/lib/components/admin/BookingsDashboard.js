@@ -24,7 +24,7 @@ const BookingUser = ({ document }) =>
     </Link>
   </div>;
 
-const BookingRoom = ({ document }) =>
+export const BookingRoom = ({ document }) =>
   <div>
     <Link to={document.room.pageUrl}>
       {document.room.name}
