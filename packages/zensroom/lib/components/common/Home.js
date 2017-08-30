@@ -5,16 +5,18 @@ Home
 */
 
 import React from 'react';
-import { Components, registerComponent } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
+import compose from 'recompose/compose';
+
 
 // import RoomsList from '../rooms/RoomsList';
 // import RoomsSearchForm from '../rooms/RoomsSearchForm';
 
-const Home = () =>
+const Home = ({currentUser}) =>
 
   <div>
-    <Components.BookingsPending/>
+    <Components.BookingsPending terms={{view: 'userPendingBookings', userId: currentUser._id}}/>
     <Components.RoomsSearchForm/>
 
     <div className="home-section">
@@ -29,6 +31,8 @@ const Home = () =>
 
   </div>
 
-registerComponent('Home', Home);
+registerComponent('Home', Home, withCurrentUser);
 
-export default Home;
+export default compose(
+  withCurrentUser,
+)(Home);

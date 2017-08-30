@@ -15,3 +15,11 @@ Bookings.addView('userBookings', terms => ({
     paidAt: {$exists: true}
   }
 }));
+
+Bookings.addView('userPendingBookings', terms => ({
+  selector: {
+    userId: terms.userId,
+    bookingId: terms.bookingId,
+    status: 1
+  }
+}));

@@ -5,22 +5,32 @@ import compose from 'recompose/compose';
 
 import Bookings from '../../modules/bookings/collection.js';
 
-const BookingsPending = ({currentUser}) => {
+const BookingsPending = ({loading, results}) => {
   return (
     <div>
-      {currentUser.bookings.map((booking) => {
-        if (booking.paidAt === null) {
-          return (
-            <div key={booking._id}>
-              <Link to={`/booking/${booking._id}`}>Complete your booking.</Link>
-            </div>
-          )
-        }
-      })}
+      {loading ? <Components.Loading/> :
+        <div>
+        {results.map((booking) => {
+          if (booking.paidAt === null) {
+            return (
+              <div key={booking._id}>
+                <Link to={`/booking/${booking._id}`}>Complete your booking.</Link>
+              </div>
+            )
+          }
+        })}
+        </div>
+      }
     </div>
   )
 }
 
-registerComponent('BookingsPending', BookingsPending, withCurrentUser);
+const options = {
+  collection: Bookings
+}
 
-export default BookingsPending
+registerComponent('BookingsPending', BookingsPending, [withList, options]);
+
+export default compose(
+  withList(options),
+)(BookingsPending);
