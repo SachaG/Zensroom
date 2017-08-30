@@ -13,7 +13,7 @@ const BookingsPending = ({loading, results}) => {
         <div>
         {results.map((booking) => (
           <div key={booking._id}>
-            <Link to={`/booking/${booking._id}`}>Complete your booking.</Link>
+            <Link to={`/booking/${booking._id}/completed`}>Complete your booking.</Link>
           </div>
         ))}
         </div>
