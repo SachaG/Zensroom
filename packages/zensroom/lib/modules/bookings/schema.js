@@ -8,6 +8,7 @@ http://docs.vulcanjs.org/schemas.html#Schemas
 
 import moment from 'moment';
 import { Utils } from 'meteor/vulcan:core';
+import Rooms from '../rooms/collection.js';
 
 const schema = {
   // default properties
@@ -75,11 +76,26 @@ const schema = {
   },
 
   numberOfGuests: {
-    label: 'Number of Guests',
-    type: String,
+    label: 'Guests',
+    type: Number,
     viewableBy: ['members'],
     insertableBy: ['members'],
     editableBy: ['admins'],
+  },
+
+  amount: {
+    label: 'Amount',
+    type: Number,
+    optional: true,
+    viewableBy: ['members'],
+    insertableBy: ['admins'],
+    editableBy: ['admins'],
+    onInsert: async document => {
+      const room = await Rooms.queryOne(document.roomId, { fragmentName: 'RoomsItemFragment' });
+      const numberOfNights = moment(document.endAt).diff(moment(document.startAt), 'days');
+      const amount = room.pricePerNight * document.numberOfGuests * numberOfNights;
+      return amount;
+    },
   },
 
   paidAt: {
@@ -136,7 +152,7 @@ const schema = {
   },
 
   startAtFormatted: {
-    label: 'Check In Date',
+    label: 'Check In',
     type: String,
     optional: true,
     resolveAs: {
@@ -148,13 +164,61 @@ const schema = {
   },
 
   endAtFormatted: {
-    label: 'Check Out Date',
+    label: 'Check Out',
     type: String,
     optional: true,
     resolveAs: {
       type: 'String',
       resolver: (booking, args, context) => {
         return moment(booking.endAt).format('dddd, MMMM Do YYYY');
+      }
+    }  
+  },
+
+  paidAtFormatted: {
+    label: 'Paid At',
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (booking, args, context) => {
+        return booking.paidAt && moment(booking.paidAt).format('dddd, MMMM Do YYYY');
+      }
+    }  
+  },
+
+  startAtFormattedShort: {
+    label: 'Check In',
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (booking, args, context) => {
+        return moment(booking.startAt).format('MM/DD/YY');
+      }
+    }  
+  },
+
+  endAtFormattedShort: {
+    label: 'Check Out',
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (booking, args, context) => {
+        return moment(booking.endAt).format('MM/DD/YY');
+      }
+    }  
+  },
+
+  paidAtFormattedShort: {
+    label: 'Paid At',
+    type: String,
+    optional: true,
+    resolveAs: {
+      type: 'String',
+      resolver: (booking, args, context) => {
+        return booking.paidAt && moment(booking.paidAt).format('MM/DD/YY');
       }
     }  
   },

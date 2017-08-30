@@ -5,7 +5,7 @@ Room list item
 */
 
 import React from 'react';
-import { Components, registerComponent } from 'meteor/vulcan:core';
+import { Components, registerComponent, getSetting } from 'meteor/vulcan:core';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 
@@ -16,7 +16,7 @@ const RoomsItem = ({room, currentUser}) =>
     <div className="rooms-item-image">
       <Link to={`/room/${room._id}`}>
         {room.photos && room.photos.length ? <img className="rooms-item-image-contents" src={room.photos[0][0].secure_url}/> : null}
-        <div className="rooms-item-price"><div>${room.pricePerNight}<FormattedMessage id="rooms.per_night"/></div></div>
+        <div className="rooms-item-price"><div>{getSetting('defaultCurrency', '$')}{room.pricePerNight}<FormattedMessage id="rooms.per_night"/></div></div>
       </Link>
     </div>
 
