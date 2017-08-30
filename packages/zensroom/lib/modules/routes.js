@@ -6,7 +6,7 @@ http://docs.vulcanjs.org/routing.html
 
 */
 
-import { Components, addRoute } from 'meteor/vulcan:core';
+import { Components, addRoute, extendRoute } from 'meteor/vulcan:core';
 
 // import Home from '../components/common/Home';
 // import HowTo from '../components/static/HowTo';
@@ -46,8 +46,11 @@ addRoute([
   {name: 'users.signup',          path:'/sign-up',                  componentName: 'UsersSignUp'},
   {name: 'users.login',           path:'/log-in',                   componentName: 'UsersLogIn'},
     
+  // {name: 'users.dashboard',       path:'/admin/users',              componentName: 'BookingsDashboard',   layoutName: 'AdminLayout'},
   {name: 'bookings.dashboard',    path:'/admin/bookings',           componentName: 'BookingsDashboard',   layoutName: 'AdminLayout'},
   {name: 'rooms.dashboard',       path:'/admin/rooms',              componentName: 'RoomsDashboard',      layoutName: 'AdminLayout'},
   {name: 'reviews.dashboard',     path:'/admin/reviews',            componentName: 'ReviewsDashboard',    layoutName: 'AdminLayout'},
   
 ]);
+
+extendRoute('admin', {layoutName: 'AdminLayout'});

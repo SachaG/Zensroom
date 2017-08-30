@@ -36,6 +36,12 @@ const UsersMenu = ({currentUser, client}) =>
           </LinkContainer>
         : null}
 
+        {Users.canDo(currentUser, 'users.view.all') ? 
+          <LinkContainer to={`/admin/`}>
+            <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="users.users_admin"/></MenuItem>
+          </LinkContainer>
+        : null}
+
         {Users.canDo(currentUser, 'bookings.view.all') ? 
           <LinkContainer to={`/admin/bookings`}>
             <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="bookings.bookings_admin"/></MenuItem>

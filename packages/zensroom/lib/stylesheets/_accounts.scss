@@ -35,6 +35,18 @@
       }
     }
   }
+  input.form-control{
+    font-size: 0.9rem;
+  }
+  .warning, .error{
+    color: #a94442;
+    background: #f2dede;
+    border: 1px solid #ebcccc;
+    padding: $spacing/4 $spacing/2;
+    border-radius: 3px;
+    display: block;
+    margin-top: $spacing/4;
+  }
 }
 
 .password-reset-form{

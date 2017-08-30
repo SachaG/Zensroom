@@ -42,6 +42,14 @@
   }
 }
 
+.rooms-grid-load-more{
+  border-radius: 3px;
+  border: 1px solid $light-grey;
+  padding: $spacing;
+  display: block;
+  text-align: center;
+}
+
 //////////////////////////////////////////////////////
 // Rooms Item                                       //
 //////////////////////////////////////////////////////
@@ -94,6 +102,7 @@
 
 .rooms-main{
   flex: 1;
+  margin-right: $spacing*2;
 }
 
 .rooms-section{
@@ -165,7 +174,6 @@
 
 .rooms-sidebar{
   max-width: 30%;
-  padding: $spacing;
 }
 
 .rooms-book{

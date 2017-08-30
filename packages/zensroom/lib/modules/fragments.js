@@ -10,10 +10,10 @@ import { extendFragment } from 'meteor/vulcan:core';
 
 extendFragment('UsersAdmin', `
   rooms(limit: 5){
-    ...RoomsDefaultFragment
+    ...RoomsItemFragment
   }
   bookings(limit: 5){
-    ...BookingsDefaultFragment
+    ...BookingsItemFragment
   }
   reviews(limit: 5){
     ...ReviewsDefaultFragment
@@ -22,10 +22,10 @@ extendFragment('UsersAdmin', `
 
 extendFragment('UsersCurrent', `
   rooms(limit: 5){
-    ...RoomsDefaultFragment
+    ...RoomsItemFragment
   }
   bookings(limit: 5){
-    ...BookingsDefaultFragment
+    ...BookingsItemFragment
   }
   reviews(limit: 5){
     ...ReviewsDefaultFragment

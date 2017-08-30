@@ -21,12 +21,14 @@ const RoomsList = ({results = [], currentUser, loading, loadMore, count, totalCo
 
       <Components.Loading /> :
 
-      <div className="rooms-grid">
+      <div>
+      
+        <div className="rooms-grid">
+          {results.map(room => <Components.RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
+        </div>
 
-        {results.map(room => <Components.RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
-        
         {totalCount > results.length ?
-          <a href="#" onClick={e => {e.preventDefault(); loadMore();}}><FormattedMessage id="rooms.load_more"/> ({count}/{totalCount})</a> 
+          <a className="rooms-grid-load-more" href="javascript:void(0)" onClick={e => {e.preventDefault(); loadMore();}}><FormattedMessage id="rooms.load_more"/> ({count}/{totalCount})</a> 
         : null}
 
       </div>
