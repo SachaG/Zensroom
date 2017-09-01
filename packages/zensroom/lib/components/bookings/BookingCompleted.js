@@ -11,11 +11,10 @@ import { Components, registerComponent, withCurrentUser, withDocument, withEdit,
 import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
 import Button from 'react-bootstrap/lib/Button';
-import gql from 'graphql-tag';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
+import moment from 'moment';
 
 import Bookings from '../../modules/bookings/collection';
-import { BookingRoom } from '../admin/BookingsDashboard';
 
 class BookingCompleted extends React.Component {
 
@@ -24,13 +23,12 @@ class BookingCompleted extends React.Component {
   }
 
   confirmBooking() {
-    console.log(this.props)
+    console.log(this.props.editMutation)
     this.props.editMutation({
-      documentId: this.props.document._id,
-      set: { confirmed: true },
+      documentId: this.props.documentId,
+      set: { paidAt:  moment()},
     })
     .then((results) => {
-      console.log(results)
       this.props.router.push({pathname: `/booking/${document._id}`});
       this.props.flash(this.context.intl.formatMessage({id: 'bookings.created'}), 'success');
       return true;
@@ -48,7 +46,7 @@ class BookingCompleted extends React.Component {
 
           <div>
 
-            <h2 className="page-title">{document.room.name}</h2>
+            <h3 className="page-title">{document.room.name}</h3>
 
             <div className="bookings-checkout">
 
@@ -59,16 +57,10 @@ class BookingCompleted extends React.Component {
                 'startAt',
                 'endAt',
                 'numberOfGuests',
-                'paidAt',
               ]}
               collection={Bookings}
               document={document}
               currentUser={currentUser} />
-
-            <BookingRoom document={document} />
-
-            <Button className="bookings-form-submit" type="submit" bsStyle="primary" onClick={this.confirmBooking.bind(this)}>Confirm</Button>
-            <Button type="submit" bsStyle="default" onClick={this.confirmBooking.bind(this)}>Cancel</Button>
 
           </div>
 

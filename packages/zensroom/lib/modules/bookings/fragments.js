@@ -10,10 +10,22 @@ import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
   fragment BookingsItemFragment on Booking {
+
     __typename
     _id
     createdAt
-    userId
+    endAt
+    paidAt
+    startAtFormatted
+    endAtFormatted
+    paidAtFormatted
+    startAtFormattedShort
+    endAtFormattedShort
+    paidAtFormattedShort
+    numberOfGuests
+    status
+    amount
+
     user {
       _id
       displayName
@@ -21,19 +33,14 @@ registerFragment(`
       slug
       pageUrl
     }
-    roomId
+
     room {
+      _id
       pricePerNight
       name
       photos
       pageUrl
     }
-    startAt
-    endAt
-    startAtFormatted
-    endAtFormatted
-    numberOfGuests
-    paidAt
-    status
+
   }  
 `);

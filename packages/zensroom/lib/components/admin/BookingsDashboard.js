@@ -17,20 +17,19 @@ import Bookings from '../../modules/bookings/collection.js';
 const BookingPrice = ({ document }) => <div>{document.room.pricePerNight}</div>;
 
 const BookingUser = ({ document }) =>
-  <div>
+  <div className="bookings-dashboard-user">
     <Components.Avatar size="small" user={document.user} link />
-    <Link to={document.user.profileUrl}>
+    <Link to={document.user.pageUrl}>
       {document.user.displayName}
     </Link>
   </div>;
 
-export const BookingRoom = ({ document }) =>
-  <div>
-    <Link to={document.room.pageUrl}>
-      {document.room.name}
-    </Link>
+
+const BookingRoom = ({ document }) =>
+  <div className="bookings-dashboard-room">
     <Link to={document.room.pageUrl}>
       <img src={document.room.photos[0][1].url} alt=""/>
+      <span>{document.room.name}</span>
     </Link>
   </div>;
 
@@ -46,18 +45,15 @@ const BookingsDashboard = () =>
         fragmentName: 'BookingsItemFragment'
       }}
       columns={[
-        'startAtFormatted',
-        'endAtFormatted',
+        'startAtFormattedShort',
+        'endAtFormattedShort',
         'numberOfGuests',
-        'paidAt',
+        'amount',
+        'paidAtFormattedShort',
         'status',
         {
           name: 'user',
           component: BookingUser
-        },
-        {
-          name: 'Price',
-          component: BookingPrice
         },
         {
           name: 'Room',

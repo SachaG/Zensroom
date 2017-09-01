@@ -11,11 +11,11 @@ const BookingsPending = ({loading, results}) => {
     <Alert bsStyle="danger">
       {loading ? <Components.Loading/> :
         <div>
-        {results.map((booking) => (
-          <div key={booking._id}>
-            <Link to={`/booking/${booking._id}/completed`}>Complete your booking.</Link>
-          </div>
-        ))}
+          {results.map((booking) => (
+            <div key={booking._id}>
+              <Link to={`/booking/${booking._id}/completed`}>Complete your booking.</Link>
+            </div>
+          ))}
         </div>
       }
     </Alert>

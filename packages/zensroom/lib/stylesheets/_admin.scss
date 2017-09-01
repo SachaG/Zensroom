@@ -1,0 +1,34 @@
+.datatable{
+  .avatar{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+    a, img{
+      border-radius: 100%;
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.datatable-search{
+  margin-bottom: $spacing/2;
+  max-width: 200px;
+}
+
+//////////////////////////////////////////////////////
+// Bookings                                         //
+//////////////////////////////////////////////////////
+
+.bookings-dashboard-room{
+  img{
+    display: inline-block;
+    max-width: 60px;
+    margin-right: 10px;
+  }
+  span{
+
+  }
+}

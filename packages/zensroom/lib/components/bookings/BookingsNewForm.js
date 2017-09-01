@@ -7,7 +7,7 @@ http://docs.vulcanjs.org/mutations.html#Higher-Order-Components
 */
 
 import React, { Component } from 'react';
-import { Components, registerComponent, withCurrentUser, getFragment, withMessages, withNew, addCallback } from 'meteor/vulcan:core';
+import { Components, registerComponent, withCurrentUser, getFragment, getSetting, withMessages, withNew, addCallback } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import compose from 'recompose/compose';
 import DateTimePicker from 'react-datetime';
@@ -102,7 +102,7 @@ class BookingsNewForm extends Component {
       addCallback('users.postlogin', createNewBookingCallback);
       this.props.router.push('/sign-up');
       this.props.flash(this.context.intl.formatMessage({id: 'users.please_sign_up_log_in'}), 'error');
-    
+
     }
   }
 
@@ -147,7 +147,7 @@ class BookingsNewForm extends Component {
 
       <div className="bookings-form">
 
-        <h3>Total Price: ${totalPrice}</h3>
+        <h3>Total Price: {getSetting('defaultCurrency', '$')}{totalPrice}</h3>
 
         <div className="bookings-form-field">
           <label className="control-label"><FormattedMessage id="bookings.from" /></label>
@@ -184,7 +184,7 @@ class BookingsNewForm extends Component {
 
         <Button disabled={this.state.disabled} className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
 
-      </div> 
+      </div>
 
     </Form>
 
@@ -220,4 +220,4 @@ export default compose(
   withMessages,
   withCurrentUser,
   withUnavailableDates,
-)(BookingsNewForm);
+)(BookingsNewForm)
