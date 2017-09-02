@@ -6,24 +6,24 @@ import compose from 'recompose/compose';
 
 import Bookings from '../../modules/bookings/collection.js';
 
-const BookingsPending = ({loading, results}) => {
-  return (
-    <Alert bsStyle="danger">
-      {loading ? <Components.Loading/> :
-        <div>
-          {results.map((booking) => (
-            <div key={booking._id}>
-              <Link to={`/booking/${booking._id}/completed`}>Complete your booking.</Link>
-            </div>
-          ))}
-        </div>
-      }
-    </Alert>
-  )
-};
+const BookingsPending = ({loading, results}) => 
+  <div>
+    {results && results.length ?
+      <Alert bsStyle="danger">
+        {results.map((booking) => (
+          <div key={booking._id}>
+            <Link to={`/booking/${booking._id}/`}>Complete your booking of {booking.room.name}.</Link>
+          </div>
+        ))}
+      </Alert> :
+      null
+    }
+  </div>
+
 
 const options = {
-  collection: Bookings
+  collection: Bookings,
+  fragmentName: 'BookingsItemFragment'
 };
 
 registerComponent('BookingsPending', BookingsPending, [withList, options]);

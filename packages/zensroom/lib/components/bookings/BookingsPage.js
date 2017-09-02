@@ -13,10 +13,10 @@ import compose from 'recompose/compose';
 import Button from 'react-bootstrap/lib/Button';
 import gql from 'graphql-tag';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
-
+import { withRouter } from 'react-router';
 import Bookings from '../../modules/bookings/collection';
 
-const BookingsPage = ({document, loading, currentUser}) => 
+const BookingsPage = ({document, loading, currentUser, router}) => 
   
   <div>
     {loading? 'Loading…' :
@@ -38,6 +38,9 @@ const BookingsPage = ({document, loading, currentUser}) =>
                   paidAt
                 }
               `}
+              callback={() => {
+                router.push(`/booking/${document._id}/completed`)
+              }}
               button={<Button bsStyle="primary"><FormattedMessage id="bookings.complete_payment"/></Button>}
             />
           }
@@ -60,10 +63,11 @@ const options = {
 
 const mapPropsFunction = props => ({...props, documentId: props.routeParams && props.routeParams.bookingId});
 
-registerComponent('BookingsPage', BookingsPage, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser);
+registerComponent('BookingsPage', BookingsPage, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser, withRouter);
 
 export default compose(
   mapProps(mapPropsFunction),
   withDocument(options),
-  withCurrentUser
+  withCurrentUser,
+  withRouter,
 )(BookingsPage);
