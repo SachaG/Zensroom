@@ -24,6 +24,7 @@ const BookingUser = ({ document }) =>
     </Link>
   </div>;
 
+
 const BookingRoom = ({ document }) =>
   <div className="bookings-dashboard-room">
     <Link to={document.room.pageUrl}>

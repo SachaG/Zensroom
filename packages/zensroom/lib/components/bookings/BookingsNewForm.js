@@ -102,7 +102,7 @@ class BookingsNewForm extends Component {
       addCallback('users.postlogin', createNewBookingCallback);
       this.props.router.push('/sign-up');
       this.props.flash(this.context.intl.formatMessage({id: 'users.please_sign_up_log_in'}), 'error');
-    
+
     }
   }
 
@@ -184,7 +184,7 @@ class BookingsNewForm extends Component {
 
         <Button disabled={this.state.disabled} className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
 
-      </div> 
+      </div>
 
     </Form>
 
@@ -220,4 +220,4 @@ export default compose(
   withMessages,
   withCurrentUser,
   withUnavailableDates,
-)(BookingsNewForm);
+)(BookingsNewForm)
