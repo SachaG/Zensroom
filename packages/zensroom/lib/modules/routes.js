@@ -6,7 +6,7 @@ http://docs.vulcanjs.org/routing.html
 
 */
 
-import { Components, addRoute } from 'meteor/vulcan:core';
+import { Components, addRoute, extendRoute } from 'meteor/vulcan:core';
 
 // import Home from '../components/common/Home';
 // import HowTo from '../components/static/HowTo';

@@ -16,13 +16,16 @@ addAdminColumn({
   order: 50,
   component: AdminUsersRooms
 });
+
 addAdminColumn({
   name: 'bookings',
   order: 60,
   component: AdminUsersBookings
 });
+
 addAdminColumn({
   name: 'reviews',
   order: 70,
   component: AdminUsersReviews
 });
+
