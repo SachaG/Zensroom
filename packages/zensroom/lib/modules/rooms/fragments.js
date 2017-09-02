@@ -16,5 +16,6 @@ registerFragment(`
     bedsNumber
     guestsNumber
     amenities
+    photos
   }
 `);
