@@ -15,7 +15,7 @@ import Rooms from '../../modules/rooms/collection.js';
 
 const RoomPhotos = ({ document }) =>
   <div>
-    {document.photos[0].map((photo) => <img key={photo.url} src={`${photo.url}`} alt=""/>)}
+    {document.photos.map((photo) => <img key={photo[0].url} src={`${photo[0].url}`} alt=""/>)}
   </div>;
 
 const RoomsDashboard = () =>

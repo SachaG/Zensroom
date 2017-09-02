@@ -32,3 +32,17 @@
 
   }
 }
+
+//////////////////////////////////////////////////////
+// Photos                                           //
+//////////////////////////////////////////////////////
+
+.datatable-item-photos, .datatable-item-Photos{
+  min-width: 300px;
+  img{
+    display: inline-block;
+    max-width: 60px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}

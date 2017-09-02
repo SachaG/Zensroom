@@ -319,7 +319,7 @@ const schema = {
     resolveAs: {
       type: 'String',
       resolver: (room, args, context) => {
-        return `${Utils.getSiteUrl()}room/${room._id}`;
+        return `${Utils.getSiteUrl()}/room/${room._id}`;
       },
     }  
   }
