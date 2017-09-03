@@ -23,3 +23,11 @@ Bookings.addView('userPendingBookings', terms => ({
     status: 1
   }
 }));
+
+Bookings.addView('userBookingsPast', terms => ({
+  selector: {
+    userId: terms.userId,
+    bookingId: terms.bookingId,
+    status: 1
+  }
+}));
