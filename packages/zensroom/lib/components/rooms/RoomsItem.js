@@ -31,4 +31,4 @@ const RoomsItem = ({room, currentUser}) =>
 
 registerComponent('RoomsItem', RoomsItem);
 
-export default RoomsItem;
+// export default RoomsItem;

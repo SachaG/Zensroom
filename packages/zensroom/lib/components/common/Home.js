@@ -33,6 +33,6 @@ const Home = ({currentUser}) =>
 
 registerComponent('Home', Home, withCurrentUser);
 
-export default compose(
-  withCurrentUser,
-)(Home);
+// export default compose(
+//   withCurrentUser,
+// )(Home);

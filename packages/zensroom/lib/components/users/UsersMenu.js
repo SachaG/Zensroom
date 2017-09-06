@@ -73,4 +73,4 @@ UsersMenu.propsTypes = {
 
 registerComponent('UsersMenu', UsersMenu, withApollo, withCurrentUser);
 
-export default withCurrentUser(withApollo(UsersMenu));
+// export default withCurrentUser(withApollo(UsersMenu));

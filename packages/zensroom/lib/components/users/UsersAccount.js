@@ -57,8 +57,8 @@ const mapPropsFunction = props => ({...props, terms: props.routeParams && props.
 
 registerComponent('UsersAccount', UsersAccount, mapProps(mapPropsFunction), withMessages, withCurrentUser);
 
-export default compose(
-  mapProps(mapPropsFunction),
-  withMessages,
-  withCurrentUser,
-)(UsersAccount);
+// export default compose(
+//   mapProps(mapPropsFunction),
+//   withMessages,
+//   withCurrentUser,
+// )(UsersAccount);

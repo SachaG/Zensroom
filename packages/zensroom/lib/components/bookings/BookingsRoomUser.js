@@ -41,6 +41,6 @@ const options = {
 
 registerComponent('BookingsRoomUser', BookingsRoomUser, [withList, options]);
 
-export default compose(
-  withList(options),
-)(BookingsRoomUser);
+// export default compose(
+//   withList(options),
+// )(BookingsRoomUser);

@@ -28,6 +28,6 @@ const options = {
 
 registerComponent('BookingsPending', BookingsPending, [withList, options]);
 
-export default compose(
-  withList(options),
-)(BookingsPending);
+// export default compose(
+//   withList(options),
+// )(BookingsPending);

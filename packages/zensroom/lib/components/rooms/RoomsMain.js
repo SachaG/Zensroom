@@ -41,4 +41,4 @@ const RoomsMain = ({ room, currentUser }) =>
 
 registerComponent('RoomsMain', RoomsMain);
 
-export default RoomsMain;
+// export default RoomsMain;

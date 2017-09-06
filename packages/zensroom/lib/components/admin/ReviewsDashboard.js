@@ -29,4 +29,4 @@ const ReviewsDashboard = () =>
 
 registerComponent('ReviewsDashboard', ReviewsDashboard);
 
-export default ReviewsDashboard;
+// export default ReviewsDashboard;

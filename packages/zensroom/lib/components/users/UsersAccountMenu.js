@@ -26,4 +26,4 @@ UsersAccountMenu.displayName = "UsersAccountMenu";
 
 registerComponent('UsersAccountMenu', UsersAccountMenu);
 
-export default UsersAccountMenu;
+// export default UsersAccountMenu;

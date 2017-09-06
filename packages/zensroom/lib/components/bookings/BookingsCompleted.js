@@ -44,8 +44,8 @@ const mapPropsFunction = props => ({...props, documentId: props.routeParams && p
 
 registerComponent('BookingsCompleted', BookingsCompleted, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser);
 
-export default compose(
-  mapProps(mapPropsFunction),
-  withDocument(options),
-  withCurrentUser
-)(BookingsCompleted);
+// export default compose(
+//   mapProps(mapPropsFunction),
+//   withDocument(options),
+//   withCurrentUser
+// )(BookingsCompleted);

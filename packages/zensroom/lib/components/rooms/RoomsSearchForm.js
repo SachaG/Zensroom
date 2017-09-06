@@ -110,4 +110,4 @@ class RoomsSearchForm extends Component {
 
 registerComponent('RoomsSearchForm', RoomsSearchForm, withRouter);
 
-export default withRouter(RoomsSearchForm);
+// export default withRouter(RoomsSearchForm);

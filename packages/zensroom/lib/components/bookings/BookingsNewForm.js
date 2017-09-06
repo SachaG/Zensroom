@@ -214,10 +214,10 @@ const options = {
 
 registerComponent('BookingsNewForm', BookingsNewForm, [withNew, options], withRouter, withMessages, withCurrentUser, withUnavailableDates);
 
-export default compose(
-  withNew(options),
-  withRouter,
-  withMessages,
-  withCurrentUser,
-  withUnavailableDates,
-)(BookingsNewForm)
+// export default compose(
+//   withNew(options),
+//   withRouter,
+//   withMessages,
+//   withCurrentUser,
+//   withUnavailableDates,
+// )(BookingsNewForm)

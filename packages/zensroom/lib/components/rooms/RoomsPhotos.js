@@ -57,4 +57,4 @@ RoomsPhotos.displayName = 'RoomsPhotos';
 
 registerComponent('RoomsPhotos', RoomsPhotos);
 
-export default RoomsPhotos;
+// export default RoomsPhotos;

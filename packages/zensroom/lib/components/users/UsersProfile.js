@@ -58,8 +58,8 @@ const mapPropsFunction = props => ({...props, userId: props.routeParams && props
 
 registerComponent('UsersProfile', UsersProfile, mapProps(mapPropsFunction), withCurrentUser, [withDocument, options]);
 
-export default compose(
-  mapProps(mapPropsFunction),
-  withCurrentUser,
-  withDocument(options),
-)(UsersProfile);
+// export default compose(
+//   mapProps(mapPropsFunction),
+//   withCurrentUser,
+//   withDocument(options),
+// )(UsersProfile);
