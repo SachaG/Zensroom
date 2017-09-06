@@ -39,7 +39,7 @@ addRoute([
   {name: 'rooms.page',            path: '/room/:roomId(/:slug)',              componentName: 'RoomsPage'},
 
   {name: 'bookings.page',         path: '/booking/:bookingId',                componentName: 'BookingsPage'},
-  {name: 'bookings.past',         path: '/accounts/bookings/past',            componentName: 'BookingsPast'},
+  {name: 'bookings.past',         path: '/account/bookings/past',             componentName: 'BookingsPastPage'},
   {name: 'bookings.completed',    path: '/booking/:bookingId/completed',      componentName: 'BookingsCompleted'},
 
   {name: 'users.single',          path:'/users/:slug',                        componentName: 'UsersProfile'},

@@ -6,7 +6,7 @@ import compose from 'recompose/compose';
 
 import Bookings from '../../modules/bookings/collection.js';
 
-const BookingsPast = ({loading, results}) => {
+const BookingsFuture = ({loading, results}) => {
   console.log(results)
   return (
     <div>
@@ -30,8 +30,8 @@ const options = {
   fragmentName: 'BookingsItemFragment'
 };
 
-registerComponent('BookingsPast', BookingsPast, [withList, options]);
+registerComponent('BookingsFuture', BookingsFuture, [withList, options]);
 
 export default compose(
   withList(options),
-)(BookingsPast);
+)(BookingsFuture);
