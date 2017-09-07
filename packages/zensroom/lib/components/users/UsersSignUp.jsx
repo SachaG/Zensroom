@@ -21,4 +21,4 @@ UsersSignUp.displayName = 'UsersSignUp';
 
 registerComponent('UsersSignUp', UsersSignUp);
 
-export default UsersSignUp;
+// export default UsersSignUp;

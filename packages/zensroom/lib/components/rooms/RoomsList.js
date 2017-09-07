@@ -42,4 +42,4 @@ const options = {
 
 registerComponent('RoomsList', RoomsList, [withList, options], withCurrentUser);
 
-export default withList(options)(withCurrentUser(RoomsList));
+// export default withList(options)(withCurrentUser(RoomsList));

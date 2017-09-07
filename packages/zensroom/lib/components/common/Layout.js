@@ -38,4 +38,4 @@ const Layout = ({currentUser, children, currentRoute}) =>
 
 replaceComponent('Layout', Layout);
 
-export default withCurrentUser(Layout);
+// export default withCurrentUser(Layout);

@@ -25,11 +25,16 @@ Bookings.addView('userPendingBookings', terms => ({
   }
 }));
 
-Bookings.addView('userBookingsPast', terms => {
-  return {
-    selector: {
-      userId: terms.userId,
-      endAt: terms.endAt
-    }
+Bookings.addView('userBookingsPast', terms => ({
+  selector: {
+    userId: terms.userId,
+    endAt: {$lt: new Date()}
   }
-});
+}));
+
+Bookings.addView('userBookingsFuture', terms => ({
+  selector: {
+    userId: terms.userId,
+    startAt: {$gt: new Date()}
+  }
+}));

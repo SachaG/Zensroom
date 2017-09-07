@@ -1,37 +1,29 @@
 import React from 'react';
-import { Components, registerComponent, withList, withCurrentUser, withDocument } from 'meteor/vulcan:core';
-import { Link } from 'react-router';
-import { Alert } from 'react-bootstrap';
+import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
+import { FormattedMessage } from 'meteor/vulcan:i18n';
 import compose from 'recompose/compose';
 
 import Bookings from '../../modules/bookings/collection.js';
 
-const BookingsPast = ({loading, results}) => {
-  console.log(results)
-  return (
+const BookingsPast = ({currentUser}) =>
     <div>
-      {results && results.length ?
-        <Alert bsStyle="danger">
-          {results.map((booking) => (
-            <div key={booking._id}>
-              <Link to={`/booking/${booking._id}/`}>Complete your booking of {booking.room.name}.</Link>
-            </div>
-          ))}
-        </Alert> :
-        null
-      }
-    </div>
-  )
-};
+      <Components.Datatable
+        collection={Bookings}
+        columns={[
+          'endAt',
+          'amount',
+          'status'
+        ]}
+        options={{
+          fragmentName: 'BookingsItemFragment',
+          terms: {view: 'userBookingsPast'}
+        }}
+      />
+    </div>;
 
 
-const options = {
-  collection: Bookings,
-  fragmentName: 'BookingsItemFragment'
-};
-
-registerComponent('BookingsPast', BookingsPast, [withList, options]);
+registerComponent('BookingsPast', BookingsPast, withCurrentUser);
 
 export default compose(
-  withList(options),
+  withCurrentUser,
 )(BookingsPast);

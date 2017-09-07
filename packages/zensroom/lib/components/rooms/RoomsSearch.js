@@ -80,4 +80,4 @@ class RoomsSearch extends Component {
 
 registerComponent('RoomsSearch', RoomsSearch, withRouter);
 
-export default withRouter(RoomsSearch);
+// export default withRouter(RoomsSearch);

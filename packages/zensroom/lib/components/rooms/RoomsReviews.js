@@ -22,4 +22,4 @@ const RoomsReviews = ({ room, currentUser }) =>
 
 registerComponent('RoomsReviews', RoomsReviews);
 
-export default RoomsReviews;
+// export default RoomsReviews;

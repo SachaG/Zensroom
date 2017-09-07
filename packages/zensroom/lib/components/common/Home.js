@@ -16,7 +16,7 @@ import compose from 'recompose/compose';
 const Home = ({currentUser}) =>
 
   <div>
-    <Components.BookingsPending terms={{view: 'userPendingBookings', userId: currentUser._id}}/>
+    {currentUser ? <Components.BookingsPending terms={{view: 'userPendingBookings', userId: currentUser._id}}/> : null}
     <Components.RoomsSearchForm/>
 
     <div className="home-section">
@@ -33,6 +33,6 @@ const Home = ({currentUser}) =>
 
 registerComponent('Home', Home, withCurrentUser);
 
-export default compose(
-  withCurrentUser,
-)(Home);
+// export default compose(
+//   withCurrentUser,
+// )(Home);

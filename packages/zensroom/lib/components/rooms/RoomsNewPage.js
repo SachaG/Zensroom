@@ -19,4 +19,4 @@ const RoomsNewPage = () =>
 
 registerComponent('RoomsNewPage', RoomsNewPage);
 
-export default RoomsNewPage;
+// export default RoomsNewPage;

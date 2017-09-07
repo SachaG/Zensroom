@@ -72,4 +72,4 @@ const options = {
 
 registerComponent('RoomsSearchResults', RoomsSearchResults, [withList, options]);
 
-export default withList(options)(RoomsSearchResults);
+// export default withList(options)(RoomsSearchResults);

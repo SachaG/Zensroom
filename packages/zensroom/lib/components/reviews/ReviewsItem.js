@@ -17,4 +17,4 @@ const ReviewsItem = ({ review }) =>
 
 registerComponent('ReviewsItem', ReviewsItem);
 
-export default ReviewsItem;
+// export default ReviewsItem;

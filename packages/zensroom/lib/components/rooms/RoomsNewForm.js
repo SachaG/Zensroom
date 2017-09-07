@@ -40,8 +40,8 @@ RoomsNewForm.contextTypes = {
 
 registerComponent('RoomsNewForm', RoomsNewForm, withRouter, withMessages, withCurrentUser);
 
-export default compose(
-  withRouter,
-  withMessages,
-  withCurrentUser
-)(RoomsNewForm);
+// export default compose(
+//   withRouter,
+//   withMessages,
+//   withCurrentUser
+// )(RoomsNewForm);

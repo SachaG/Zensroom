@@ -43,4 +43,4 @@ const options = {
 
 registerComponent('ReviewsList', ReviewsList, [withList, options], withCurrentUser);
 
-export default withList(options)(withCurrentUser(ReviewsList));
+// export default withList(options)(withCurrentUser(ReviewsList));

@@ -41,4 +41,4 @@ const RoomsDashboard = () =>
 
 registerComponent('RoomsDashboard', RoomsDashboard);
 
-export default RoomsDashboard;
+// export default RoomsDashboard;

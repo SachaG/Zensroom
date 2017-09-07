@@ -65,9 +65,9 @@ const mapPropsFunction = props => ({...props, documentId: props.routeParams && p
 
 registerComponent('BookingsPage', BookingsPage, mapProps(mapPropsFunction), [withDocument, options], withCurrentUser, withRouter);
 
-export default compose(
-  mapProps(mapPropsFunction),
-  withDocument(options),
-  withCurrentUser,
-  withRouter,
-)(BookingsPage);
+// export default compose(
+//   mapProps(mapPropsFunction),
+//   withDocument(options),
+//   withCurrentUser,
+//   withRouter,
+// )(BookingsPage);

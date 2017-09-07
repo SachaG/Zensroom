@@ -17,4 +17,4 @@ Footer.displayName = 'Footer';
 
 registerComponent('Footer', Footer);
 
-export default Footer;
+// export default Footer;

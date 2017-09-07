@@ -67,4 +67,4 @@ const BookingsDashboard = () =>
 
 registerComponent('BookingsDashboard', BookingsDashboard);
 
-export default BookingsDashboard;
+// export default BookingsDashboard;
