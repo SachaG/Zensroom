@@ -25,6 +25,8 @@ addStrings('en', {
   'bookings.from': 'From',
   'bookings.to': 'To',
   'bookings.number_of_guests': 'Number of guests',
+  'bookings.past': 'Past Bookings',
+  'bookings.future': 'Future Bookings',
 
   'rooms.rooms': 'Rooms',
   'rooms.rooms_admin': 'Rooms',
@@ -41,7 +43,7 @@ addStrings('en', {
   'rooms.per_night': '/night',
   'rooms.filters': 'Filters',
   'rooms.with_fireplace': 'With Fireplace',
-  
+
   'reviews.reviews': 'Reviews',
   'reviews.reviews_admin': 'Reviews',
   'reviews.created': 'Review created',
