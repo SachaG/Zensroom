@@ -40,6 +40,7 @@ addRoute([
 
   {name: 'bookings.page',         path: '/booking/:bookingId',                componentName: 'BookingsPage'},
   {name: 'bookings.past',         path: '/account/bookings/past',             componentName: 'BookingsPast'},
+  {name: 'bookings.current',      path: '/account/bookings/current',          componentName: 'BookingsCurrent'},
   {name: 'bookings.future',       path: '/account/bookings/future',           componentName: 'BookingsFuture'},
   {name: 'bookings.completed',    path: '/booking/:bookingId/completed',      componentName: 'BookingsCompleted'},
 

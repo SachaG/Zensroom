@@ -11,28 +11,28 @@ const BookingsDate = ({ document }) =>
     <Link to={document.pageUrl}>From {document.startAtFormattedShort} to {document.endAtFormattedShort}</Link>
   </div>
 
-const BookingsPast = ({currentUser}) =>
-    <div>
-      <Components.Datatable
-        collection={Bookings}
-        columns={[
-          {
-            name: 'dates',
-            component: BookingsDate
-          },
-          'amount',
-          'status'
-        ]}
-        options={{
-          fragmentName: 'BookingsItemFragment',
-          terms: {view: 'userBookingsPast'}
-        }}
-      />
-    </div>;
+const BookingsCurrent = ({ currentUser }) =>
+  <div>
+    <Components.Datatable
+      collection={Bookings}
+      columns={[
+        {
+          name: 'dates',
+          component: BookingsDate
+        },
+        'amount',
+        'status'
+      ]}
+      options={{
+        fragmentName: 'BookingsItemFragment',
+        terms: {view: 'userBookingsCurrent'}
+      }}
+    />
+  </div>;
 
 
-registerComponent('BookingsPast', BookingsPast, withCurrentUser);
+registerComponent('BookingsCurrent', BookingsCurrent, withCurrentUser);
 
 export default compose(
   withCurrentUser,
-)(BookingsPast);
+)(BookingsCurrent);

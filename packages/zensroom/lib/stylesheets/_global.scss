@@ -24,3 +24,11 @@
   padding-bottom: $spacing/2;
   border-bottom: 1px solid $lighter-grey;
 }
+
+.dropdown-item{
+  &.active{
+    a{
+      color: white;
+    }
+  }
+}

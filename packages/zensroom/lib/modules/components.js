@@ -18,6 +18,7 @@ import '../components/bookings/BookingsPage';
 import '../components/bookings/BookingsRoomUser';
 import '../components/bookings/BookingsPending';
 import '../components/bookings/BookingsPast';
+import '../components/bookings/BookingsCurrent';
 import '../components/bookings/BookingsFuture';
 import '../components/bookings/BookingsCompleted';
 

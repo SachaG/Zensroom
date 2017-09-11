@@ -32,6 +32,9 @@ const UsersMenu = ({currentUser, client}) =>
         <LinkContainer to={`/account/bookings/past`}>
           <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.past"/></MenuItem>
         </LinkContainer>
+        <LinkContainer to={`/account/bookings/current`}>
+          <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.current"/></MenuItem>
+        </LinkContainer>
         <LinkContainer to={`/account/bookings/future`}>
           <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.future"/></MenuItem>
         </LinkContainer>

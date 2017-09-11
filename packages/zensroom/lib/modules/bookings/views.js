@@ -20,7 +20,6 @@ Bookings.addView('userBookings', terms => ({
 Bookings.addView('userPendingBookings', terms => ({
   selector: {
     userId: terms.userId,
-    bookingId: terms.bookingId,
     status: 1
   }
 }));
@@ -29,6 +28,14 @@ Bookings.addView('userBookingsPast', terms => ({
   selector: {
     userId: terms.userId,
     endAt: {$lt: new Date()}
+  }
+}));
+
+Bookings.addView('userBookingsCurrent', terms => ({
+  selector: {
+    userId: terms.userId,
+    startAt: {$lt: new Date()},
+    endAt: {$gt: new Date()}
   }
 }));
 

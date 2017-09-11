@@ -26,7 +26,9 @@ addStrings('en', {
   'bookings.to': 'To',
   'bookings.number_of_guests': 'Number of guests',
   'bookings.past': 'Past Bookings',
+  'bookings.current': 'Current Bookings',
   'bookings.future': 'Future Bookings',
+  'bookings.dates': 'Dates',
 
   'rooms.rooms': 'Rooms',
   'rooms.rooms_admin': 'Rooms',

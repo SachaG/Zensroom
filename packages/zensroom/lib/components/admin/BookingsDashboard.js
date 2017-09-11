@@ -24,7 +24,6 @@ const BookingUser = ({ document }) =>
     </Link>
   </div>;
 
-
 const BookingRoom = ({ document }) =>
   <div className="bookings-dashboard-room">
     <Link to={document.room.pageUrl}>
@@ -56,7 +55,7 @@ const BookingsDashboard = () =>
           component: BookingUser
         },
         {
-          name: 'Room',
+          name: 'room',
           component: BookingRoom
         }
       ]}

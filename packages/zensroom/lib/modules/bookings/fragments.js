@@ -26,7 +26,8 @@ registerFragment(`
     numberOfGuests
     status
     amount
-
+    pageUrl
+    
     user {
       _id
       displayName
