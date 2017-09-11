@@ -6,7 +6,7 @@ import compose from 'recompose/compose';
 
 import Bookings from '../../modules/bookings/collection.js';
 
-const BookingsPending = ({loading, results}) => 
+const BookingsPending = ({loading, results}) =>
   <div>
     {results && results.length ?
       <Alert bsStyle="danger">
@@ -18,7 +18,7 @@ const BookingsPending = ({loading, results}) =>
       </Alert> :
       null
     }
-  </div>
+  </div>;
 
 
 const options = {

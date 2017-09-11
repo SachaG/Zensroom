@@ -33,12 +33,14 @@ addRoute([
   {name: 'about',                 path: '/about',                             componentName: 'About'},
   {name: 'privacy',               path: '/privacy',                           componentName: 'Privacy'},
   {name: 'terms',                 path: '/terms',                             componentName: 'Terms'},
-          
+
   {name: 'rooms.search',          path: '/search',                            componentName: 'RoomsSearch'},
   {name: 'rooms.new',             path: '/room/new',                          componentName: 'RoomsNewPage'},
   {name: 'rooms.page',            path: '/room/:roomId(/:slug)',              componentName: 'RoomsPage'},
 
   {name: 'bookings.page',         path: '/booking/:bookingId',                componentName: 'BookingsPage'},
+  {name: 'bookings.past',         path: '/account/bookings/past',             componentName: 'BookingsPast'},
+  {name: 'bookings.future',       path: '/account/bookings/future',           componentName: 'BookingsFuture'},
   {name: 'bookings.completed',    path: '/booking/:bookingId/completed',      componentName: 'BookingsCompleted'},
 
   {name: 'users.single',          path:'/users/:slug',                        componentName: 'UsersProfile'},
@@ -46,7 +48,7 @@ addRoute([
   {name: 'users.edit',            path:'/users/:slug/edit',                   componentName: 'UsersAccount'},
   {name: 'users.signup',          path:'/sign-up',                            componentName: 'UsersSignUp'},
   {name: 'users.login',           path:'/log-in',                             componentName: 'UsersLogIn'},
-          
+
   {name: 'bookings.dashboard',    path:'/admin/bookings',                     componentName: 'BookingsDashboard',   layoutName: 'AdminLayout'},
   {name: 'rooms.dashboard',       path:'/admin/rooms',                        componentName: 'RoomsDashboard',      layoutName: 'AdminLayout'},
   {name: 'reviews.dashboard',     path:'/admin/reviews',                      componentName: 'ReviewsDashboard',    layoutName: 'AdminLayout'},
