@@ -52,3 +52,5 @@ addRoute([
   {name: 'reviews.dashboard',     path:'/admin/reviews',                      componentName: 'ReviewsDashboard',    layoutName: 'AdminLayout'},
 
 ]);
+
+extendRoute('admin', { layoutName: 'AdminLayout' });

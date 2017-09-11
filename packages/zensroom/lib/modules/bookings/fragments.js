@@ -14,6 +14,7 @@ registerFragment(`
     __typename
     _id
     createdAt
+    startAt
     endAt
     paidAt
     startAtFormatted
