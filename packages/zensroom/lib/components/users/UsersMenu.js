@@ -29,32 +29,38 @@ const UsersMenu = ({currentUser, client}) =>
         <LinkContainer to={`/account`}>
           <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="users.edit_account"/></MenuItem>
         </LinkContainer>
+        <LinkContainer to={`/account/bookings/past`}>
+          <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.past"/></MenuItem>
+        </LinkContainer>
+        <LinkContainer to={`/account/bookings/future`}>
+          <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.future"/></MenuItem>
+        </LinkContainer>
 
-        {Users.canDo(currentUser, 'rooms.new') ? 
+        {Users.canDo(currentUser, 'rooms.new') ?
           <LinkContainer to={`/room/new`}>
             <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="rooms.create_new"/></MenuItem>
           </LinkContainer>
         : null}
 
-        {Users.canDo(currentUser, 'users.view.all') ? 
+        {Users.canDo(currentUser, 'users.view.all') ?
           <LinkContainer to={`/admin/`}>
             <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="users.users_admin"/></MenuItem>
           </LinkContainer>
         : null}
 
-        {Users.canDo(currentUser, 'bookings.view.all') ? 
+        {Users.canDo(currentUser, 'bookings.view.all') ?
           <LinkContainer to={`/admin/bookings`}>
             <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="bookings.bookings_admin"/></MenuItem>
           </LinkContainer>
         : null}
 
-        {Users.canDo(currentUser, 'rooms.view.all') ? 
+        {Users.canDo(currentUser, 'rooms.view.all') ?
           <LinkContainer to={`/admin/rooms`}>
             <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="rooms.rooms_admin"/></MenuItem>
           </LinkContainer>
         : null}
 
-        {Users.canDo(currentUser, 'reviews.view.all') ? 
+        {Users.canDo(currentUser, 'reviews.view.all') ?
           <LinkContainer to={`/admin/reviews`}>
             <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="reviews.reviews_admin"/></MenuItem>
           </LinkContainer>
@@ -73,4 +79,4 @@ UsersMenu.propsTypes = {
 
 registerComponent('UsersMenu', UsersMenu, withApollo, withCurrentUser);
 
-// export default withCurrentUser(withApollo(UsersMenu));
+export default withCurrentUser(withApollo(UsersMenu));
