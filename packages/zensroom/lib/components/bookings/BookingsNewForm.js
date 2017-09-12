@@ -43,6 +43,11 @@ class BookingsNewForm extends Component {
 
   updateFromDate(date) {
     this.setState({ from: date });
+    if (date > this.state.to) {
+      this.setState({
+        to: date.clone().add('days', 1)
+      })
+    }
   }
 
   updateToDate(date) {
