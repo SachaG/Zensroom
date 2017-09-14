@@ -32,7 +32,7 @@ const schema = {
     viewableBy: ['members'],
     resolveAs: {
       fieldName: 'user',
-      type: 'User', 
+      type: 'User',
       resolver: async (booking, args, { Users, currentUser }) => {
         const user = await Users.loader.load(booking.userId);
         return Users.restrictViewableFields(currentUser, Users, user);
@@ -148,7 +148,7 @@ const schema = {
       resolver: (booking, args, context) => {
         return `${Utils.getSiteUrl()}booking/${booking._id}`;
       },
-    }  
+    }
   },
 
   startAtFormatted: {
@@ -160,7 +160,7 @@ const schema = {
       resolver: (booking, args, context) => {
         return moment(booking.startAt).format('dddd, MMMM Do YYYY');
       }
-    }  
+    }
   },
 
   endAtFormatted: {
@@ -172,7 +172,7 @@ const schema = {
       resolver: (booking, args, context) => {
         return moment(booking.endAt).format('dddd, MMMM Do YYYY');
       }
-    }  
+    }
   },
 
   paidAtFormatted: {
@@ -184,7 +184,7 @@ const schema = {
       resolver: (booking, args, context) => {
         return booking.paidAt && moment(booking.paidAt).format('dddd, MMMM Do YYYY');
       }
-    }  
+    }
   },
 
   startAtFormattedShort: {
@@ -196,7 +196,7 @@ const schema = {
       resolver: (booking, args, context) => {
         return moment(booking.startAt).format('MM/DD/YY');
       }
-    }  
+    }
   },
 
   endAtFormattedShort: {
@@ -208,7 +208,7 @@ const schema = {
       resolver: (booking, args, context) => {
         return moment(booking.endAt).format('MM/DD/YY');
       }
-    }  
+    }
   },
 
   paidAtFormattedShort: {
@@ -220,7 +220,7 @@ const schema = {
       resolver: (booking, args, context) => {
         return booking.paidAt && moment(booking.paidAt).format('MM/DD/YY');
       }
-    }  
+    }
   },
 
 };
