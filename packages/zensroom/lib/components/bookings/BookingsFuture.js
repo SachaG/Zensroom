@@ -33,6 +33,6 @@ const BookingsFuture = ({ currentUser }) =>
 
 registerComponent('BookingsFuture', BookingsFuture, withCurrentUser);
 
-export default compose(
-  withCurrentUser,
-)(BookingsFuture);
+// export default compose(
+//   withCurrentUser,
+// )(BookingsFuture);
