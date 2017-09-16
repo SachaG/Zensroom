@@ -56,3 +56,4 @@ import '../components/users/UsersMenu';
 import '../components/users/UsersProfile';
 import '../components/users/UsersSignUp';
 import '../components/users/UsersLogIn';
+import '../components/users/UsersBookings';
