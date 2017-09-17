@@ -49,7 +49,7 @@ addRoute([
   {name: 'users.edit',            path:'/users/:slug/edit',                   componentName: 'UsersAccount'},
   {name: 'users.signup',          path:'/sign-up',                            componentName: 'UsersSignUp'},
   {name: 'users.login',           path:'/log-in',                             componentName: 'UsersLogIn'},
-  {name: 'users.bookings',        path:'/user/bookings',                      componentName: 'UsersBookings'},
+  {name: 'users.bookings',        path:'/user/bookings',                      componentName: 'UsersBookings', layoutName: 'AccountLayout'},
 
   {name: 'bookings.dashboard',    path:'/admin/bookings',                     componentName: 'BookingsDashboard',   layoutName: 'AdminLayout'},
   {name: 'rooms.dashboard',       path:'/admin/rooms',                        componentName: 'RoomsDashboard',      layoutName: 'AdminLayout'},

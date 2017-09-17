@@ -1,6 +1,6 @@
 /*
 
-Header
+Accounts Header
 
 */
 
@@ -14,7 +14,7 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 // import UsersMenu from '../users/UsersMenu';
 // import UsersAccountMenu from '../users/UsersAccountMenu';
 
-const Header = ({ currentUser }, context) =>
+const AccountsHeader = ({ currentUser }, context) =>
   <header className="header">
 
     <div className="brand">
@@ -28,18 +28,18 @@ const Header = ({ currentUser }, context) =>
       <Link className="nav-item" to="/about"><FormattedMessage id="nav.about"/></Link>
 
       <div className="nav-item nav-user">
-        { currentUser ? <Components.UsersMenu/> : <Components.UsersAccountMenu/> }
+        { currentUser ? <Components.UsersBookingsMenu /> : <Components.UsersAccountMenu/> }
       </div>
 
     </div>
   </header>;
 
-Header.displayName = 'Header';
+AccountsHeader.displayName = 'AccountsHeader';
 
-Header.propTypes = {
+AccountsHeader.propTypes = {
   currentUser: PropTypes.object,
 };
 
-registerComponent('Header', Header, withCurrentUser);
+registerComponent('AccountsHeader', AccountsHeader, withCurrentUser);
 
-// export default withCurrentUser(Header);
+// export default withCurrentUser(AccountsHeader);

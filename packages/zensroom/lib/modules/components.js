@@ -25,9 +25,11 @@ import '../components/bookings/BookingsCompleted';
 
 import '../components/common/Footer';
 import '../components/common/Header';
+import '../components/common/AccountsHeader';
 import '../components/common/Home';
 import '../components/common/Layout';
 import '../components/common/AdminLayout';
+import '../components/common/AccountsLayout';
 
 import '../components/reviews/ReviewsItem';
 import '../components/reviews/ReviewsList';
