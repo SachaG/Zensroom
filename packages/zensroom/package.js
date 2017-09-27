@@ -17,7 +17,7 @@ Package.onUse((api) => {
     'vulcan:payments',
     'vulcan:maps',
     'vulcan:admin',
-    
+
   ]);
 
   api.addFiles(['lib/stylesheets/main.scss'], ['client']);
@@ -27,6 +27,7 @@ Package.onUse((api) => {
     'lib/server/emails/common/wrapper.handlebars',
     'lib/server/emails/rooms/roomsNew.handlebars',
     'lib/server/emails/bookings/bookingsNew.handlebars',
+    'lib/server/emails/bookings/bookingsCompleted.handlebars',
   ], ['server']);
 
   api.mainModule('lib/server/main.js', 'server');
