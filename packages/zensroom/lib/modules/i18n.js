@@ -11,6 +11,8 @@ import { addStrings } from 'meteor/vulcan:core';
 addStrings('en', {
   'nav.how_to': 'How to Book',
   'nav.about': 'About',
+  'nav.account': 'Account',
+  'nav.bookings': 'Bookings',
 
   'bookings.bookings': 'Bookings',
   'bookings.please_fill_in_all_fields': 'Please fill in all fields.',

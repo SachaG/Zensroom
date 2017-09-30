@@ -25,11 +25,9 @@ import '../components/bookings/BookingsCompleted';
 
 import '../components/common/Footer';
 import '../components/common/Header';
-import '../components/common/AccountsHeader';
 import '../components/common/Home';
 import '../components/common/Layout';
 import '../components/common/AdminLayout';
-import '../components/common/AccountsLayout';
 
 import '../components/reviews/ReviewsItem';
 import '../components/reviews/ReviewsList';
@@ -55,10 +53,11 @@ import '../components/static/Terms';
 
 import '../components/users/UsersAccount';
 import '../components/users/UsersAccountMenu';
-import '../components/users/UsersBookingsMenu';
 import '../components/users/UsersMenu';
 import '../components/users/UsersProfile';
 import '../components/users/UsersSignUp';
 import '../components/users/UsersLogIn';
 import '../components/users/UsersBookings';
+import '../components/users/AccountHeader';
+import '../components/users/AccountLayout';
 

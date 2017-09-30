@@ -1,6 +1,6 @@
 /*
 
-Layout
+Account Layout
 
 */
 
@@ -8,10 +8,6 @@ import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:co
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Helmet from 'react-helmet';
-
-// import Header from './Header';
-// import FlashMessages from './FlashMessages';
-// import Footer from './Footer';
 
 const AccountLayout = ({currentUser, children, currentRoute}) =>
 
@@ -22,20 +18,22 @@ const AccountLayout = ({currentUser, children, currentRoute}) =>
       <link name="font-awesome" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </Helmet>
 
-    <Components.AccountsHeader />
+    <Components.Header />
 
-    <div className="admin-main">
+    <Components.AccountHeader />
+  
+    <div className="main">
 
       <Components.FlashMessages />
 
       {React.cloneElement(children, { currentUser })}
 
     </div>
-
+  
     <Components.Footer />
-
+  
   </div>
 
-registerComponent('AccountLayout', AccountLayout, withCurrentUser);
+registerComponent('AccountLayout', AccountLayout);
 
-// export default withCurrentUser(Layout);
+// export default withCurrentUser(AccountLayout);
