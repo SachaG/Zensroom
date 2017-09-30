@@ -65,6 +65,37 @@ VulcanEmail.addEmails({
       }
     `,
     testVariables: {}
-  }
+  },
 
+  bookingsCompleted: {
+    template: 'bookingsCompleted',
+    path: '/email/bookingsCompleted',
+    subject(data) {
+      const booking = _.isEmpty(data) ? {room: {name: '[name]'}} : data.BookingsSingle;
+      return `A booking has been completed for room: ${booking.room.name}`;
+    },
+    query: `
+      query OneBooking($documentId: String){
+        BookingsSingle(documentId: $documentId){
+          _id
+          pageUrl
+          startAtFormatted
+          endAtFormatted
+          numberOfGuests
+          user{
+            _id
+            displayName
+            pageUrl
+          }
+          room{
+            _id
+            name
+            description
+            pageUrl
+          }
+        }
+      }
+    `,
+    testVariables: {}
+  }
 });
