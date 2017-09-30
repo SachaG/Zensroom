@@ -45,10 +45,11 @@ addRoute([
   {name: 'bookings.completed',    path: '/booking/:bookingId/completed',      componentName: 'BookingsCompleted'},
 
   {name: 'users.single',          path:'/users/:slug',                        componentName: 'UsersProfile'},
-  {name: 'users.account',         path:'/account',                            componentName: 'UsersAccount'},
+  {name: 'users.account',         path:'/account',                            componentName: 'UsersAccount', layoutName: 'AccountLayout'},
   {name: 'users.edit',            path:'/users/:slug/edit',                   componentName: 'UsersAccount'},
   {name: 'users.signup',          path:'/sign-up',                            componentName: 'UsersSignUp'},
   {name: 'users.login',           path:'/log-in',                             componentName: 'UsersLogIn'},
+  {name: 'users.bookings',        path:'/account/bookings',                   componentName: 'UsersBookings', layoutName: 'AccountLayout'},
 
   {name: 'bookings.dashboard',    path:'/admin/bookings',                     componentName: 'BookingsDashboard',   layoutName: 'AdminLayout'},
   {name: 'rooms.dashboard',       path:'/admin/rooms',                        componentName: 'RoomsDashboard',      layoutName: 'AdminLayout'},

@@ -56,3 +56,12 @@
 .change-password-link{
   margin-bottom: $spacing;
 }
+
+.account-header{
+  padding: 0 $spacing $spacing $spacing;
+  border-bottom: 1px solid $light-border;
+  display: flex;
+}
+.account-header-link{
+  margin-right: $spacing;
+}

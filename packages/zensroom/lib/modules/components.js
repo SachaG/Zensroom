@@ -6,6 +6,7 @@ http://docs.vulcanjs.org/theming.html
 
 */
 
+
 import '../components/admin/AdminUsersBookings';
 import '../components/admin/AdminUsersReviews';
 import '../components/admin/AdminUsersRooms';
@@ -56,3 +57,7 @@ import '../components/users/UsersMenu';
 import '../components/users/UsersProfile';
 import '../components/users/UsersSignUp';
 import '../components/users/UsersLogIn';
+import '../components/users/UsersBookings';
+import '../components/users/AccountHeader';
+import '../components/users/AccountLayout';
+

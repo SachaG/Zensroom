@@ -14,7 +14,7 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 // import UsersMenu from '../users/UsersMenu';
 // import UsersAccountMenu from '../users/UsersAccountMenu';
 
-const Header = ({ currentUser }, context) => 
+const Header = ({ currentUser }, context) =>
   <header className="header">
 
     <div className="brand">
@@ -28,11 +28,11 @@ const Header = ({ currentUser }, context) =>
       <Link className="nav-item" to="/about"><FormattedMessage id="nav.about"/></Link>
 
       <div className="nav-item nav-user">
-        {currentUser ? <Components.UsersMenu/> : <Components.UsersAccountMenu/>}
+        { currentUser ? <Components.UsersMenu/> : <Components.UsersAccountMenu/> }
       </div>
 
     </div>
-  </header>
+  </header>;
 
 Header.displayName = 'Header';
 

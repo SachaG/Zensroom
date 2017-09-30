@@ -25,6 +25,7 @@
     "deepmerge": "^1.2.0",
     "escape-string-regexp": "^1.0.5",
     "express": "^4.14.0",
+    "flat": "^4.0.0",
     "formsy-react": "^0.19.5",
     "formsy-react-components": "^0.10.1",
     "google-map-react": "^0.24.0",

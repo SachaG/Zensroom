@@ -27,16 +27,10 @@ const UsersMenu = ({currentUser, client}) =>
           <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="users.profile"/></MenuItem>
         </LinkContainer>
         <LinkContainer to={`/account`}>
-          <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="users.edit_account"/></MenuItem>
+          <MenuItem className="dropdown-item" eventKey="2"><FormattedMessage id="nav.account"/></MenuItem>
         </LinkContainer>
-        <LinkContainer to={`/account/bookings/past`}>
-          <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.past"/></MenuItem>
-        </LinkContainer>
-        <LinkContainer to={`/account/bookings/current`}>
-          <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.current"/></MenuItem>
-        </LinkContainer>
-        <LinkContainer to={`/account/bookings/future`}>
-          <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="bookings.future"/></MenuItem>
+        <LinkContainer to={`/account/bookings`}>
+          <MenuItem className="dropdown-item" eventKey="1"><FormattedMessage id="nav.bookings"/></MenuItem>
         </LinkContainer>
 
         {Users.canDo(currentUser, 'rooms.new') ?
