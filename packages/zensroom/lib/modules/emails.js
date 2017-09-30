@@ -67,7 +67,7 @@ VulcanEmail.addEmails({
     testVariables: {}
   },
 
-    bookingsCompleted: {
+  bookingsCompleted: {
     template: 'bookingsCompleted',
     path: '/email/bookingsCompleted',
     subject(data) {
