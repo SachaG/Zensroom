@@ -4,16 +4,28 @@
   padding: $spacing;
 }
 
+.brand{
+  line-height: 1;
+}
+
 .logo{
   display: inline-block;
   margin-right: 5px;
+  max-width: 100px;
+  line-height: 1;
   h1{
     font-size: $larger-font;
+    background-size: cover;
+    margin: 0;
+  }
+  img{
+    display: block;
+    width: 100%;
   }
 }
 
 .tagline{
-  display: inline-block;
+  display: none;
 }
 
 .nav{
@@ -79,8 +91,8 @@
 .subheader{
   border-top: 1px solid $light-border;
   border-bottom: 1px solid $light-border;
-  background: $lightest-grey;
   display: flex;
+  @include subheader;
 }
 
 .subheader-link{

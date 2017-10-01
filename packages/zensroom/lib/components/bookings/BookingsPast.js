@@ -12,8 +12,10 @@ const BookingsDate = ({ document }) =>
   </div>
 
 const BookingsPast = ({currentUser}) =>
-    <div>
+    <div className="user-bookings-table bookings-past">
+      <h3><FormattedMessage id="bookings.past" /></h3>
       <Components.Datatable
+        showSearch={false}
         collection={Bookings}
         columns={[
           {

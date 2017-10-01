@@ -13,13 +13,10 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 const UsersBookings = () =>
   <div className="user-bookings page">
 
-    <h3><FormattedMessage id="bookings.current" /></h3>
     <Components.BookingsCurrent />
 
-    <h3><FormattedMessage id="bookings.future" /></h3>
     <Components.BookingsFuture />
 
-    <h3><FormattedMessage id="bookings.past" /></h3>
     <Components.BookingsPast />
     
   </div>;

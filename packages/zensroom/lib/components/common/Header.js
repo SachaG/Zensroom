@@ -18,7 +18,8 @@ const Header = ({ currentUser }, context) =>
   <header className="header content-block">
 
     <div className="brand">
-      <div className="logo"><Link to="/"><h1>{getSetting('title')}</h1></Link></div>
+      {/*<div className="logo"><Link to="/"><h1 style={{backgroundImage: `url(${getSetting('logoUrl')})`}}>{getSetting('title')}</h1></Link></div>*/}
+      <div className="logo"><Link to="/"><h1><img src={getSetting('logoUrl')} alt={getSetting('title')}/></h1></Link></div>
       <div className="tagline">{getSetting('tagline')}</div>
     </div>
 

@@ -9,6 +9,13 @@
     display: flex;
     @include soft-shadow();
   }
+  .main-room &{
+    margin: 0;
+    @include subheader;
+    form{
+      box-shadow: none;
+    }
+  }
 }
 
 .rooms-search-form-field{
@@ -203,8 +210,19 @@
 // Rooms Search Results                             //
 //////////////////////////////////////////////////////
 
+.rooms-search-results-contents{
+  display: flex;
+}
+.rooms-search-results-grid{
+  order: 1;
+  flex: 1;
+  padding: $spacing;
+  margin-right: $spacing;
+}
 .rooms-search-results-map{
-  margin-bottom: $spacing;
+  order: 2;
+  width: 40%;
+  flex: 1;
 }
 
 //////////////////////////////////////////////////////
@@ -213,6 +231,7 @@
 
 .rooms-search-filters{
   margin-bottom: $spacing;
+  display: none;
 }
 
 .rooms-search-filters-list{
