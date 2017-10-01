@@ -2,15 +2,13 @@
   @include flex-center;
   justify-content: space-between;
   padding: $spacing;
-  border-bottom: 1px solid #eee;
-  margin-bottom: $spacing;
 }
 
 .logo{
   display: inline-block;
   margin-right: 5px;
   h1{
-    font-size: 2rem;
+    font-size: $larger-font;
   }
 }
 
@@ -23,9 +21,17 @@
 }
 
 .nav-item{
-  margin-right: $spacing;
+  @include letter-spacing;
+  margin-right: $spacing * 2;
   &:last-child{
     margin: 0;
+  }
+  text-transform: uppercase;
+  &, &:link, &:active, &:visited{
+    color: $text;
+    &:hover{
+      color: $active-color;
+    }
   }
 }
 
@@ -64,4 +70,19 @@
       }
     }
   }
+}
+
+//////////////////////////////////////////////////////
+// Subheader                                        //
+//////////////////////////////////////////////////////
+
+.subheader{
+  border-top: 1px solid $light-border;
+  border-bottom: 1px solid $light-border;
+  background: $lightest-grey;
+  display: flex;
+}
+
+.subheader-link{
+  margin-right: $spacing;
 }

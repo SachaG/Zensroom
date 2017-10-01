@@ -28,12 +28,14 @@ import '../components/common/Header';
 import '../components/common/Home';
 import '../components/common/Layout';
 import '../components/common/AdminLayout';
+import '../components/common/AdminHeader';
 
 import '../components/reviews/ReviewsItem';
 import '../components/reviews/ReviewsList';
 import '../components/reviews/ReviewsNewForm';
 
 import '../components/rooms/RoomsItem';
+import '../components/rooms/RoomsLayout';
 import '../components/rooms/RoomsList';
 import '../components/rooms/RoomsMain';
 import '../components/rooms/RoomsNewForm';

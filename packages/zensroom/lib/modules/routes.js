@@ -36,7 +36,7 @@ addRoute([
 
   {name: 'rooms.search',          path: '/search',                            componentName: 'RoomsSearch'},
   {name: 'rooms.new',             path: '/room/new',                          componentName: 'RoomsNewPage'},
-  {name: 'rooms.page',            path: '/room/:roomId(/:slug)',              componentName: 'RoomsPage'},
+  {name: 'rooms.page',            path: '/room/:roomId(/:slug)',              componentName: 'RoomsPage', layoutName: 'RoomsLayout'},
 
   {name: 'bookings.page',         path: '/booking/:bookingId',                componentName: 'BookingsPage'},
   {name: 'bookings.past',         path: '/account/bookings/past',             componentName: 'BookingsPast'},

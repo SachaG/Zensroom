@@ -15,7 +15,7 @@ import Button from 'react-bootstrap/lib/Button';
 import gql from 'graphql-tag';
 import moment from 'moment';
 import { intlShape, FormattedMessage } from 'meteor/vulcan:i18n';
-import { Form, Input } from 'formsy-react-components';
+import { Form, Select } from 'formsy-react-components';
 
 import Bookings from '../../modules/bookings/collection';
 import withUnavailableDates from '../../containers/withUnavailableDatesContainer';
@@ -147,49 +147,70 @@ class BookingsNewForm extends Component {
     const numberOfNights = this.state.from && this.state.to ? this.state.to.diff(this.state.from, 'days') : 0;
     const totalPrice = this.props.room.pricePerNight * this.state.numberOfGuests * numberOfNights;
 
+    const guestsOptions = _.range(1, this.props.room.guestsNumber+1).map(value => ({
+      value, 
+      label: `${value} ${this.context.intl.formatMessage({id: value > 1 ? 'bookings.guests' : 'bookings.guest'})}`
+    }));
+
     return (
-    <Form onSubmit={this.submitForm}>
+    <Form onSubmit={this.submitForm} className="bookings-form">
 
-      <div className="bookings-form">
+      <div className="bookings-form-header">
 
-        <h3>Total Price: {getSetting('defaultCurrency', '$')}{totalPrice}</h3>
-
-        <div className="bookings-form-field">
-          <label className="control-label"><FormattedMessage id="bookings.from" /></label>
-          <DateTimePicker
-            onChange={newDate => this.updateFromDate(newDate)}
-            format={"x"}
-            isValidDate={(currentDate, selectedDate) => {
-              const yesterday = moment().subtract( 1, 'day' );
-              return currentDate.isAfter(yesterday) && this.isAvailable(currentDate);
-            }}
-            timeFormat={false}
-            value={this.state.from}
-          />
-        </div>
-
-        <div className="bookings-form-field">
-          <label className="control-label"><FormattedMessage id="bookings.to" /></label>
-          <DateTimePicker
-            onChange={newDate => this.updateToDate(newDate)}
-            format={"x"}
-            isValidDate={(currentDate, selectedDate) => {
-              const yesterday = moment().subtract( 1, 'day' );
-              return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from)) && this.isAvailable(currentDate);
-            }}
-            timeFormat={false}
-            value={this.state.to}
-          />
-        </div>
-
-        <div className="bookings-form-field">
-          <label className="control-label"><FormattedMessage id="bookings.number_of_guests" /></label>
-          <Input layout="elementOnly" onChange={this.updateGuests} value={this.state.numberOfGuests} name="numberOfGuests" type="number"/>
-        </div>
-
-        <Button disabled={this.state.disabled} className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
+        <h2 className="bookings-form-price">{getSetting('defaultCurrency', '$')}{this.props.room.pricePerNight}<span>/night</span></h2>
 
       </div>
+
+      <div className="bookings-form-contents">
+
+        <div className="bookings-form-dates">
+
+          <div className="bookings-form-field">
+            <label className="control-label"><FormattedMessage id="bookings.from" /></label>
+            <DateTimePicker
+              onChange={newDate => this.updateFromDate(newDate)}
+              format={"x"}
+              isValidDate={(currentDate, selectedDate) => {
+                const yesterday = moment().subtract( 1, 'day' );
+                return currentDate.isAfter(yesterday) && this.isAvailable(currentDate);
+              }}
+              timeFormat={false}
+              value={this.state.from}
+            />
+          </div>
+
+          <div className="bookings-form-field">
+            <label className="control-label"><FormattedMessage id="bookings.to" /></label>
+            <DateTimePicker
+              onChange={newDate => this.updateToDate(newDate)}
+              format={"x"}
+              isValidDate={(currentDate, selectedDate) => {
+                const yesterday = moment().subtract( 1, 'day' );
+                return currentDate.isAfter(yesterday) && currentDate.isAfter(moment(this.state.from)) && this.isAvailable(currentDate);
+              }}
+              timeFormat={false}
+              value={this.state.to}
+            />
+          </div>
+
+        </div>
+
+        <div className="bookings-form-field">
+          {/*
+          <label className="control-label"><FormattedMessage id="bookings.number_of_guests" /></label>
+          */}
+          <Select name="numberOfGuests" layout="elementOnly" onChange={this.updateGuests} options={guestsOptions}/>
+        </div>
+
+      </div>
+
+      <div className="bookings-form-total">
+
+        <h3 className="bookings-form-total-price">Total Price: {getSetting('defaultCurrency', '$')}{totalPrice}</h3>
+
+      </div>
+
+      <Button disabled={this.state.disabled} className="bookings-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="bookings.book" /></Button>
 
     </Form>
 

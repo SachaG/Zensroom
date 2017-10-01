@@ -8,14 +8,18 @@ $light-blue: #DAEDFF;
 $blue: #0275d8;
 $white: #fff;
 $medium-grey: #bbb;
-$dark-grey: #888;
+$dark-grey: #838C93;
+$darker-grey: #4F5B65;
 $black: #333;
 
-$red: #E04E4B;
+$red: #F4364C;
+
+$green: #36F4B0;
 
 $header-bg: $light-blue;
 
-$active-color: $blue;
+$active-color: $red;
+$hover-color: $green;
 
 $lightest-border: $lightest-grey;
 $lighter-border: $lighter-grey;
@@ -23,3 +27,4 @@ $light-border: $light-grey;
 
 $light-text: $medium-grey;
 $medium-text: $dark-grey;
+$text: $darker-grey;

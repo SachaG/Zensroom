@@ -1,6 +1,6 @@
 /*
 
-Layout
+Rooms Layout
 
 */
 
@@ -9,11 +9,7 @@ import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Helmet from 'react-helmet';
 
-// import Header from './Header';
-// import FlashMessages from './FlashMessages';
-// import Footer from './Footer';
-
-const AdminLayout = ({currentUser, children, currentRoute}) =>
+const RoomsLayout = ({currentUser, children, currentRoute}) =>
 
   <div className={classNames('wrapper', `wrapper-${currentRoute.name.replace('.', '-')}`)} id="wrapper">
 
@@ -23,10 +19,8 @@ const AdminLayout = ({currentUser, children, currentRoute}) =>
     </Helmet>
 
     <Components.Header />
-
-    <Components.AdminHeader />
   
-    <div className="admin-main">
+    <div className="main-room">
 
       <Components.FlashMessages />
 
@@ -38,6 +32,6 @@ const AdminLayout = ({currentUser, children, currentRoute}) =>
   
   </div>
 
-registerComponent('AdminLayout', AdminLayout, withCurrentUser);
+registerComponent('RoomsLayout', RoomsLayout, withCurrentUser);
 
 // export default withCurrentUser(Layout);

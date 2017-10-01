@@ -1,6 +1,6 @@
-.main{
+.main, .content-block{
+  width: 900px;
   padding: $spacing;
-  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -10,6 +10,7 @@
 }
 
 .page{
+
 }
 
 .page-title{
@@ -19,10 +20,8 @@
 }
 
 .section-title{
-  font-size: 1.5rem;
-  margin-bottom: $spacing;
-  padding-bottom: $spacing/2;
-  border-bottom: 1px solid $lighter-grey;
+  font-size: $large-font;
+  margin-bottom: $spacing*1.5;
 }
 
 .dropdown-item{

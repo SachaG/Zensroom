@@ -1,0 +1,20 @@
+.btn{
+  border-radius: 3px;
+  text-transform: uppercase;
+  @include letter-spacing;
+}
+.btn-info{
+  background-color: $medium-grey;
+  border-color: $medium-grey;
+}
+.btn-primary{
+  background-color: $active-color;
+  border-color: $active-color;
+  &, & span{
+    color: $white;
+  }
+  &:hover, &:active, &:focus{
+    background-color: $hover-color;
+    border-color: $hover-color;
+  }
+}

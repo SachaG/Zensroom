@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
 
 const UsersBookings = () =>
-  <div>
+  <div className="user-bookings page">
 
     <h3><FormattedMessage id="bookings.current" /></h3>
     <Components.BookingsCurrent />

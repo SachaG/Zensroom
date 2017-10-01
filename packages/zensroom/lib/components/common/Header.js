@@ -15,7 +15,7 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 // import UsersAccountMenu from '../users/UsersAccountMenu';
 
 const Header = ({ currentUser }, context) =>
-  <header className="header">
+  <header className="header content-block">
 
     <div className="brand">
       <div className="logo"><Link to="/"><h1>{getSetting('title')}</h1></Link></div>

@@ -3,10 +3,11 @@
 //////////////////////////////////////////////////////
 
 .rooms-search-form{
-  padding: $spacing;
   margin-bottom: $spacing;
-  .form-horizontal{
+  form{
+    padding: $spacing;
     display: flex;
+    @include soft-shadow();
   }
 }
 
@@ -18,6 +19,11 @@
   justify-content: flex-end;
   &:last-child{
     margin-right: 0;
+  }
+  .control-label{
+    text-transform: uppercase;
+    color: $medium-text;
+    @include letter-spacing;
   }
 }
 
@@ -65,6 +71,10 @@
     display: block;
     width: 100%;
   }
+  &, a, img{
+    @include border-radius;
+  }
+  @include soft-shadow();
 }
 
 .rooms-item-price{
@@ -77,19 +87,25 @@
   flex-direction: column;
   justify-content: flex-end;
   background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 80%);
+  @include border-radius;
   div{
     color: white;
     display: block;
     padding: 10px;
   }
+  span{
+    opacity: 0.65;
+  }
 }
 
 .rooms-item-name{
-  font-size: 1rem;  
+  color: $text;
+  font-size: $large-font;
 }
 
 .rooms-item-city{
-  font-size: 0.8rem;
+  font-size: $medium-font;
+  color: $medium-text;
 }
 
 //////////////////////////////////////////////////////
@@ -111,10 +127,14 @@
 
 .rooms-hero-image{
   margin-bottom: $spacing*2;
+  max-height: 500px;
+  min-height: 500px;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;  
   img{
     display: block;
     width: 100%;
-    cursor: pointer;
   }
 }
 
@@ -163,7 +183,6 @@
 }
 .rooms-city{
   margin-bottom: $spacing/2;
-  font-size: 1rem;
 }
 .rooms-description{
   margin-bottom: $spacing/2;
@@ -173,7 +192,7 @@
 }
 
 .rooms-sidebar{
-  max-width: 30%;
+  width: 300px;
 }
 
 .rooms-book{
@@ -208,7 +227,7 @@
   width: calc((100% - #{$spacing * 2})/3);
   margin-right: $spacing;
   margin-bottom: $spacing/2;
-  font-size: 0.9rem;
+  font-size: $small-font;
   &:nth-child(3n) {
     margin-right: 0;
   }

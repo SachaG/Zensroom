@@ -23,9 +23,16 @@ $border: 1px solid $light-border;
 }
 
 @mixin border-radius{
-  border-radius: .25rem;
+  border-radius: 3px;
 }
 @mixin border{
   border: $border;
 }
 
+@mixin soft-shadow{
+  box-shadow: 0 10px 40px rgba(37, 51, 62, 0.15);
+}
+
+@mixin letter-spacing{
+  letter-spacing: 1.5px;
+}

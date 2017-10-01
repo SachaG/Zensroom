@@ -7,16 +7,13 @@ Home
 import React from 'react';
 import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
 import { FormattedMessage } from 'meteor/vulcan:i18n';
-import compose from 'recompose/compose';
-
-
-// import RoomsList from '../rooms/RoomsList';
-// import RoomsSearchForm from '../rooms/RoomsSearchForm';
+// import compose from 'recompose/compose';
 
 const Home = ({currentUser}) =>
 
   <div>
     {currentUser ? <Components.BookingsPending terms={{view: 'userPendingBookings', userId: currentUser._id}}/> : null}
+    
     <Components.RoomsSearchForm/>
 
     <div className="home-section">

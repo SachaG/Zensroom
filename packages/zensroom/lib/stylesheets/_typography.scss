@@ -1,0 +1,22 @@
+html, body{
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  color: $text;
+}
+
+a{
+  &, &:visited, &:link, &:active{
+    color: $active-color;
+  }
+  &:hover{
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+$smallest-font: 0.6rem;
+$smaller-font: 0.7rem;
+$small-font: 0.8rem;
+$medium-font: 1rem;
+$large-font: 1.3rem;
+$larger-font: 1.6rem;
+$largest-font: 3rem;

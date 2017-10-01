@@ -16,7 +16,7 @@ import Rooms from '../../modules/rooms/collection.js';
 
 const RoomsNewForm = ({currentUser, router, flash}, {intl}) =>
 
-  <div>
+  <div className="rooms-new-form page">
 
     {Rooms.options.mutations.new.check(currentUser) ?
       <div style={{marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid #ccc'}}>

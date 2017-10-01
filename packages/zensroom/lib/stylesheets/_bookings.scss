@@ -2,12 +2,54 @@
   color: red;
 }
 
+.bookings-form{
+  box-shadow: 0 1px 3px 0 rgba(37, 51, 62, 0.2);
+  padding: $spacing;
+  position: relative;
+  top: -135px;
+  background: $white;
+}
+
+.bookings-form-header{
+  border-bottom: 1px solid $light-border;
+  padding-bottom: $spacing;
+  margin-bottom: $spacing/2;
+
+}
+
+.bookings-form-price{
+  font-size: $larger-font;
+  margin: 0;
+  span{
+    color: $medium-text;
+    font-size: $large-font;
+  }
+}
+
+.bookings-form-contents{
+  border-bottom: 1px solid $light-border;
+  margin-bottom: $spacing;
+  padding-bottom: $spacing/2;
+  
+}
+
+.bookings-form-total-price{
+  font-size: $medium-font;
+}
+
+.bookings-form-dates{
+  display: flex;
+  &>div:nth-child(1){
+    margin-right: $spacing;
+  }
+}
 .bookings-form-field{
   margin-bottom: $spacing/2;
 }
 
 .bookings-form-submit{
-  margin-top: $spacing;
+  margin-top: $spacing/2;
+  width: 100%;
 }
 
 .bookings-checkout{

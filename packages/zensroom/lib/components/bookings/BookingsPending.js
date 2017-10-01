@@ -7,7 +7,7 @@ import compose from 'recompose/compose';
 import Bookings from '../../modules/bookings/collection.js';
 
 const BookingsPending = ({loading, results}) =>
-  <div>
+  <div className="bookings-pending">
     {results && results.length ?
       <Alert bsStyle="danger">
         {results.map((booking) => (

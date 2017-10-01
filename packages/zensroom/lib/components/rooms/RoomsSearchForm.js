@@ -69,7 +69,7 @@ class RoomsSearchForm extends Component {
   render() {
 
     return (
-      <div className="card rooms-search-form">
+      <div className="rooms-search-form">
         <Form onSubmit={this.submitForm}>
 
           <div className="rooms-search-form-field">
