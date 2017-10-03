@@ -89,8 +89,7 @@
 //////////////////////////////////////////////////////
 
 .subheader{
-  border-top: 1px solid $light-border;
-  border-bottom: 1px solid $light-border;
+  // border-top: 1px solid $light-border;
   display: flex;
   @include subheader;
 }

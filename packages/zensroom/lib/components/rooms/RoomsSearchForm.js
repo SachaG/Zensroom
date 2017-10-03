@@ -97,6 +97,8 @@ class RoomsSearchForm extends Component {
             <Input layout="elementOnly" value={this.state.location} name="location" type="text" label="location"/>
           </div>
 
+          {this.props.showFilters ? <Components.RoomsSearchFiltersToggle /> : null}
+
           <div className="rooms-search-form-field">
             <Button className="rooms-search-form-submit" type="submit" bsStyle="primary"><FormattedMessage id="rooms.search"/></Button>
           </div>

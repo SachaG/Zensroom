@@ -25,6 +25,7 @@ import '../components/bookings/BookingsCompleted';
 
 import '../components/common/Footer';
 import '../components/common/Header';
+import '../components/common/Hero';
 import '../components/common/Home';
 import '../components/common/Layout';
 import '../components/common/AdminLayout';
@@ -36,6 +37,7 @@ import '../components/reviews/ReviewsNewForm';
 
 import '../components/rooms/RoomsItem';
 import '../components/rooms/RoomsLayout';
+import '../components/rooms/RoomsResultsLayout';
 import '../components/rooms/RoomsList';
 import '../components/rooms/RoomsMain';
 import '../components/rooms/RoomsNewForm';
@@ -45,6 +47,7 @@ import '../components/rooms/RoomsPhotos';
 import '../components/rooms/RoomsReviews';
 import '../components/rooms/RoomsSearch';
 import '../components/rooms/RoomsSearchFilters';
+import '../components/rooms/RoomsSearchFiltersToggle';
 import '../components/rooms/RoomsSearchForm';
 import '../components/rooms/RoomsSearchResults';
 

@@ -1,3 +1,15 @@
 .home-section{
   margin-bottom: $spacing * 2;
 }
+
+.hero{
+  margin: $spacing*2 0 $spacing*3 0;
+}
+
+.hero-tagline{
+  width: 400px;
+}
+
+.section-title{
+  font-size: $larger-font;
+}

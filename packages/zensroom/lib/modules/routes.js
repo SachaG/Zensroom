@@ -34,7 +34,7 @@ addRoute([
   {name: 'privacy',               path: '/privacy',                           componentName: 'Privacy'},
   {name: 'terms',                 path: '/terms',                             componentName: 'Terms'},
 
-  {name: 'rooms.search',          path: '/search',                            componentName: 'RoomsSearch', layoutName: 'RoomsLayout'},
+  {name: 'rooms.search',          path: '/search',                            componentName: 'RoomsSearch', layoutName: 'RoomsResultsLayout'},
   {name: 'rooms.new',             path: '/room/new',                          componentName: 'RoomsNewPage'},
   {name: 'rooms.page',            path: '/room/:roomId(/:slug)',              componentName: 'RoomsPage', layoutName: 'RoomsLayout'},
 

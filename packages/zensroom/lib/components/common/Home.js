@@ -12,8 +12,9 @@ import { FormattedMessage } from 'meteor/vulcan:i18n';
 const Home = ({currentUser}) =>
 
   <div>
-    {currentUser ? <Components.BookingsPending terms={{view: 'userPendingBookings', userId: currentUser._id}}/> : null}
     
+    <Components.Hero/>
+
     <Components.RoomsSearchForm/>
 
     <div className="home-section">

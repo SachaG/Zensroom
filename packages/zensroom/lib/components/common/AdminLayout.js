@@ -26,14 +26,18 @@ const AdminLayout = ({currentUser, children, currentRoute}) =>
 
     <Components.AdminHeader />
   
-    <div className="admin-main">
+    <div className="content-wrapper">
+      
+      <div className="admin-main">
 
-      <Components.FlashMessages />
+        <Components.FlashMessages />
 
-      {React.cloneElement(children, { currentUser })}
+        {React.cloneElement(children, { currentUser })}
 
-    </div>
+      </div>
   
+    </div>
+
     <Components.Footer />
   
   </div>

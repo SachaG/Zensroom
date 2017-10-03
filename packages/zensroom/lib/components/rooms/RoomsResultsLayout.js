@@ -1,6 +1,6 @@
 /*
 
-Account Layout
+Rooms Search Layout
 
 */
 
@@ -9,7 +9,7 @@ import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Helmet from 'react-helmet';
 
-const AccountLayout = ({currentUser, children, currentRoute}) =>
+const RoomsResultsLayout = ({currentUser, children, currentRoute}) =>
 
   <div className={classNames('wrapper', `wrapper-${currentRoute.name.replace('.', '-')}`)} id="wrapper">
 
@@ -18,26 +18,23 @@ const AccountLayout = ({currentUser, children, currentRoute}) =>
       <link name="font-awesome" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </Helmet>
 
-    <Components.Header />
+    <div className="rooms-results-wrapper">
 
-    <Components.AccountHeader />
-  
-    <div className="content-wrapper">
+      <Components.Header />
 
-      <div className="main">
-      
-        <Components.FlashMessages />
+      <Components.RoomsSearchForm showFilters={true} />
 
-        {React.cloneElement(children, { currentUser })}
+      <Components.FlashMessages />
 
-      </div>
+      {React.cloneElement(children, { currentUser })}
+
+    
+      <Components.Footer />
 
     </div>
   
-    <Components.Footer />
-  
   </div>
 
-registerComponent('AccountLayout', AccountLayout);
+registerComponent('RoomsResultsLayout', RoomsResultsLayout, withCurrentUser);
 
-// export default withCurrentUser(AccountLayout);
+// export default withCurrentUser(Layout);

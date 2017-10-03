@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////
 
 .rooms-search-form{
-  margin-bottom: $spacing;
+  margin-bottom: $spacing * 4;
   form{
     padding: $spacing;
     display: flex;
@@ -210,7 +210,33 @@
 // Rooms Search Results                             //
 //////////////////////////////////////////////////////
 
-.rooms-search-results-contents{
+.rooms-results-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .rooms-search-form{
+    margin: 0;
+    background: $lighter-grey;
+    border-bottom: 1px solid $light-border;
+    form{
+      box-shadow: none;
+    }
+  }
+}
+
+.rooms-results-main{
+  flex-grow: 1;
+}
+
+.rooms-search{
+  display: flex;
+  flex-direction: column;
+}
+
+.rooms-search-results{
+}
+
+.rooms-search-results{
   display: flex;
 }
 .rooms-search-results-grid{
@@ -218,6 +244,7 @@
   flex: 1;
   padding: $spacing;
   margin-right: $spacing;
+  overflow: scroll;
 }
 .rooms-search-results-map{
   order: 2;
@@ -229,9 +256,32 @@
 // Rooms Filters                                    //
 //////////////////////////////////////////////////////
 
-.rooms-search-filters{
+.rooms-search-filters-toggle{
   margin-bottom: $spacing;
-  display: none;
+  flex: 1;
+  position: relative;
+}
+
+.rooms-search-filters-button{
+  width: 100%;
+  position: relative;
+  top: 20px;
+  border: 1px solid rgba(0,0,0,.15);
+  background: transparent;
+  color: $text;
+}
+
+.filters-count{
+  background: $active-color;
+  color: $white;
+  border-radius: 8px;
+  padding: 2px 8px;
+  display: inline-block;
+  margin-left: 5px;
+  font-size: $smallest-font;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
 }
 
 .rooms-search-filters-list{
@@ -240,6 +290,19 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+}
+
+.rooms-search-filters{
+  position: absolute;
+  background: $white;
+  @include soft-shadow;
+  padding: $spacing;
+  border: 1px solid rgba(0,0,0,.15);
+  top: 80px;
+  z-index: 1000;
+  width: 500px;
+  left: 50%;
+  margin-left: -250px;
 }
 
 .rooms-search-filter{

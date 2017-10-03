@@ -55,25 +55,21 @@ class RoomsSearch extends Component {
     // mapsProps object to center map on lat/lng and terms object to perform server query
     // Note: terms will not have sw/ne until onMapChange triggers for the first time.
     return (
-      <div>
-        <Components.RoomsSearchForm />
-        <Components.RoomsSearchFilters />
-        <Components.RoomsSearchResults 
-          onMapChange={this.onMapChange} 
-          mapProperties={{
-            lat: this.state.lat, 
-            lng: this.state.lng,
-            type: this.state.type,
-          }} 
-          terms={{
-            from: this.state.from, 
-            to: this.state.to, 
-            sw: this.state.sw, 
-            ne: this.state.ne,
-            filters: this.props.location.query.filters,
-          }} 
-        />
-      </div>
+      <Components.RoomsSearchResults 
+        onMapChange={this.onMapChange} 
+        mapProperties={{
+          lat: this.state.lat, 
+          lng: this.state.lng,
+          type: this.state.type,
+        }} 
+        terms={{
+          from: this.state.from, 
+          to: this.state.to, 
+          sw: this.state.sw, 
+          ne: this.state.ne,
+          filters: this.props.location.query.filters,
+        }} 
+      />
     )
   }
 }

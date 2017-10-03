@@ -66,7 +66,9 @@ class RoomsSearchFilters extends Component {
     
     return (
       <div className="rooms-search-filters">
+        {/*
         <h2 className="section-title"><FormattedMessage id="rooms.filters"/></h2>
+        */}
         <ul className="rooms-search-filters-list">
           {amenities.map(({label, value}, index) => 
             <li className="rooms-search-filter" key={index}>

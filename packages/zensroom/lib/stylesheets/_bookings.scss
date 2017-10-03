@@ -59,3 +59,10 @@
 .user-bookings-table{
   margin-bottom: $spacing*4;
 }
+
+.bookings-pending{
+  background: $lightest-grey;
+  text-align: center;
+  padding: $spacing/2 $spacing;
+  border-bottom: 1px solid $light-border;
+}

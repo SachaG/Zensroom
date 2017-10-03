@@ -28,48 +28,45 @@ const getZoom = type => {
   }
 }
 
-const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count, totalCount, terms, onMapChange, mapProperties}) => 
+const RoomsSearchResults = ({results = [], currentUser, loading, loadMore, count, totalCount, terms, onMapChange, mapProperties}) => {
   
-  <div className="rooms-search-results">
+  return loading ? 
 
-    {loading ? 
+    <Components.Loading /> :
 
-      <Components.Loading /> :
+    <div className="rooms-search-results">
 
-      <div className="rooms-search-results-contents">
+      <div className="rooms-search-results-map">
 
-        <div className="rooms-search-results-map">
+        <Components.Map 
+          onChange={onMapChange} 
+          style={{width: '100%', height: '100%'}} 
+          center={{lat: parseFloat(mapProperties.lat || defaultMapProperties.lat), lng: parseFloat(mapProperties.lng || defaultMapProperties.lng)}} 
+          coordinates={_.compact(results.map(getCoords))}
+          zoom={getZoom(mapProperties.type || defaultMapProperties.type)}
+        />
 
-          <Components.Map 
-            onChange={onMapChange} 
-            style={{width: '100%', height: '100%'}} 
-            center={{lat: parseFloat(mapProperties.lat || defaultMapProperties.lat), lng: parseFloat(mapProperties.lng || defaultMapProperties.lng)}} 
-            coordinates={_.compact(results.map(getCoords))}
-            zoom={getZoom(mapProperties.type || defaultMapProperties.type)}
-          />
+      </div>
 
-        </div>
+      <div className="rooms-search-results-grid">
 
-        <div className="rooms-search-results-grid">
+        <h2 className="section-title"><FormattedMessage id="rooms.search_results"/></h2>
 
-          <h2 className="section-title"><FormattedMessage id="rooms.search_results"/></h2>
+        <div className="rooms-grid">
 
-          <div className="rooms-grid">
-
-            {results.map(room => <Components.RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
-            
-            {totalCount > results.length ?
-              <a href="#" onClick={e => {e.preventDefault(); loadMore();}}><FormattedMessage id="rooms.load_more"/> ({count}/{totalCount})</a>
-            : null }
-
-          </div>
+          {results.map(room => <Components.RoomsItem key={room._id} room={room} currentUser={currentUser} />)}
+          
+          {totalCount > results.length ?
+            <a href="#" onClick={e => {e.preventDefault(); loadMore();}}><FormattedMessage id="rooms.load_more"/> ({count}/{totalCount})</a>
+          : null }
 
         </div>
 
       </div>
-    }
 
-  </div>
+    </div>
+}
+
 
 
 // const mapPropsFunction = props => ({...props, terms: {...props.location.query}});

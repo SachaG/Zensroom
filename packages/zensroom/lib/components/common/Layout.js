@@ -22,6 +22,8 @@ const Layout = ({currentUser, children, currentRoute}) =>
       <link name="font-awesome" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </Helmet>
 
+    {currentUser && currentRoute.name === 'home' ? <Components.BookingsPending terms={{view: 'userPendingBookings', userId: currentUser._id}}/> : null}
+
     <Components.Header />
   
     <div className="main">

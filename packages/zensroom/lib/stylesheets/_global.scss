@@ -1,7 +1,11 @@
 .main, .content-block{
-  width: 900px;
+  width: 1000px;
   padding: $spacing;
   margin: 0 auto;
+}
+
+.main{
+  
 }
 
 .admin-main{
@@ -9,8 +13,8 @@
   width: 100%;
 }
 
-.page{
-
+.content-wrapper{
+  background: $lightestest-grey;
 }
 
 .page-title{
